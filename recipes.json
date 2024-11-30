@@ -2,176 +2,106 @@
     {
         "title": "Spinach, sweet potato & lentil dhal",
         "source": "https://www.bbcgoodfood.com/recipes/spinach-sweet-potato-lentil-dhal",
-        "time": [
-            35,
-            "mins"
-        ],
+        "time": 35,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "sesame_oil_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "sesame oil"
-                }
+                "id": "1 tbsp sesame oil",
+                "ingredient": "sesame oil",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "onion_finely_chopped_with_amount",
-                "quantity": "1",
-                "unit": "red",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "onion finely chopped"
-                }
+                "id": "1 red onion finely chopped",
+                "ingredient": "red onion finely chopped",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "clove_crushed_with_amount",
-                "quantity": "1",
-                "unit": "garlic",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "clove crushed"
-                }
+                "id": "1 garlic clove crushed",
+                "ingredient": "garlic clove crushed",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "-sized_piece_ginger_peeled_and_finely_chopped_with_amount",
-                "quantity": null,
-                "unit": "thumb",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "-sized piece ginger peeled and finely chopped"
-                }
+                "id": "thumb-sized piece ginger peeled and finely chopped",
+                "ingredient": "thumb-sized piece ginger peeled and finely chopped",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "chilli_finely_chopped_with_amount",
-                "quantity": "1",
-                "unit": "red",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "chilli finely chopped"
-                }
+                "id": "1 red chilli finely chopped",
+                "ingredient": "red chilli finely chopped",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_tsp_ground_turmeric_with_amount",
-                "quantity": "1",
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd tsp ground turmeric"
-                }
+                "id": "1\u00bd tsp ground turmeric",
+                "ingredient": "ground turmeric",
+                "amount": 1,
+                "unit": "tsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_tsp_ground_cumin_with_amount",
-                "quantity": "1",
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd tsp ground cumin"
-                }
+                "id": "1\u00bd tsp ground cumin",
+                "ingredient": "ground cumin",
+                "amount": 1,
+                "unit": "tsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "potatoes_(about_400g/14oz),_cut_into_even_chunks_with_amount",
-                "quantity": "2",
-                "unit": "sweet",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "potatoes (about 400g/14oz), cut into even chunks"
-                }
+                "id": "2 sweet potatoes (about 400g/14oz), cut into even chunks",
+                "ingredient": "sweet potatoes (about 400g/14oz), cut into even chunks",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "red_split_lentils_with_amount",
-                "quantity": "250",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "red split lentils"
-                }
+                "id": "250g red split lentils",
+                "ingredient": "red split lentils",
+                "amount": 250,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "vegetable_stock_with_amount",
-                "quantity": "600",
-                "unit": "ml",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "vegetable stock"
-                }
+                "id": "600ml vegetable stock",
+                "ingredient": "vegetable stock",
+                "amount": 600,
+                "unit": "ml"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "bag_of_spinach_with_amount",
-                "quantity": "80",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "bag of spinach"
-                }
+                "id": "80g bag of spinach",
+                "ingredient": "bag of spinach",
+                "amount": 80,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "onions_sliced_on_the_diagonal,_to_serve_with_amount",
-                "quantity": "4",
-                "unit": "spring",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "onions sliced on the diagonal, to serve"
-                }
+                "id": "4 spring onions sliced on the diagonal, to serve",
+                "ingredient": "spring onions sliced on the diagonal, to serve",
+                "amount": 4,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_small_pack_of_thai_basil_leaves_torn,_to_serve_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd small pack of thai basil leaves torn, to serve"
-                }
+                "id": "\u00bd small pack of Thai basil leaves torn, to serve",
+                "ingredient": "small pack of Thai basil leaves torn, to serve",
+                "amount": 1,
+                "unit": ""
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Heat 1 tbsp sesame oil in a wide-based pan with a tight-fitting lid.",
+            "step 2Add 1 finely chopped red onion and cook over a low heat for 10 mins, stirring occasionally, until softened.",
+            "step 3Add 1 crushed garlic clove, a finely chopped thumb-sized piece of ginger and 1 finely chopped red chilli, cook for 1 min, then add 1\u00bd tsp ground turmeric and 1\u00bd tsp ground cumin and cook for 1 min more.",
+            "step 4Turn up the heat to medium, add 2 sweet potatoes, cut into even chunks, and stir everything together so the potato is coated in the spice mixture.",
+            "step 5Tip in 250g red split lentils, 600ml vegetable stock and some seasoning.",
+            "step 6Bring the liquid to the boil, then reduce the heat, cover and cook for 20 mins until the lentils are tender and the potato is just holding its shape.",
+            "step 7Taste and adjust the seasoning, then gently stir in the 80g spinach. Once wilted, top with the 4 diagonally sliced spring onions and \u00bd small pack torn basil leaves to serve.",
+            "step 8Alternatively, allow to cool completely, then divide between airtight containers and store in the fridge for a healthy lunchbox."
+        ],
         "nutrients": {
-            "kcal": [
-                "397",
-                ""
-            ],
-            "fat": [
-                "5",
-                "g"
-            ],
-            "saturates": [
-                "1",
-                "g"
-            ],
-            "carbs": [
-                "65",
-                "g"
-            ],
-            "sugars": [
-                "19",
-                "g"
-            ],
-            "fibre": [
-                "11",
-                "g"
-            ],
-            "protein": [
-                "18",
-                "g"
-            ],
-            "salt": [
-                "0.6",
-                "g"
-            ]
+            "kcal": 397.0,
+            "fat": 5.0,
+            "saturates": 1.0,
+            "carbs": 65.0,
+            "sugars": 19.0,
+            "fibre": 11.0,
+            "protein": 18.0,
+            "salt": 0.6
         },
         "author": "Sophie Godwin \u2013 Cookery writer",
         "vegan": true,
@@ -180,362 +110,898 @@
     {
         "title": "Poached eggs with smoked salmon and bubble & squeak",
         "source": "https://www.bbcgoodfood.com/recipes/poached-eggs-smoked-salmon-and-bubble-squeak",
-        "time": [
-            15,
-            "mins"
-        ],
+        "time": 15,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "rapeseed_oil_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "rapeseed oil"
-                }
+                "id": "1 tbsp rapeseed oil",
+                "ingredient": "rapeseed oil",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "white_cabbage_finely_chopped_with_amount",
-                "quantity": "140",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "white cabbage finely chopped"
-                }
+                "id": "140g white cabbage finely chopped",
+                "ingredient": "white cabbage finely chopped",
+                "amount": 140,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "onions_finely_sliced_with_amount",
-                "quantity": "2",
-                "unit": "spring",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "onions finely sliced"
-                }
+                "id": "2 spring onions finely sliced",
+                "ingredient": "spring onions finely sliced",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "whole_new_potato_with_amount",
-                "quantity": "300",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "whole new potato"
-                }
+                "id": "300g whole new potato",
+                "ingredient": "whole new potato",
+                "amount": 300,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "snipped_chives_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "snipped chives"
-                }
+                "id": "1 tbsp snipped chives",
+                "ingredient": "snipped chives",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "eggs_at_room_temperature_with_amount",
-                "quantity": "2",
-                "unit": "medium",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "eggs at room temperature"
-                }
+                "id": "2 medium eggs at room temperature",
+                "ingredient": "medium eggs at room temperature",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "smoked_salmon_with_amount",
-                "quantity": "75",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "smoked salmon"
-                }
+                "id": "75g smoked salmon",
+                "ingredient": "smoked salmon",
+                "amount": 75,
+                "unit": "g"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Cook the potatoes in a pan of boiling water until tender, then drain.",
+            "step 2Heat the oil in a non-stick frying pan or wok. Sweat the cabbage and the spring onions in the pan for a couple of mins. Meanwhile, chop and squash the potatoes roughly, then add to the pan along with the chives. Cook for 4-5 mins, flip it over (don\u2019t worry if it breaks) and cook for a further 4-5 mins.",
+            "step 3Meanwhile, bring a small pan of water to a rolling boil, then reduce the heat so it is just simmering. Crack the eggs into the pan and simmer for about 3 mins until the whites are cooked and the yolk is just beginning to set. Remove with a slotted spoon and drain on kitchen paper.",
+            "step 4To serve, divide the bubble & squeak between 2 plates, place the smoked salmon and poached eggs on top and grind over a little black pepper, to taste."
+        ],
         "nutrients": {
-            "kcal": [
-                "310",
-                ""
-            ],
-            "fat": [
-                "13",
-                "g"
-            ],
-            "saturates": [
-                "2",
-                "g"
-            ],
-            "carbs": [
-                "29",
-                "g"
-            ],
-            "sugars": [
-                "5",
-                "g"
-            ],
-            "fibre": [
-                "4",
-                "g"
-            ],
-            "protein": [
-                "19",
-                "g"
-            ],
-            "salt": [
-                "2",
-                "g"
-            ]
+            "kcal": 310.0,
+            "fat": 13.0,
+            "saturates": 2.0,
+            "carbs": 29.0,
+            "sugars": 5.0,
+            "fibre": 4.0,
+            "protein": 19.0,
+            "salt": 2.0
         },
         "author": "Jennifer Irvine",
         "vegan": false,
         "vegetarian": false
     },
     {
-        "title": "Next level roast beef",
-        "source": "https://www.bbcgoodfood.com/recipes/next-level-roast-beef",
-        "time": [
-            10,
-            "mins"
-        ],
+        "title": "Gluten-free lemon drizzle cake",
+        "source": "https://www.bbcgoodfood.com/recipes/gluten-free-lemon-drizzle-cake",
+        "time": 40,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "sirloin_of_beef_joint_boneless,_fat_trimmed_(leave_a_thin_layer_on),_rolled_and_tied_with_amount",
-                "quantity": "2",
-                "unit": "kg",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "sirloin of beef joint boneless, fat trimmed (leave a thin layer on), rolled and tied"
-                }
+                "id": "200g butter softened",
+                "ingredient": "butter softened",
+                "amount": 200,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "fillets_chopped_with_amount",
-                "quantity": "4",
-                "unit": "anchovy",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "fillets chopped"
-                }
+                "id": "200g golden caster sugar",
+                "ingredient": "golden caster sugar",
+                "amount": 200,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "cloves_finely_chopped_with_amount",
-                "quantity": "4",
-                "unit": "garlic",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "cloves finely chopped"
-                }
+                "id": "4 eggs",
+                "ingredient": "eggs",
+                "amount": 4,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "shallot_finely_chopped_with_amount",
-                "quantity": "1",
-                "unit": "small",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "shallot finely chopped"
-                }
+                "id": "175g ground almond (switch for polenta or wheat-free flour to make this recipe nut-free)",
+                "ingredient": "ground almond (switch for polenta or wheat-free flour to make this recipe nut-free)",
+                "amount": 175,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "dijon_mustard_with_amount",
-                "quantity": "2",
-                "unit": "tsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "dijon mustard"
-                }
+                "id": "250g mashed potato",
+                "ingredient": "mashed potato",
+                "amount": 250,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "worcestershire_sauce_with_amount",
-                "quantity": "1",
-                "unit": "tsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "worcestershire sauce"
-                }
+                "id": "zest 3 lemons",
+                "ingredient": "3 lemons",
+                "amount": 1,
+                "unit": "zest"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "lemon_juice_with_amount",
-                "quantity": "1",
-                "unit": "tsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "lemon juice"
-                }
+                "id": "2 tsp gluten-free baking powder",
+                "ingredient": "gluten-free baking powder",
+                "amount": 2,
+                "unit": "tsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_tsp_sweet_smoked_paprika_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd tsp sweet smoked paprika"
-                }
+                "id": "4 tbsp granulated sugar",
+                "ingredient": "granulated sugar",
+                "amount": 4,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "handful_of_parsley_finely_chopped_with_amount",
-                "quantity": null,
-                "unit": "small",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "handful of parsley finely chopped"
-                }
-            },
-            {
-                "type": "RecipeIngredientRelation",
-                "id": "handful_of_tarragon_finely_chopped_with_amount",
-                "quantity": null,
-                "unit": "small",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "handful of tarragon finely chopped"
-                }
-            },
-            {
-                "type": "RecipeIngredientRelation",
-                "id": "unsalted_butter_softened_with_amount",
-                "quantity": "200",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "unsalted butter softened"
-                }
+                "id": "juice 1 lemon",
+                "ingredient": "1 lemon",
+                "amount": 1,
+                "unit": "juice"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Heat oven to 180C/fan 160C/gas 4. Butter and line a deep, 20cm round cake tin. Beat the sugar and butter together until light and fluffy, then gradually add the egg, beating after each addition. Fold in the almonds, cold mashed potato, lemon zest and baking powder.",
+            "step 2Tip into the tin, level the top, then bake for 40-45 mins or until golden and a skewer inserted into the middle of the cake comes out clean. Turn out onto a wire rack after 10 mins cooling. Mix the granulated sugar and the lemon juice together, then spoon over the top of the cake, letting it drip down the sides. Let the cake cool completely before slicing."
+        ],
         "nutrients": {
-            "kcal": [
-                "244",
-                ""
-            ],
-            "fat": [
-                "8",
-                "g"
-            ],
-            "saturates": [
-                "4",
-                "g"
-            ],
-            "carbs": [
-                "0",
-                "g"
-            ],
-            "sugars": [
-                "0",
-                "g"
-            ],
-            "fibre": [
-                "0.2",
-                "g"
-            ],
-            "protein": [
-                "42",
-                "g"
-            ],
-            "salt": [
-                "0.91",
-                "g"
-            ]
+            "kcal": 514.0,
+            "fat": 36.0,
+            "saturates": 2.0,
+            "carbs": 41.0,
+            "sugars": 35.0,
+            "fibre": 2.0,
+            "protein": 9.0,
+            "salt": 0.88
+        },
+        "author": "Jane Hornby",
+        "vegan": false,
+        "vegetarian": true
+    },
+    {
+        "title": "Mushroom bhaji",
+        "source": "https://www.bbcgoodfood.com/recipes/mushroom-bhaji",
+        "time": 10,
+        "ingredients": [
+            {
+                "id": "1 large garlic bulb",
+                "ingredient": "large garlic bulb",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "2 black cardamom pods",
+                "ingredient": "black cardamom pods",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "5 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 5,
+                "unit": "tbsp"
+            },
+            {
+                "id": "400g exotic mushroom mix larger mushrooms torn",
+                "ingredient": "exotic mushroom mix larger mushrooms torn",
+                "amount": 400,
+                "unit": "g"
+            },
+            {
+                "id": "1 small onion roughly chopped",
+                "ingredient": "small onion roughly chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 tsp cumin seeds",
+                "ingredient": "cumin seeds",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "1 tsp finely grated or chopped ginger",
+                "ingredient": "finely grated or chopped ginger",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "1 green chilli sliced (optional)",
+                "ingredient": "green chilli sliced (optional)",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "2 tbsp tomato pur\u00e9e",
+                "ingredient": "tomato pur\u00e9e",
+                "amount": 2,
+                "unit": "tbsp"
+            },
+            {
+                "id": "1 tsp turmeric",
+                "ingredient": "turmeric",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "1 tsp ground coriander",
+                "ingredient": "ground coriander",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "1-2 tsp Kashmiri chilli powder",
+                "ingredient": "Kashmiri chilli powder",
+                "amount": 12,
+                "unit": "tsp"
+            },
+            {
+                "id": "\u00bd lemon juiced",
+                "ingredient": "lemon juiced",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "30g coriander roughly chopped",
+                "ingredient": "coriander roughly chopped",
+                "amount": 30,
+                "unit": "g"
+            },
+            {
+                "id": "cooked rice or naan to serve",
+                "ingredient": "cooked rice or naan to serve",
+                "amount": 1,
+                "unit": ""
+            }
+        ],
+        "instructions": [
+            "step 1Heat the oven to 180C/160C fan/gas 4. Slice the garlic bulb in half horizontally through its centre and put on a sheet of foil. Put 1 cardamom pod on top of each half and drizzle with 3 tbsp olive oil. Wrap in the foil and bake in the oven for 35-40 mins, or in an air-fryer for 20-25 mins, until it's soft, jammy and just starting to caramelise on top.",
+            "step 2Heat 1 tbsp oil in a large frying pan over a medium-high heat, add the mushrooms and fry until slightly browned, this will take 3-4 mins. Remove from the pan and set aside.",
+            "step 3Add the onion to the same pan with a tablespoon more oil and a pinch of salt and cook over a medium heat until soft and just starting to brown, add the cardamom pods (from the garlic) and cumin seeds, mix well and add the ginger and green chilli, if using. Stir for 30 seconds.",
+            "step 4Squeeze the garlic cloves from the bulb into the pan. Smash them slightly with the back of a spoon.",
+            "step 5Next, add the tomato pur\u00e9e, ground spices and salt to taste and cook for a few minutes over a medium heat. Add a splash of water if needed to stop it sticking.",
+            "step 6Finally, stir in the lemon juice, chopped coriander and cooked mushrooms. Serve straightaway with rice or naan, if you like."
+        ],
+        "nutrients": {
+            "kcal": 148.0,
+            "fat": 12.0,
+            "saturates": 2.0,
+            "carbs": 4.0,
+            "sugars": 3.0,
+            "fibre": 3.0,
+            "protein": 4.0,
+            "salt": 0.43
+        },
+        "author": "Dr Chintal Patel",
+        "vegan": true,
+        "vegetarian": true
+    },
+    {
+        "title": "Sweet potato & coconut curry",
+        "source": "https://www.bbcgoodfood.com/recipes/sweet-potato-coconut-curry",
+        "time": 20,
+        "ingredients": [
+            {
+                "id": "4 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 4,
+                "unit": "tbsp"
+            },
+            {
+                "id": "2 large onions halved and sliced",
+                "ingredient": "large onions halved and sliced",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "3 garlic cloves crushed",
+                "ingredient": "garlic cloves crushed",
+                "amount": 3,
+                "unit": ""
+            },
+            {
+                "id": "thumb-sized piece root ginger peeled",
+                "ingredient": "thumb-sized piece root ginger peeled",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 tsp paprika",
+                "ingredient": "paprika",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "\u00bd tsp cayenne",
+                "ingredient": "cayenne",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "2 red chillies deseeded and sliced",
+                "ingredient": "red chillies deseeded and sliced",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "2 red peppers deseeded and sliced",
+                "ingredient": "red peppers deseeded and sliced",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "250g red cabbage shredded",
+                "ingredient": "red cabbage shredded",
+                "amount": 250,
+                "unit": "g"
+            },
+            {
+                "id": "1kg sweet potatoes peeled and chopped into chunks",
+                "ingredient": "sweet potatoes peeled and chopped into chunks",
+                "amount": 1,
+                "unit": "kg"
+            },
+            {
+                "id": "300g passata",
+                "ingredient": "passata",
+                "amount": 300,
+                "unit": "g"
+            },
+            {
+                "id": "400ml coconut milk",
+                "ingredient": "coconut milk",
+                "amount": 400,
+                "unit": "ml"
+            },
+            {
+                "id": "2 tbsp peanut butter",
+                "ingredient": "peanut butter",
+                "amount": 2,
+                "unit": "tbsp"
+            },
+            {
+                "id": "small bunch fresh  coriander chopped",
+                "ingredient": "small bunch fresh  coriander chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "cooked  couscous (or gluten-free alternative)",
+                "ingredient": "cooked  couscous (or gluten-free alternative)",
+                "amount": 1,
+                "unit": ""
+            }
+        ],
+        "instructions": [
+            "step 1Heat 1 tbsp olive oil in a large non-stick frying pan and add the onion. Fry gently for 10 mins until soft then add the garlic and grate the ginger straight into the pan. Stir in the paprika and the cayenne and cook for another minute then tip into the slow cooker.",
+            "step 2Return the pan to the heat and add another 1 tbsp oil along with the chilli, red pepper and shredded cabbage. Cook for 4-5 mins then tip into the slow cooker.",
+            "step 3Use the remaining oil to fry the sweet potatoes, you may have to do this in 2 or 3 batches depending on the size of your pan. Cook the sweet potatoes for around 5 mins or just until they start to pick up some colour at the edges then put them in the slow cooker too.",
+            "step 4Pour the passata and the coconut milk over the sweet potatoes, stir to mix everything together and cover the slow cooker with a lid and cook for 6-8hrs or until the sweet potatoes are tender.",
+            "step 5Stir the peanut butter through the curry, season well with salt and pepper and serve with couscous and chopped coriander scattered over the top."
+        ],
+        "nutrients": {
+            "kcal": 434.0,
+            "fat": 22.0,
+            "saturates": 12.0,
+            "carbs": 47.0,
+            "sugars": 25.0,
+            "fibre": 10.0,
+            "protein": 6.0,
+            "salt": 0.2
+        },
+        "author": "Miriam Nice",
+        "vegan": true,
+        "vegetarian": true
+    },
+    {
+        "title": "Cola ham with maple & mustard glaze",
+        "source": "https://www.bbcgoodfood.com/recipes/cola-ham-maple-mustard-glaze",
+        "time": 10,
+        "ingredients": [
+            {
+                "id": "2kg unsmoked boneless gammon joint",
+                "ingredient": "unsmoked boneless gammon joint",
+                "amount": 2,
+                "unit": "kg"
+            },
+            {
+                "id": "2l cola (not diet)",
+                "ingredient": "cola (not diet)",
+                "amount": 2,
+                "unit": "l"
+            },
+            {
+                "id": "1 carrot chopped",
+                "ingredient": "carrot chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 onion peeled and quartered",
+                "ingredient": "onion peeled and quartered",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 stick celery chopped",
+                "ingredient": "stick celery chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 cinnamon stick",
+                "ingredient": "cinnamon stick",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "\u00bd tbsp peppercorns",
+                "ingredient": "peppercorns",
+                "amount": 1,
+                "unit": "tbsp"
+            },
+            {
+                "id": "1 bay leaf",
+                "ingredient": "bay leaf",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "150ml maple syrup",
+                "ingredient": "maple syrup",
+                "amount": 150,
+                "unit": "ml"
+            },
+            {
+                "id": "2 tbsp wholegrain mustard",
+                "ingredient": "wholegrain mustard",
+                "amount": 2,
+                "unit": "tbsp"
+            },
+            {
+                "id": "2 tbsp red wine vinegar",
+                "ingredient": "red wine vinegar",
+                "amount": 2,
+                "unit": "tbsp"
+            },
+            {
+                "id": "pinch of ground cloves or five-spice",
+                "ingredient": "pinch of ground cloves or five-spice",
+                "amount": 1,
+                "unit": ""
+            }
+        ],
+        "instructions": [
+            "step 1Put 2kg unsmoked boneless gammon joint in a large pan and cover with 2l cola. Add 1 chopped carrot, 1 quartered onion, 1 chopped celery stick, 1 cinnamon stick, \u00bd tbsp peppercorns and 1 bay leaf.",
+            "step 2Bring to the boil, then turn down to simmer for around 2 \u00bd hrs, topping up with boiling water if necessary to keep the gammon fully covered.",
+            "step 3Carefully pour the liquid away, then let the ham cool a little while you heat the oven to 190C/170C fan/gas 5.",
+            "step 4Lift the ham into a roasting tin, then cut away the skin leaving behind an even layer of fat. Score the fat all over in a criss-cross pattern.",
+            "step 5Mix 150ml maple syrup, 2 tbsp wholegrain mustard, 2 tbsp red wine vinegar and a pinch of ground cloves or five-spice in a jug.",
+            "step 6Pour half over the fat, roast for 15 mins, then pour over the rest and return to the oven for another 30 mins, baste half way through.",
+            "step 7Remove from the oven and allow to rest for 10 mins, then spoon more glaze over the top. Can be roasted on the day or up to 2 days ahead and served cold."
+        ],
+        "nutrients": {
+            "kcal": 393.0,
+            "fat": 20.4,
+            "saturates": 6.7,
+            "carbs": 13.6,
+            "sugars": 12.7,
+            "fibre": 0.3,
+            "protein": 38.2,
+            "salt": 5.0
+        },
+        "author": "Caroline Hire \u2013 Food writer",
+        "vegan": false,
+        "vegetarian": false
+    },
+    {
+        "title": "Beef wellington",
+        "source": "https://www.bbcgoodfood.com/recipes/beef-wellington",
+        "time": 2,
+        "ingredients": [
+            {
+                "id": "a good beef fillet (preferably Aberdeen Angus) of around 1kg/2lb 4oz",
+                "ingredient": "a good beef fillet (preferably Aberdeen Angus) of around 1kg/2lb 4oz",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "3 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 3,
+                "unit": "tbsp"
+            },
+            {
+                "id": "250g/9oz chestnut mushroom include some wild ones if you like",
+                "ingredient": "g/9oz chestnut mushroom include some wild ones if you like",
+                "amount": 250,
+                "unit": ""
+            },
+            {
+                "id": "50g/2oz butter",
+                "ingredient": "g/2oz butter",
+                "amount": 50,
+                "unit": ""
+            },
+            {
+                "id": "1 large sprig fresh thyme",
+                "ingredient": "large sprig fresh thyme",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "100ml/3.5 fl oz dry white wine",
+                "ingredient": "ml/3.5 fl oz dry white wine",
+                "amount": 100,
+                "unit": ""
+            },
+            {
+                "id": "12 slices prosciutto",
+                "ingredient": "slices prosciutto",
+                "amount": 12,
+                "unit": ""
+            },
+            {
+                "id": "500g/1lb 2oz pack puff pastry thawed if frozen",
+                "ingredient": "g/1lb 2oz pack puff pastry thawed if frozen",
+                "amount": 500,
+                "unit": ""
+            },
+            {
+                "id": "a little flour for dusting",
+                "ingredient": "a little flour for dusting",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "2 egg yolks beaten with 1 tsp water",
+                "ingredient": "water",
+                "amount": 2,
+                "unit": "tsp"
+            }
+        ],
+        "instructions": [
+            "step 1Heat oven to 220C/fan 200C/gas 7.",
+            "step 2Sit the 1kg beef fillet on a roasting tray, brush with 1 tbsp olive oil and season with pepper, then roast for 15 mins for medium-rare or 20 mins for medium. When the beef is cooked to your liking, remove from the oven to cool, then chill in the fridge for about 20 mins.",
+            "step 3While the beef is cooling, chop 250g chestnut (and wild, if you like) mushrooms as finely as possible so they have the texture of coarse breadcrumbs. You can use a food processor to do this, but make sure you pulse-chop the mushrooms so they don\u2019t become a slurry.",
+            "step 4Heat 2 tbsp of the olive oil and 50g butter in a large pan and fry the mushrooms on a medium heat, with 1 large sprig fresh thyme, for about 10 mins stirring often, until you have a softened mixture.",
+            "step 5Season the mushroom mixture, pour over 100ml dry white wine and cook for about 10 mins until all the wine has been absorbed. The mixture should hold its shape when stirred.",
+            "step 6Remove the mushroom duxelle from the pan to cool and discard the thyme.",
+            "step 7Overlap two pieces of cling film over a large chopping board. Lay 12 slices prosciutto on the cling film, slightly overlapping, in a double row.",
+            "step 8Spread half the duxelles over the prosciutto, then sit the fillet on it and spread the remaining duxelles over.",
+            "step 9Use the cling film\u2019s edges to draw the prosciutto around the fillet, then roll it into a sausage shape, twisting the ends of cling film to tighten it as you go.",
+            "step 10Chill the fillet while you roll out the pastry.",
+            "step 11Dust your work surface with a little flour. Roll out a third of the 500g pack of puff pastry to a 18 x 30cm strip and place on a non-stick baking sheet.",
+            "step 12Roll out the remainder of the 500g pack of puff pastry to about 28 x 36cm.",
+            "step 13Unravel the fillet from the cling film and sit it in the centre of the smaller strip of pastry.",
+            "step 14Beat the 2 egg yolks with 1 tsp water and brush the pastry\u2019s edges, and the top and sides of the wrapped fillet.",
+            "step 15Using a rolling pin, carefully lift and drape the larger piece of pastry over the fillet, pressing well into the sides.",
+            "step 16Trim the joins to about a 4cm rim. Seal the rim with the edge of a fork or spoon handle.",
+            "step 17Glaze all over with more egg yolk and, using the back of a knife, mark the beef Wellington with long diagonal lines taking care not to cut into the pastry.",
+            "step 18Chill for at least 30 mins and up to 24 hrs. Heat oven to 200C/fan 180C/gas 6.",
+            "step 19Brush the Wellington with a little more egg yolk and cook until golden and crisp \u2013 20-25 mins for medium-rare beef, 30 mins for medium. Allow to stand for 10 mins before serving in thick slices."
+        ],
+        "nutrients": {
+            "kcal": 779.0,
+            "fat": 52.0,
+            "saturates": 23.0,
+            "carbs": 27.0,
+            "sugars": 1.0,
+            "fibre": 3.0,
+            "protein": 46.0,
+            "salt": 1.75
+        },
+        "author": "Gordon Ramsay",
+        "vegan": false,
+        "vegetarian": false
+    },
+    {
+        "title": "Next level roast beef",
+        "source": "https://www.bbcgoodfood.com/recipes/next-level-roast-beef",
+        "time": 10,
+        "ingredients": [
+            {
+                "id": "2kg sirloin of beef joint boneless, fat trimmed (leave a thin layer on), rolled and tied",
+                "ingredient": "sirloin of beef joint boneless, fat trimmed (leave a thin layer on), rolled and tied",
+                "amount": 2,
+                "unit": "kg"
+            },
+            {
+                "id": "4 anchovy fillets chopped",
+                "ingredient": "anchovy fillets chopped",
+                "amount": 4,
+                "unit": ""
+            },
+            {
+                "id": "4 garlic cloves finely chopped",
+                "ingredient": "garlic cloves finely chopped",
+                "amount": 4,
+                "unit": ""
+            },
+            {
+                "id": "1 small shallot finely chopped",
+                "ingredient": "small shallot finely chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "2 tsp Dijon mustard",
+                "ingredient": "Dijon mustard",
+                "amount": 2,
+                "unit": "tsp"
+            },
+            {
+                "id": "1 tsp Worcestershire sauce",
+                "ingredient": "Worcestershire sauce",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "1 tsp lemon juice",
+                "ingredient": "lemon juice",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "\u00bd tsp sweet smoked paprika",
+                "ingredient": "sweet smoked paprika",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "small handful of parsley finely chopped",
+                "ingredient": "small handful of parsley finely chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "small handful of tarragon finely chopped",
+                "ingredient": "small handful of tarragon finely chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "200g unsalted butter softened",
+                "ingredient": "unsalted butter softened",
+                "amount": 200,
+                "unit": "g"
+            }
+        ],
+        "instructions": [
+            "step 1Up to three days ahead and at least a day before cooking, season the meat generously all over with sea salt flakes and a little cracked black pepper \u2013 do this on a plate or tray so you can roll the beef in any of the seasoning that falls off. Sit the beef fat-side up on a rack above a shallow tray and leave it uncovered in the fridge, then remove the next morning a few hours before you want to cook it.",
+            "step 2Heat the oven to 120C/100C fan/gas \u00bd. Put the beef in the oven on its tray and roast for 3-4 hrs until the temperature on a digital cooking thermometer inserted in the middle of the joint reads 50C for rare, 55C for medium rare or 58C-60C for medium to medium-well. Cook it however you like it, but with this cut being a lean muscle with just fat over the top, we think medium-rare is perfect. After removing from the oven, cover with two layers of foil, then leave to rest at room temperature for up to 2 hrs.",
+            "step 3If you want to make the flavoured butter, tip all the ingredients except the butter into a bowl or mini chopper along with a pinch of salt, and mix well until combined. Add the butter and blitz to fully combine. Scrape out onto a sheet of baking parchment, then roll into a log shape and twist the ends to seal. Chill for at least 2 hrs to allow the flavours to develop and the butter to firm up. Will keep frozen for up to a month.",
+            "step 4About 30 mins before you want to serve, turn the oven up to 240C/220C fan/gas 9 and heat for 10 mins. If you\u2019ve made the butter, slice it into about 15 rounds and put on top of the beef. Return to the oven for another 15-20 mins, or until the meat has browned and the fat is deep golden all over, then leave to rest for another 5 mins. Carve the beef into thick slices and serve with the buttery pan juices spooned over."
+        ],
+        "nutrients": {
+            "kcal": 244.0,
+            "fat": 8.0,
+            "saturates": 4.0,
+            "carbs": 0.0,
+            "sugars": 0.0,
+            "fibre": 0.2,
+            "protein": 42.0,
+            "salt": 0.91
         },
         "author": "Barney Desmazery",
         "vegan": false,
         "vegetarian": false
     },
     {
-        "title": "Ultimate roast potatoes",
-        "source": "https://www.bbcgoodfood.com/recipes/ultimate-roast-potatoes",
-        "time": [
-            50,
-            "mins"
-        ],
+        "title": "Nut roast",
+        "source": "https://www.bbcgoodfood.com/recipes/nut-loaf",
+        "time": 30,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "maris_piper_potatoes_with_amount",
-                "quantity": "1",
-                "unit": "kg",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "maris piper potatoes"
-                }
+                "id": "1 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "duck_or_goose_fat_(for_a_luxurious_taste),_or_100ml/3\u00bdfl_oz_olive_oil_with_amount",
-                "quantity": "100",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "duck or goose fat (for a luxurious taste), or 100ml/3\u00bdfl oz olive oil"
-                }
+                "id": "15g butter",
+                "ingredient": "butter",
+                "amount": 15,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "flour_with_amount",
-                "quantity": "2",
-                "unit": "tsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "flour"
-                }
+                "id": "1 large onion finely chopped",
+                "ingredient": "large onion finely chopped",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "salt_flakes_to_serve_with_amount",
-                "quantity": null,
-                "unit": "sea",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "salt flakes to serve"
-                }
+                "id": "2 sticks celery finely chopped",
+                "ingredient": "sticks celery finely chopped",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "2 garlic cloves finely chopped",
+                "ingredient": "garlic cloves finely chopped",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "200g chestnut mushrooms finely chopped",
+                "ingredient": "chestnut mushrooms finely chopped",
+                "amount": 200,
+                "unit": "g"
+            },
+            {
+                "id": "1 red pepper halved, deseeded and finely diced",
+                "ingredient": "red pepper halved, deseeded and finely diced",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 large carrot grated",
+                "ingredient": "large carrot grated",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "1 tsp dried oregano",
+                "ingredient": "dried oregano",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "1 tsp smoked paprika",
+                "ingredient": "smoked paprika",
+                "amount": 1,
+                "unit": "tsp"
+            },
+            {
+                "id": "100g red lentils",
+                "ingredient": "red lentils",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "id": "2 tbsp tomato pur\u00e9e",
+                "ingredient": "tomato pur\u00e9e",
+                "amount": 2,
+                "unit": "tbsp"
+            },
+            {
+                "id": "300ml vegetable stock",
+                "ingredient": "vegetable stock",
+                "amount": 300,
+                "unit": "ml"
+            },
+            {
+                "id": "100g fresh breadcrumbs",
+                "ingredient": "fresh breadcrumbs",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "id": "150g mixed nuts such as walnuts, pecans, hazelnuts and Brazil nuts, roughly chopped",
+                "ingredient": "mixed nuts such as walnuts, pecans, hazelnuts and Brazil nuts, roughly chopped",
+                "amount": 150,
+                "unit": "g"
+            },
+            {
+                "id": "3 large eggs lightly beaten",
+                "ingredient": "large eggs lightly beaten",
+                "amount": 3,
+                "unit": ""
+            },
+            {
+                "id": "100g mature cheddar grated",
+                "ingredient": "mature cheddar grated",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "id": "handful flat-leaf parsley finely chopped",
+                "ingredient": "handful flat-leaf parsley finely chopped",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "2 tbsp extra virgin olive oil",
+                "ingredient": "extra virgin olive oil",
+                "amount": 2,
+                "unit": "tbsp"
+            },
+            {
+                "id": "2 garlic cloves finely sliced",
+                "ingredient": "garlic cloves finely sliced",
+                "amount": 2,
+                "unit": ""
+            },
+            {
+                "id": "1 sprig rosemary",
+                "ingredient": "sprig rosemary",
+                "amount": 1,
+                "unit": ""
+            },
+            {
+                "id": "400ml passata",
+                "ingredient": "passata",
+                "amount": 400,
+                "unit": "ml"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Line the base and sides of a 1.5 litre loaf tin with parchment paper.",
+            "step 2Heat 1 tbsp olive oil and 15g butter in a large frying pan and cook 1 finely chopped large onion and 2 finely chopped celery sticks for about 5 mins until beginning to soften.",
+            "step 3Stir in 2 finely chopped garlic cloves and 200g finely chopped chestnut mushrooms and cook for a further 10 mins.",
+            "step 4Stir in 1 finely diced red pepper and 1 grated carrot and cook for about 3 mins then add 1 tsp dried oregano and 1 tsp smoked paprika and cook for just a minute.",
+            "step 5Add 100g red lentils and 2 tbsp tomato pur\u00e9e and cook for about 1 min, then add 300ml vegetable stock and simmer over a very gentle heat until all the liquid has been absorbed and the mixture is fairly dry. This should take about 25 minutes. Set aside to cool. Heat the oven to 180C/ fan 160C/ gas 4.",
+            "step 6Finally, stir in 100g fresh breadcrumbs, 150g chopped mixed nuts, 3 lightly beaten large eggs, 100g grated mature cheddar, a handful of finely chopped flat-leaf parsley and a pinch of salt and some ground black pepper.",
+            "step 7Stir to mix well then spoon the mixture into the prepared tin and press down the surface.",
+            "step 8Cover with foil and bake for 30 mins, then remove the foil and bake for a further 20 mins until firm when pressed gently.",
+            "step 9Meanwhile, to make the sauce, heat 2 tbsp extra virgin olive oil very gently then add 2 finely sliced garlic cloves and 1 rosemary sprig and heat without colouring.",
+            "step 10Pour in 400ml passata and add a pinch of salt and some ground black pepper. Simmer gently for just 15 mins.",
+            "step 11Allow the loaf to cool in the tin for about 10 mins then turn out onto a serving board or plate. Remove the baking paper and cut into slices and serve with a little of the tomato sauce.",
+            "step 12To make a vegan nut roast, use an extra tbsp of oil in place of butter, no cheese and 3 tbsp egg replacer. Bake your nut roast for 1 hour. The loaf will still be soft in the middle after cooking.",
+            "step 13It can be cooked in advance and then chilled, sliced and reheated to make it easier to serve."
+        ],
         "nutrients": {
-            "kcal": [
-                "391",
-                ""
-            ],
-            "fat": [
-                "23",
-                "g"
-            ],
-            "saturates": [
-                "3",
-                "g"
-            ],
-            "carbs": [
-                "43",
-                "g"
-            ],
-            "sugars": [
-                "0",
-                "g"
-            ],
-            "fibre": [
-                "3",
-                "g"
-            ],
-            "protein": [
-                "5",
-                "g"
-            ],
-            "salt": [
-                "0.42",
-                "g"
-            ]
+            "kcal": 816.0,
+            "fat": 52.0,
+            "saturates": 13.0,
+            "carbs": 51.0,
+            "sugars": 17.0,
+            "fibre": 11.0,
+            "protein": 31.0,
+            "salt": 1.5
+        },
+        "author": "Good Food team",
+        "vegan": false,
+        "vegetarian": true
+    },
+    {
+        "title": "Ultimate roast potatoes",
+        "source": "https://www.bbcgoodfood.com/recipes/ultimate-roast-potatoes",
+        "time": 50,
+        "ingredients": [
+            {
+                "id": "1kg Maris Piper potatoes",
+                "ingredient": "Maris Piper potatoes",
+                "amount": 1,
+                "unit": "kg"
+            },
+            {
+                "id": "100g duck or goose fat (for a luxurious taste), or 100ml/3\u00bdfl oz olive oil",
+                "ingredient": "duck or goose fat (for a luxurious taste), or 100ml/3\u00bdfl oz olive oil",
+                "amount": 100,
+                "unit": "g"
+            },
+            {
+                "id": "2 tsp flour",
+                "ingredient": "flour",
+                "amount": 2,
+                "unit": "tsp"
+            },
+            {
+                "id": "sea salt flakes to serve",
+                "ingredient": "sea salt flakes to serve",
+                "amount": 1,
+                "unit": ""
+            }
+        ],
+        "instructions": [
+            "step 1Put a roasting tin in the oven (one big enough to take the potatoes in a single layer) and heat oven to 200C/fan 180C/gas 6.",
+            "step 2Peel 1kg potatoes and cut each into 4 even-sized pieces if they are medium size, 2-3 if smaller (5cm pieces).",
+            "step 3Drop the potatoes into a large pan and pour in enough water to barely cover them.",
+            "step 4Add salt, then wait for the water to boil. As soon as the water reaches a full rolling boil, lower the heat, put your timer on and simmer the potatoes uncovered, reasonably vigorously, for 2 mins.",
+            "step 5Meanwhile, put 100g duck or goose fat or 100ml olive oil into the hot roasting tin and heat it in the oven for a few minutes, so it\u2019s really hot.",
+            "step 6Drain the potatoes in a colander, then shake the colander back and forth a few times to fluff up the outsides.",
+            "step 7Sprinkle with 2 tsp flour and give another shake or two so they are evenly and thinly coated.",
+            "step 8Carefully put the potatoes into the hot fat \u2013 they will sizzle as they go in \u2013 then turn and roll them around so they are coated all over.",
+            "step 9Spread them in a single layer making sure they have plenty of room.",
+            "step 10Roast the potatoes for 15 mins, then take them out of the oven and turn them over.",
+            "step 11Roast for another 15 mins and turn them over again. Put them back in the oven for another 10-20 mins, or however long it takes to get them really golden and crisp. The colouring will be uneven, which is what you want.",
+            "step 12Scatter with the sea salt flakes and serve straightaway."
+        ],
+        "nutrients": {
+            "kcal": 391.0,
+            "fat": 23.0,
+            "saturates": 3.0,
+            "carbs": 43.0,
+            "sugars": 0.0,
+            "fibre": 3.0,
+            "protein": 5.0,
+            "salt": 0.42
         },
         "author": "Angela Nilsen",
         "vegan": false,
@@ -544,96 +1010,52 @@
     {
         "title": "Shredded carbonara sprouts",
         "source": "https://www.bbcgoodfood.com/recipes/shredded-carbonara-sprouts",
-        "time": [
-            20,
-            "mins"
-        ],
+        "time": 20,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "oil_for_drizzling_with_amount",
-                "quantity": null,
-                "unit": "vegetable",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "oil for drizzling"
-                }
+                "id": "vegetable oil for drizzling",
+                "ingredient": "vegetable oil for drizzling",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "smoked_cubed_pancetta_or_bacon_lardons_with_amount",
-                "quantity": "130",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "smoked cubed pancetta or bacon lardons"
-                }
+                "id": "130g smoked cubed pancetta or bacon lardons",
+                "ingredient": "smoked cubed pancetta or bacon lardons",
+                "amount": 130,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "brussels_sprouts_shredded_with_amount",
-                "quantity": "600",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "brussels sprouts shredded"
-                }
+                "id": "600g brussels sprouts shredded",
+                "ingredient": "brussels sprouts shredded",
+                "amount": 600,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "cr\u00e8me_fra\u00eeche_or_double_cream_with_amount",
-                "quantity": "100",
-                "unit": "ml",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "cr\u00e8me fra\u00eeche or double cream"
-                }
+                "id": "100ml cr\u00e8me fra\u00eeche or double cream",
+                "ingredient": "cr\u00e8me fra\u00eeche or double cream",
+                "amount": 100,
+                "unit": "ml"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "parmesan_or_pecorino,_finely_grated,_plus_extra_to_serve_with_amount",
-                "quantity": "10",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "parmesan or pecorino, finely grated, plus extra to serve"
-                }
+                "id": "10g parmesan or pecorino, finely grated, plus extra to serve",
+                "ingredient": "parmesan or pecorino, finely grated, plus extra to serve",
+                "amount": 10,
+                "unit": "g"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Heat a drizzle of oil in a large, shallow pan over a medium heat and fry the pancetta for 8-10 mins until golden and crisp. Remove to a bowl using a slotted spoon.",
+            "step 2Sprinkle in \u00bc tsp cracked black pepper and toast in the residual fat for a minute, then stir in the sprouts and continue to cook for 10 mins until the sprouts have wilted and are tender with just a slight bite. Stir in the cr\u00e8me fra\u00eeche and fried pancetta, followed by the cheese. Season to taste and scatter over more cheese before serving."
+        ],
         "nutrients": {
-            "kcal": [
-                "187",
-                ""
-            ],
-            "fat": [
-                "14",
-                "g"
-            ],
-            "saturates": [
-                "7",
-                "g"
-            ],
-            "carbs": [
-                "4",
-                "g"
-            ],
-            "sugars": [
-                "3",
-                "g"
-            ],
-            "fibre": [
-                "5",
-                "g"
-            ],
-            "protein": [
-                "8",
-                "g"
-            ],
-            "salt": [
-                "0.8",
-                "g"
-            ]
+            "kcal": 187.0,
+            "fat": 14.0,
+            "saturates": 7.0,
+            "carbs": 4.0,
+            "sugars": 3.0,
+            "fibre": 5.0,
+            "protein": 8.0,
+            "salt": 0.8
         },
         "author": "Barney Desmazery",
         "vegan": false,
@@ -642,126 +1064,72 @@
     {
         "title": "Ultimate gratin dauphinois",
         "source": "https://www.bbcgoodfood.com/recipes/ultimate-gratin-dauphinois",
-        "time": [
-            30,
-            "mins"
-        ],
+        "time": 30,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "desir\u00e9e_potatoes_with_amount",
-                "quantity": "1",
-                "unit": "kg",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "desir\u00e9e potatoes"
-                }
+                "id": "1kg Desir\u00e9e potatoes",
+                "ingredient": "Desir\u00e9e potatoes",
+                "amount": 1,
+                "unit": "kg"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "full_fat_milk_with_amount",
-                "quantity": "300",
-                "unit": "ml",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "full fat milk"
-                }
+                "id": "300ml full fat milk",
+                "ingredient": "full fat milk",
+                "amount": 300,
+                "unit": "ml"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "carton_double_cream_with_amount",
-                "quantity": "284",
-                "unit": "ml",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "carton double cream"
-                }
+                "id": "284ml carton double cream",
+                "ingredient": "carton double cream",
+                "amount": 284,
+                "unit": "ml"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "clove_peeled_and_halved_with_amount",
-                "quantity": "1",
-                "unit": "garlic",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "clove peeled and halved"
-                }
+                "id": "1 garlic clove peeled and halved",
+                "ingredient": "garlic clove peeled and halved",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "of_fresh_thyme_plus_extra_for_sprinkling_with_amount",
-                "quantity": "2",
-                "unit": "sprigs",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "of fresh thyme plus extra for sprinkling"
-                }
+                "id": "2 sprigs of fresh thyme plus extra for sprinkling",
+                "ingredient": "sprigs of fresh thyme plus extra for sprinkling",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "roughly_chopped_(optional)_with_amount",
-                "quantity": "1",
-                "unit": "shallot",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "roughly chopped (optional)"
-                }
+                "id": "1 shallot roughly chopped (optional)",
+                "ingredient": "shallot roughly chopped (optional)",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "of__freshly_grated_nutmeg_with_amount",
-                "quantity": null,
-                "unit": "pinch",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "of  freshly grated nutmeg"
-                }
+                "id": "pinch of  freshly grated nutmeg",
+                "ingredient": "pinch of  freshly grated nutmeg",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "parmesan_(or_vegetarian_alternative),_freshly_grated_with_amount",
-                "quantity": "25",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "parmesan (or vegetarian alternative), freshly grated"
-                }
+                "id": "25g parmesan (or vegetarian alternative), freshly grated",
+                "ingredient": "parmesan (or vegetarian alternative), freshly grated",
+                "amount": 25,
+                "unit": "g"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Preheat the oven to 160C/Gas 4/fan oven 140C. Rub the butter all over the surface of a gratin dish, about 18x28cm/7x11in. Peel and slice the potatoes to a width of 3mm/1\u20448in. Lay the slices on a clean tea towel and pat dry. Keep them covered with the tea towel while you prepare the rest of the ingredients.",
+            "step 2Pour the milk and cream into a saucepan. Add the garlic, thyme and shallot (if using). Slowly heat the milk and, just as it is about to reach boiling point and you see bubbles appearing around the edge of the pan, remove it from the heat. Strain the liquid into a large jug, sprinkle in the nutmeg and keep warm.",
+            "step 3Layer half the potato slices in the dish, slightly overlapping the slices and sprinkling with a little salt and freshly ground pepper between each layer. You don\u2019t have to be too neat with the lower layers, but keep some of your best slices for later, so the top looks good.",
+            "step 4Pour half the hot milk and cream over the potatoes, then finish off layering the rest of the potatoes (arranging them a bit more carefully this time). Pour over the rest of the hot milk and cream. Scatter the cheese over the top and bake for about one hour, until golden and tender. Leave the dish to stand for about 5 minutes, then serve sprinkled with a few fresh thyme leaves."
+        ],
         "nutrients": {
-            "kcal": [
-                "409",
-                ""
-            ],
-            "fat": [
-                "28",
-                "g"
-            ],
-            "saturates": [
-                "18",
-                "g"
-            ],
-            "carbs": [
-                "30",
-                "g"
-            ],
-            "sugars": [
-                "4",
-                "g"
-            ],
-            "fibre": [
-                "3",
-                "g"
-            ],
-            "protein": [
-                "7",
-                "g"
-            ],
-            "salt": [
-                "0.27",
-                "g"
-            ]
+            "kcal": 409.0,
+            "fat": 28.0,
+            "saturates": 18.0,
+            "carbs": 30.0,
+            "sugars": 4.0,
+            "fibre": 3.0,
+            "protein": 7.0,
+            "salt": 0.27
         },
         "author": "Angela Nilsen",
         "vegan": false,
@@ -770,186 +1138,109 @@
     {
         "title": "Easy cheesy leeks",
         "source": "https://www.bbcgoodfood.com/recipes/easy-cheesy-leeks",
-        "time": [
-            35,
-            "mins"
-        ],
+        "time": 35,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "olive_oil_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "olive oil"
-                }
+                "id": "1 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "butter_plus_extra_for_the_tin_with_amount",
-                "quantity": "20",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "butter plus extra for the tin"
-                }
+                "id": "20g butter plus extra for the tin",
+                "ingredient": "butter plus extra for the tin",
+                "amount": 20,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "washed_and_finely_sliced_with_amount",
-                "quantity": "6",
-                "unit": "leeks",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "washed and finely sliced"
-                }
+                "id": "6 leeks washed and finely sliced",
+                "ingredient": "leeks washed and finely sliced",
+                "amount": 6,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "cloves_bashed_and_peeled_but_left_whole_with_amount",
-                "quantity": "2",
-                "unit": "garlic",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "cloves bashed and peeled but left whole"
-                }
+                "id": "2 garlic cloves bashed and peeled but left whole",
+                "ingredient": "garlic cloves bashed and peeled but left whole",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "thyme_sprigs_with_amount",
-                "quantity": "10",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "thyme sprigs"
-                }
+                "id": "10g thyme sprigs",
+                "ingredient": "thyme sprigs",
+                "amount": 10,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "parmesan_or_vegetarian_alternative,_finely_grated_with_amount",
-                "quantity": "50",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "parmesan or vegetarian alternative, finely grated"
-                }
+                "id": "50g parmesan or vegetarian alternative, finely grated",
+                "ingredient": "parmesan or vegetarian alternative, finely grated",
+                "amount": 50,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "fresh_breadcrumbs_with_amount",
-                "quantity": "50",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "fresh breadcrumbs"
-                }
+                "id": "50g fresh breadcrumbs",
+                "ingredient": "fresh breadcrumbs",
+                "amount": 50,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "butter_with_amount",
-                "quantity": "20",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "butter"
-                }
+                "id": "20g butter",
+                "ingredient": "butter",
+                "amount": 20,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "plain_flour_with_amount",
-                "quantity": "20",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "plain flour"
-                }
+                "id": "20g plain flour",
+                "ingredient": "plain flour",
+                "amount": 20,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "whole_milk_with_amount",
-                "quantity": "300",
-                "unit": "ml",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "whole milk"
-                }
+                "id": "300ml whole milk",
+                "ingredient": "whole milk",
+                "amount": 300,
+                "unit": "ml"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_whole_nutmeg_grated_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd whole nutmeg grated"
-                }
+                "id": "\u00bd whole nutmeg grated",
+                "ingredient": "whole nutmeg grated",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_tbsp_dijon_mustard_with_amount",
-                "quantity": "1",
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd tbsp dijon mustard"
-                }
+                "id": "1\u00bd tbsp Dijon mustard",
+                "ingredient": "Dijon mustard",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "gruy\u00e8re_or_vegetarian_alternative,_grated_with_amount",
-                "quantity": "75",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "gruy\u00e8re or vegetarian alternative, grated"
-                }
+                "id": "75g gruy\u00e8re or vegetarian alternative, grated",
+                "ingredient": "gruy\u00e8re or vegetarian alternative, grated",
+                "amount": 75,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "mild_cheddar_grated_with_amount",
-                "quantity": "150",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "mild cheddar grated"
-                }
+                "id": "150g mild cheddar grated",
+                "ingredient": "mild cheddar grated",
+                "amount": 150,
+                "unit": "g"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Set a large, deep pan over a medium-low heat and warm the oil and butter. When foaming, add the leeks, garlic and thyme along with a generous pinch of salt.",
+            "step 2Cook for 25-30 mins with the lid on, stirring frequently, until the leeks are completely softened and beginning to caramelise around the edges. Remove the thyme sprigs and discard.",
+            "step 3Meanwhile, make the sauce. Melt the butter in a pan over a medium heat, then stir in the flour. Cook for 1 min. Pour in the milk in a steady stream, whisking constantly, until you have a thick sauce, about 6-8 mins. When it comes to the boil, remove from the heat and stir in the nutmeg, mustard and both cheeses. Season, then stir in the leeks.",
+            "step 4Heat the oven to 200C/180C fan/gas 6. Lightly butter an ovenproof dish around 23cm wide. Mix the parmesan and breadcrumbs with a generous pinch of black pepper.",
+            "step 5Pour the leek mix into the dish. Will keep chilled for up to two days and frozen for up a month. Sprinkle with the parmesan crumbs and bake for 25-30 mins (5 mins longer if chilled, and an extra 10-15 mins from frozen), until golden."
+        ],
         "nutrients": {
-            "kcal": [
-                "376",
-                ""
-            ],
-            "fat": [
-                "26",
-                "g"
-            ],
-            "saturates": [
-                "15",
-                "g"
-            ],
-            "carbs": [
-                "14",
-                "g"
-            ],
-            "sugars": [
-                "7",
-                "g"
-            ],
-            "fibre": [
-                "5",
-                "g"
-            ],
-            "protein": [
-                "15",
-                "g"
-            ],
-            "salt": [
-                "1.5",
-                "g"
-            ]
+            "kcal": 376.0,
+            "fat": 26.0,
+            "saturates": 15.0,
+            "carbs": 14.0,
+            "sugars": 7.0,
+            "fibre": 5.0,
+            "protein": 15.0,
+            "salt": 1.5
         },
         "author": "Helena Busiakiewicz",
         "vegan": false,
@@ -958,116 +1249,65 @@
     {
         "title": "Smoked salmon, quinoa & dill lunch pot",
         "source": "https://www.bbcgoodfood.com/recipes/smoked-salmon-quinoa-dill-lunch-pot",
-        "time": [
-            15,
-            "mins"
-        ],
+        "time": 15,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "half-fat_soured_cream_with_amount",
-                "quantity": "2",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "half-fat soured cream"
-                }
+                "id": "2 tbsp half-fat soured cream",
+                "ingredient": "half-fat soured cream",
+                "amount": 2,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "lemon_juice_with_amount",
-                "quantity": "2",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "lemon juice"
-                }
+                "id": "2 tbsp lemon juice",
+                "ingredient": "lemon juice",
+                "amount": 2,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_pack_dill_finely_chopped_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd pack dill finely chopped"
-                }
+                "id": "\u00bd pack dill finely chopped",
+                "ingredient": "pack dill finely chopped",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "pouch_ready-to-eat_quinoa_(we_used_merchant_gourmet)_with_amount",
-                "quantity": "250",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "pouch ready-to-eat quinoa (we used merchant gourmet)"
-                }
+                "id": "250g pouch ready-to-eat quinoa (we used Merchant Gourmet)",
+                "ingredient": "pouch ready-to-eat quinoa (we used Merchant Gourmet)",
+                "amount": 250,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_cucumber_halved_and_sliced_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd cucumber halved and sliced"
-                }
+                "id": "\u00bd cucumber halved and sliced",
+                "ingredient": "cucumber halved and sliced",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "finely_sliced_with_amount",
-                "quantity": "4",
-                "unit": "radishes",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "finely sliced"
-                }
+                "id": "4 radishes finely sliced",
+                "ingredient": "radishes finely sliced",
+                "amount": 4,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "smoked_salmon_torn_into_strips_with_amount",
-                "quantity": "100",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "smoked salmon torn into strips"
-                }
+                "id": "100g smoked salmon torn into strips",
+                "ingredient": "smoked salmon torn into strips",
+                "amount": 100,
+                "unit": "g"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1First, make the dressing. Mix the soured cream and lemon juice together in a bowl, then add most of the dill, reserving a quarter for serving.",
+            "step 2In another bowl, combine the quinoa with the cucumber and radishes, and stir through half the dressing. Season and top with the salmon and the rest of the dill.",
+            "step 3Put the other half of the dressing in a small pot and drizzle over the quinoa just before serving."
+        ],
         "nutrients": {
-            "kcal": [
-                "254",
-                ""
-            ],
-            "fat": [
-                "7",
-                "g"
-            ],
-            "saturates": [
-                "2",
-                "g"
-            ],
-            "carbs": [
-                "26",
-                "g"
-            ],
-            "sugars": [
-                "3",
-                "g"
-            ],
-            "fibre": [
-                "5",
-                "g"
-            ],
-            "protein": [
-                "20",
-                "g"
-            ],
-            "salt": [
-                "2.5",
-                "g"
-            ]
+            "kcal": 254.0,
+            "fat": 7.0,
+            "saturates": 2.0,
+            "carbs": 26.0,
+            "sugars": 3.0,
+            "fibre": 5.0,
+            "protein": 20.0,
+            "salt": 2.5
         },
         "author": "Chelsie Collins",
         "vegan": false,
@@ -1076,146 +1316,82 @@
     {
         "title": "Crunchy lettuce salad wraps with sweet satay dip",
         "source": "https://www.bbcgoodfood.com/recipes/crunchy-lettuce-salad-wraps-with-sweet-satay-dip",
-        "time": [
-            20,
-            "mins"
-        ],
+        "time": 20,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "gem_lettuces_outer_leaves_only,_or_loose-leaf_lettuce_with_amount",
-                "quantity": "2",
-                "unit": "Little",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "gem lettuces outer leaves only, or loose-leaf lettuce"
-                }
+                "id": "2 Little Gem lettuces outer leaves only, or loose-leaf lettuce",
+                "ingredient": "Little Gem lettuces outer leaves only, or loose-leaf lettuce",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "chicken_breast_chopped_with_amount",
-                "quantity": "1",
-                "unit": "cooked",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "chicken breast chopped"
-                }
+                "id": "1 cooked chicken breast chopped",
+                "ingredient": "cooked chicken breast chopped",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "grated_with_amount",
-                "quantity": "1",
-                "unit": "carrot",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "grated"
-                }
+                "id": "1 carrot grated",
+                "ingredient": "carrot grated",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bc_cucumber_sliced_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bc cucumber sliced"
-                }
+                "id": "\u00bc cucumber sliced",
+                "ingredient": "cucumber sliced",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "thinly_sliced_with_amount",
-                "quantity": "2",
-                "unit": "radishes",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "thinly sliced"
-                }
+                "id": "2 radishes thinly sliced",
+                "ingredient": "radishes thinly sliced",
+                "amount": 2,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "of_coriander_or_mint_leaves_with_amount",
-                "quantity": null,
-                "unit": "handful",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "of coriander or mint leaves"
-                }
+                "id": "handful of coriander or mint leaves",
+                "ingredient": "handful of coriander or mint leaves",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "peanut_or_almond_butter_with_amount",
-                "quantity": "2",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "peanut or almond butter"
-                }
+                "id": "2 tbsp peanut or almond butter",
+                "ingredient": "peanut or almond butter",
+                "amount": 2,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "sweet_chilli_sauce_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "sweet chilli sauce"
-                }
+                "id": "1 tbsp sweet chilli sauce",
+                "ingredient": "sweet chilli sauce",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_tsp_soy_sauce_with_amount",
-                "quantity": null,
-                "unit": null,
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd tsp soy sauce"
-                }
+                "id": "\u00bd tsp soy sauce",
+                "ingredient": "soy sauce",
+                "amount": 1,
+                "unit": "tsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "\u00bd_juiced,_\u00bd_cut_into_wedges_to_serve_with_amount",
-                "quantity": "1",
-                "unit": "lime",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "\u00bd juiced, \u00bd cut into wedges to serve"
-                }
+                "id": "1 lime \u00bd juiced, \u00bd cut into wedges to serve",
+                "ingredient": "lime \u00bd juiced, \u00bd cut into wedges to serve",
+                "amount": 1,
+                "unit": ""
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1For the dip, combine the peanut butter, chilli sauce, soy sauce and lime juice in a bowl, loosening with a splash of cold water, if needed, so it\u2019s a drizzling consistency.",
+            "step 2Lay a couple of lettuce leaves on a plate and pile a little chicken and some of the veg on each piece. Scatter over the coriander or mint leaves, and squeeze over some lime juice. Drizzle over some of the satay dip, then roll the lettuce around the filling. Serve with the remaining satay on the side for dipping, if you like and the lime wedges for squeezing over."
+        ],
         "nutrients": {
-            "kcal": [
-                "282",
-                ""
-            ],
-            "fat": [
-                "11",
-                "g"
-            ],
-            "saturates": [
-                "3",
-                "g"
-            ],
-            "carbs": [
-                "13",
-                "g"
-            ],
-            "sugars": [
-                "11",
-                "g"
-            ],
-            "fibre": [
-                "6",
-                "g"
-            ],
-            "protein": [
-                "30",
-                "g"
-            ],
-            "salt": [
-                "1.1",
-                "g"
-            ]
+            "kcal": 282.0,
+            "fat": 11.0,
+            "saturates": 3.0,
+            "carbs": 13.0,
+            "sugars": 11.0,
+            "fibre": 6.0,
+            "protein": 30.0,
+            "salt": 1.1
         },
         "author": "Cassie Best",
         "vegan": false,
@@ -1224,136 +1400,77 @@
     {
         "title": "Panuozzo sandwich",
         "source": "https://www.bbcgoodfood.com/recipes/panuozzo-sandwich",
-        "time": [
-            20,
-            "mins"
-        ],
+        "time": 20,
         "ingredients": [
             {
-                "type": "RecipeIngredientRelation",
-                "id": "strong_white_bread_flour_plus_extra_for_dusting_with_amount",
-                "quantity": "300",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "strong white bread flour plus extra for dusting"
-                }
+                "id": "300g strong white bread flour plus extra for dusting",
+                "ingredient": "strong white bread flour plus extra for dusting",
+                "amount": 300,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "(about_half_a_sachet)_fast-action_dried_yeast_with_amount",
-                "quantity": "3",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "(about half a sachet) fast-action dried yeast"
-                }
+                "id": "3g (about half a sachet) fast-action dried yeast",
+                "ingredient": "(about half a sachet) fast-action dried yeast",
+                "amount": 3,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "olive_oil_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "olive oil"
-                }
+                "id": "1 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 1,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "halved_and_sliced_with_amount",
-                "quantity": "1",
-                "unit": "tomato",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "halved and sliced"
-                }
+                "id": "1 tomato halved and sliced",
+                "ingredient": "tomato halved and sliced",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "cooked_ham_with_amount",
-                "quantity": "4",
-                "unit": "slices",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "cooked ham"
-                }
+                "id": "4 slices cooked ham",
+                "ingredient": "slices cooked ham",
+                "amount": 4,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "mozzarella_ball_sliced_and_seasoned_with_amount",
-                "quantity": "150",
-                "unit": "g",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "mozzarella ball sliced and seasoned"
-                }
+                "id": "150g mozzarella ball sliced and seasoned",
+                "ingredient": "mozzarella ball sliced and seasoned",
+                "amount": 150,
+                "unit": "g"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "handful_of_rocket_(optional)_with_amount",
-                "quantity": null,
-                "unit": "small",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "handful of rocket (optional)"
-                }
+                "id": "small handful of rocket (optional)",
+                "ingredient": "small handful of rocket (optional)",
+                "amount": 1,
+                "unit": ""
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "pesto_(see_below_for_the_recipe)_with_amount",
-                "quantity": "6",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "pesto (see below for the recipe)"
-                }
+                "id": "6 tbsp pesto (see below for the recipe)",
+                "ingredient": "pesto (see below for the recipe)",
+                "amount": 6,
+                "unit": "tbsp"
             },
             {
-                "type": "RecipeIngredientRelation",
-                "id": "olive_oil_with_amount",
-                "quantity": "1",
-                "unit": "tbsp",
-                "ingredient": {
-                    "type": "Ingredient",
-                    "id": "olive oil"
-                }
+                "id": "1 tbsp olive oil",
+                "ingredient": "olive oil",
+                "amount": 1,
+                "unit": "tbsp"
             }
         ],
-        "instructions": [],
+        "instructions": [
+            "step 1Put the flour in a large bowl, then stir in the yeast and a large pinch of salt. Make a well in the centre, pour in 175ml warm water and the oil and bring together with a wooden spoon to make a soft, fairly wet dough. Turn out onto a lightly floured surface and knead for 5-8 mins until smooth. Divide the dough into four balls and arrange on a floured tray, well spaced apart. Cover with a tea towel and set aside for about 40 mins-1 hr until doubled in size.",
+            "step 2Heat the oven to 240C/220C fan/gas 8 and put a baking tray in the oven to heat up. Roll the dough balls out on a floured surface into long baguette sticks about 22-25cm long, place on the hot tray and bake for 10-12 mins until puffed up and golden, then leave to cool. Can be made a few hours ahead of baking.",
+            "step 3To assemble, split the bread down one side and neatly layer in the tomato, ham, mozzarella and rocket, if using. Mix the pesto with the olive oil, drizzle over, halve and serve."
+        ],
         "nutrients": {
-            "kcal": [
-                "552",
-                ""
-            ],
-            "fat": [
-                "25",
-                "g"
-            ],
-            "saturates": [
-                "8",
-                "g"
-            ],
-            "carbs": [
-                "58",
-                "g"
-            ],
-            "sugars": [
-                "1",
-                "g"
-            ],
-            "fibre": [
-                "3",
-                "g"
-            ],
-            "protein": [
-                "22",
-                "g"
-            ],
-            "salt": [
-                "0.9",
-                "g"
-            ]
+            "kcal": 552.0,
+            "fat": 25.0,
+            "saturates": 8.0,
+            "carbs": 58.0,
+            "sugars": 1.0,
+            "fibre": 3.0,
+            "protein": 22.0,
+            "salt": 0.9
         },
         "author": "Paul Ainsworth",
         "vegan": false,
