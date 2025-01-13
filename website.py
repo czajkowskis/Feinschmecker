@@ -37,7 +37,12 @@ def addNutrientFilter(nutrient, filter, header, body):
 
 # Universal filter
 def getRequest(filter):
-    print(filter)
+    
+    if "vegan" in filter and isinstance(filter["vegan"], str):
+        filter["vegan"] = filter["vegan"].lower() == "true"
+    if "vegetarian" in filter and isinstance(filter["vegetarian"], str):
+        filter["vegetarian"] = filter["vegetarian"].lower() == "true"
+    
     header = "SELECT ?name ?instructions ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount "
     body = "{?res rdf:type feinschmecker:Recipe . \n"
     if "vegan" in filter:
@@ -90,47 +95,6 @@ def getRequest(filter):
     with onto:
         return recipe_list_dict
 
-
-#############################################################################
-# HTML focused methods
-
-# def p(indent: int, text: str):
-#     prefix = ""
-#     for i in range(indent):
-#         prefix += "   "
-#     print(prefix + text)
-
-
-# Filter examples:
-# Every recipe - {}
-# Panuozzo sandwich
-#   - {"vegan": False, "vegetarian": False, "time": 25, "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
-#      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
-#      "carbohydrates_bigger": 50}
-
-# def getFilter():
-#     return {}
-
-# def main(recipe_list):
-#     print("Content-Type: text/html")
-#     print("")
-#     print("<!DOCTYPE html>")
-#     print("")
-#     print("<html>")
-#     print("<head>")
-#     print("   <title>Feinschmecker</title>")
-#     print("   <meta charset=\"utf-8\" />")
-#     print("   <meta name=\"robots\" content=\"noindex, nofollow\" />")
-#     print("   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />")
-#     print("   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://jaron.sprute.com/CSS/header.css\" />")
-#     print("   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://jaron.sprute.com/CSS/format.css\" />")
-#     print("</head>")
-
-#     print("<body>")
-#     print("<p>Hello</p>")
-#     print("</body>")
-#     print("</html>")
-
 # API Routes
     
 @app.route('/')
@@ -143,7 +107,7 @@ def get_recipes():
     filters = request.args.to_dict()
     try:
         recipes = getRequest(filters)
-        print(recipes[0]['vegan'])
+    
         return jsonify(recipes)
     except Exception as e:
         return jsonify({"error": str(e)}), 500    
