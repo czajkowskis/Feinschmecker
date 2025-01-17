@@ -1,4 +1,5 @@
 <script setup>
+  import SearchForm from "./SearchForm.vue"
 </script>
 
 <template>
@@ -12,8 +13,7 @@
           some aspect is not important for you leave the input blank. 
         </p>
       </div>
-      <div class="bottom-container">
-      </div>
+      <SearchForm/>
     </div>
   </section>
 </template>
