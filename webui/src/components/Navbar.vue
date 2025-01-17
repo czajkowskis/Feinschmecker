@@ -57,13 +57,24 @@
     font-size: 24px;
     border: 2px solid #000000;
     border-radius: 10px;
+    cursor: pointer;
   }
 
   .secondary-button {
     background-color: #F0F8FF;
+    transition: 0.3s all ease-in-out;
+  }
+
+  .secondary-button:hover {
+    background-color: #DCEEFF
   }
 
   .primary-button {
     background-color: #FFEE8C;
+    transition: 0.3s all ease-in-out;
+  }
+
+  .primary-button:hover {
+    background-color: #ffde4d;
   }
 </style>
