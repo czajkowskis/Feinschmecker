@@ -6,8 +6,8 @@
 </script>
 
 <template>
-  <Navbar/>
-  <HeroHeader/>
+  <Navbar v-motion-slide-left />
+  <HeroHeader v-motion-slide-right/>
   <AboutUs/>
   <SearchSection/>
 </template>

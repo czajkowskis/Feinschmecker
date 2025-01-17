@@ -5,7 +5,7 @@
   <section class="hero-section">
     <div class="container">
       <h1>About us</h1>
-      <div class="top-container">
+      <div class="top-container" v-motion-slide-visible-once-left:duration="1000">
         <img src="/images/lifestyle_icon.svg"/>
         <p>
           At <strong>Feinschmecker</strong>, we believe that cooking
@@ -16,7 +16,7 @@
           nutritious</strong> meals that align with their personal dietary needs.
         </p>
       </div>
-      <div class="bottom-container">
+      <div class="bottom-container" v-motion-slide-visible-once-right>
         <p>
           Whether you're focusing on <strong>weight loss, muscle gain</strong>, or simply 
           want to <strong>eat healthier</strong>, Feinschmecker offers a suite of tools to help 

@@ -5,15 +5,15 @@
 <template>
   <section class="search-section">
     <div class="container">
-      <h1>Start your search</h1>
-      <div class="top-container">
+      <h1 v-motion-slide-visible-once-left>Start your search</h1>
+      <div class="top-container" v-motion-slide-visible-once-left>
         <p>
           Here you can enter your requirements and our system will 
           return to you with tasty recipes tailored to your needs! If 
           some aspect is not important for you leave the input blank. 
         </p>
       </div>
-      <SearchForm/>
+      <SearchForm v-motion-slide-visible-once-right/>
     </div>
   </section>
 </template>
