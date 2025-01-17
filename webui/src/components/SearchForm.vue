@@ -1,4 +1,64 @@
-<script setup>
+<script>
+  export default {
+    data() {
+      return {
+        calories: "",
+        protein: "",
+        carbs: "",
+        fats: "",
+        time: "",
+        difficulty: 0,
+        vegetarian: false,
+        vegan: false,
+        mealtype: "",
+        recipes: [],
+      }
+    },
+    methods: {
+      test() {
+        console.log(this.mealtype);
+      },
+
+      getQueryParametersDictionary() {
+        const queryParameters = {
+          calories_smaller: this.calories,
+          protein_bigger: this.protein,
+          fats_bigger: this.fats,
+          carbohydrates_bigger: this.carbs,
+          vegetarian: this.vegetarian,
+          vegan: this.vegan,
+        }
+        
+        if(this.time.length > 0) {
+          queryParameters["time"] = this.time
+        }
+
+        if(this.difficulty != 0) {
+          queryParameters["difficulty"] = this.difficulty
+        }
+
+        if(this.mealtype.length > 0) {
+          queryParameters["meal_type"] = this.mealtype
+        }
+
+        return queryParameters
+      },
+
+      async getRecipes(){
+        const queryParameters = this.getQueryParametersDictionary()
+        console.log(queryParameters)
+        try {
+            let response = await this.$axios.get("/recipes", {
+              parameters: queryParameters, 
+            })
+            this.recipes = response.data
+            console.log(this.recipes);
+        } catch(err) {
+            console.log(err.response.data);
+        }
+      },
+    },
+  }
 </script>
 
 <template>
@@ -11,19 +71,19 @@
         </div>
         <div class="input-container">
           <div class="input-label-pair">
-            <input id="calories" class="rectangular-input"/>
+            <input v-model="calories" id="calories" class="rectangular-input"/>
             <label for="calories">Calories</label>
           </div>
           <div class="input-label-pair">
-            <input id="protein" class="rectangular-input"/>
+            <input v-model="protein" id="protein" class="rectangular-input"/>
             <label for="protein">Protein</label>
           </div>
           <div class="input-label-pair">
-            <input id="carbs" class="rectangular-input"/>
+            <input v-model="carbs" id="carbs" class="rectangular-input"/>
             <label for="carbs">Carbs</label>
           </div>
           <div class="input-label-pair">
-            <input id="fats" class="rectangular-input"/>
+            <input v-model="fats" id="fats" class="rectangular-input"/>
             <label for="fats">Fats</label>
           </div>
         </div>
@@ -35,22 +95,22 @@
           <h1>Preparation time</h1>
           <span>(in minutes)</span>
         </div>
-        <input class="rectangular-input"/>
+        <input v-model="time" class="rectangular-input"/>
       </div>
       <div class="middle-right-container">
         <div class="difficulty-container">
           <h1>Difficulty</h1>
           <div class="difficulty-input-container">
             <div class="input-label-pair">
-              <input id="easy" type="checkbox">
+              <input v-model="difficulty" name="difficulty" id="easy" value="1" type="radio">
               <label for="easy">Easy</label>
             </div>
             <div class="input-label-pair">
-              <input id="medium" type="checkbox">
+              <input v-model="difficulty" name="difficulty" id="medium" value="2" type="radio">
               <label for="medium">Medium</label>
             </div>
             <div class="input-label-pair">
-              <input id="hard" type="checkbox">
+              <input v-model="difficulty" name="difficulty" id="hard" value="3" type="radio">
               <label for="hard">Hard</label>
             </div>
           </div>
@@ -59,21 +119,23 @@
     </div>
     <div class="bottom-container">
       <div>
-        <input id="vegetarian-input" type="checkbox">
+        <input v-model="vegetarian" id="vegetarian-input" type="checkbox">
         <label for="vegetarian-input">Vegetarian</label>
       </div>
       <div>
-        <input id="vegan-input" type="checkbox">
+        <input v-model="vegan" id="vegan-input" type="checkbox">
         <label for="vegan-input">Vegan</label>
       </div>
-      <select name="mealtype" id="mealtype-select">
-        <option value="" disabled selected>Choose mealtype</option>
+      <select v-model="mealtype" name="mealtype" id="mealtype-select">
+        <option disabled value="">Select the mealtype</option>
         <option value="breakfast">Breakfast</option>
         <option value="dinner">Dinner</option>
         <option value="dessert">Dessert</option>
       </select>
     </div>
-
+    <div class="button-container">
+      <button @click="getRecipes">Search</button>
+    </div>
   </div>
 </template>
 
@@ -187,10 +249,10 @@
     font-weight: 700;
   }
 
-  input[type=checkbox] {
+  input[type=radio] {
     width: 20px;
     height: 20px;
-    border-radius: 50%;
+    margin: 10px;
   }
 
   label {
@@ -199,6 +261,9 @@
   }
   
   .bottom-container > div > input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     margin: 10px;
   }
 
@@ -213,4 +278,20 @@
     text-align: center;
   }
 
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  button {
+    background-color: #FFEE8C;
+    font-family: "Poppins";
+    font-size: 24px;
+    font-weight: 700;
+    border: 2px solid #000;
+    border-radius: 30px;
+    padding: 10px 50px;
+    cursor: pointer;
+  }
 </style>
