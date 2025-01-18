@@ -2,7 +2,7 @@
     {
         "title": "American pancakes",
         "source": "https://www.bbcgoodfood.com/recipes/american-pancakes",
-        "time": 30,
+        "time": 55,
         "ingredients": [
             {
                 "id": "200g self-raising flour",
@@ -84,7 +84,7 @@
     {
         "title": "The breakfast club",
         "source": "https://www.bbcgoodfood.com/recipes/the-breakfast-club",
-        "time": 45,
+        "time": 55,
         "ingredients": [
             {
                 "id": "3 tbsp sunflower oil",
@@ -170,7 +170,7 @@
     {
         "title": "Pain au chocolat",
         "source": "https://www.bbcgoodfood.com/recipes/pain-au-chocolat",
-        "time": 45,
+        "time": 78,
         "ingredients": [
             {
                 "id": "420g plain flour",
@@ -250,7 +250,7 @@
     {
         "title": "Leek & kale hash with sage fried eggs",
         "source": "https://www.bbcgoodfood.com/recipes/leek-kale-hash-with-sage-fried-eggs",
-        "time": 45,
+        "time": 60,
         "ingredients": [
             {
                 "id": "800g Maris Piper potatoes cut into large chunks",
@@ -343,7 +343,7 @@
     {
         "title": "Cheese omelette",
         "source": "https://www.bbcgoodfood.com/recipes/cheese-omelette",
-        "time": 5,
+        "time": 10,
         "ingredients": [
             {
                 "id": "2 eggs",
@@ -392,7 +392,7 @@
     {
         "title": "Spicy Bloody Mary eggs with crunchy croutons",
         "source": "https://www.bbcgoodfood.com/recipes/spicy-bloody-mary-eggs-with-crunchy-croutons",
-        "time": 35,
+        "time": 55,
         "ingredients": [
             {
                 "id": "2 red onions 1 sliced into rings, 1 finely chopped",
@@ -518,7 +518,7 @@
     {
         "title": "Protein pancakes with banana",
         "source": "https://www.bbcgoodfood.com/recipes/protein-pancakes-with-banana",
-        "time": 15,
+        "time": 25,
         "ingredients": [
             {
                 "id": "3 eggs",
@@ -598,7 +598,7 @@
     {
         "title": "Smashed peas on toast",
         "source": "https://www.bbcgoodfood.com/recipes/smashed-peas-on-toast",
-        "time": 10,
+        "time": 15,
         "ingredients": [
             {
                 "id": "200g freshly podded or frozen peas",
@@ -666,7 +666,7 @@
     {
         "title": "L\u00e1ngos (Hungarian fried bread)",
         "source": "https://www.bbcgoodfood.com/recipes/langos",
-        "time": 40,
+        "time": 60,
         "ingredients": [
             {
                 "id": "7g sachet fast-action dried yeast",
@@ -753,7 +753,7 @@
     {
         "title": "Upside-down apple pancakes",
         "source": "https://www.bbcgoodfood.com/recipes/upside-down-apple-pancakes",
-        "time": 30,
+        "time": 40,
         "ingredients": [
             {
                 "id": "4 dessert apples (about 475g), peeled and cored",
@@ -845,7 +845,7 @@
     {
         "title": "Poached eggs with smoked salmon and bubble & squeak",
         "source": "https://www.bbcgoodfood.com/recipes/poached-eggs-smoked-salmon-and-bubble-squeak",
-        "time": 15,
+        "time": 20,
         "ingredients": [
             {
                 "id": "1 tbsp rapeseed oil",
@@ -914,7 +914,7 @@
     {
         "title": "Potato fritters",
         "source": "https://www.bbcgoodfood.com/recipes/potato-fritters",
-        "time": 20,
+        "time": 30,
         "ingredients": [
             {
                 "id": "800g (3 large) potatoes peeled",
@@ -994,7 +994,7 @@
     {
         "title": "Rhubarb & custard fluffy pancakes",
         "source": "https://www.bbcgoodfood.com/recipes/rhubarb-custard-fluffy-pancakes",
-        "time": 30,
+        "time": 45,
         "ingredients": [
             {
                 "id": "175g self-raising flour",
@@ -1093,7 +1093,7 @@
     {
         "title": "Fried bread",
         "source": "https://www.bbcgoodfood.com/recipes/fried-bread",
-        "time": 5,
+        "time": 7,
         "ingredients": [
             {
                 "id": "2 tbsp neutral-tasting oil (grapeseed or sunflower work well), or 40g lard",
@@ -1129,7 +1129,7 @@
     {
         "title": "Peanut butter-stuffed French toast",
         "source": "https://www.bbcgoodfood.com/recipes/peanut-butter-stuffed-french-toast",
-        "time": 15,
+        "time": 25,
         "ingredients": [
             {
                 "id": "800g loaf white farmhouse bread",
@@ -1208,7 +1208,7 @@
     {
         "title": "Air-fryer fry-up",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-fry-up",
-        "time": 30,
+        "time": 45,
         "ingredients": [
             {
                 "id": "1 English muffin",
@@ -1295,7 +1295,7 @@
     {
         "title": "Breakfast hash",
         "source": "https://www.bbcgoodfood.com/recipes/breakfast-hash",
-        "time": 30,
+        "time": 45,
         "ingredients": [
             {
                 "id": "2 potatoes cut into 2cm cubes (about 450g)",
@@ -1357,7 +1357,7 @@
     {
         "title": "Chocolate-orange French toast",
         "source": "https://www.bbcgoodfood.com/recipes/chocolate-orange-french-toast",
-        "time": 15,
+        "time": 25,
         "ingredients": [
             {
                 "id": "4 thick slices of  brioche challah or panettone",
@@ -1456,7 +1456,7 @@
     {
         "title": "Next level kedgeree",
         "source": "https://www.bbcgoodfood.com/recipes/next-level-kedgeree",
-        "time": 45,
+        "time": 75,
         "ingredients": [
             {
                 "id": "600ml chicken stock",
@@ -1597,7 +1597,7 @@
     {
         "title": "Family breakfast station",
         "source": "https://www.bbcgoodfood.com/recipes/family-breakfast-station",
-        "time": 20,
+        "time": 35,
         "ingredients": [
             {
                 "id": "12 smoked or unsmoked bacon rashers",
@@ -1706,7 +1706,7 @@
     {
         "title": "Pancake breakfast tacos",
         "source": "https://www.bbcgoodfood.com/recipes/pancake-breakfast-tacos",
-        "time": 25,
+        "time": 30,
         "ingredients": [
             {
                 "id": "100g streaky bacon",
@@ -1890,7 +1890,7 @@
     {
         "title": "Air fryer bacon",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-bacon",
-        "time": 10,
+        "time": 16,
         "ingredients": [
             {
                 "id": "6 rashers  streaky bacon or 3 rashers back bacon",
@@ -1922,7 +1922,7 @@
     {
         "title": "How to poach an egg",
         "source": "https://www.bbcgoodfood.com/recipes/poached-eggs",
-        "time": 4,
+        "time": 7,
         "ingredients": [
             {
                 "id": "1 tbsp white wine vinegar",
@@ -1962,7 +1962,7 @@
     {
         "title": "Reuben sandwich",
         "source": "https://www.bbcgoodfood.com/recipes/reuben-sandwich",
-        "time": 15,
+        "time": 25,
         "ingredients": [
             {
                 "id": "8 slices  corned beef",
@@ -2072,7 +2072,7 @@
     {
         "title": "Pearl couscous salad with hot smoked trout & buttermilk dressing",
         "source": "https://www.bbcgoodfood.com/recipes/pearl-couscous-salad-with-hot-smoked-trout-buttermilk-dressing",
-        "time": 10,
+        "time": 20,
         "ingredients": [
             {
                 "id": "200g pearl couscous",
@@ -2290,7 +2290,7 @@
     {
         "title": "Air-fryer ham, cheese & egg bagel",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-ham-cheese-egg-bagel",
-        "time": 15,
+        "time": 20,
         "ingredients": [
             {
                 "id": "1 bagel halved",
@@ -2430,7 +2430,7 @@
     {
         "title": "Crispy shredded chicken",
         "source": "https://www.bbcgoodfood.com/recipes/crispy-shredded-chicken",
-        "time": 20,
+        "time": 30,
         "ingredients": [
             {
                 "id": "320g pack  chicken mini breast fillets",
@@ -2518,7 +2518,7 @@
     {
         "title": "Air fryer chicken breasts",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-chicken-breasts",
-        "time": 20,
+        "time": 43,
         "ingredients": [
             {
                 "id": "4 chicken breasts",
@@ -2591,7 +2591,7 @@
     {
         "title": "Panuozzo sandwich",
         "source": "https://www.bbcgoodfood.com/recipes/panuozzo-sandwich",
-        "time": 20,
+        "time": 32,
         "ingredients": [
             {
                 "id": "300g strong white bread flour plus extra for dusting",
@@ -2756,7 +2756,7 @@
     {
         "title": "Bulgur & quinoa lunch bowls",
         "source": "https://www.bbcgoodfood.com/recipes/bulgur-quinoa-lunch-bowls",
-        "time": 15,
+        "time": 20,
         "ingredients": [
             {
                 "id": "1 large onion very finely chopped",
@@ -2908,7 +2908,7 @@
     {
         "title": "Air fryer loaded frittata with bacon & cheddar",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-loaded-frittata-with-bacon-cheddar",
-        "time": 25,
+        "time": 50,
         "ingredients": [
             {
                 "id": "6 rashers streaky smoked bacon",
@@ -2977,7 +2977,7 @@
     {
         "title": "Beef sandwich with pink pickled onions",
         "source": "https://www.bbcgoodfood.com/recipes/beef-sandwich-with-pink-pickled-onions",
-        "time": 15,
+        "time": 20,
         "ingredients": [
             {
                 "id": "\u00bd red onion finely sliced",
@@ -3051,7 +3051,7 @@
     {
         "title": "Smoky fish dip & bagel chips",
         "source": "https://www.bbcgoodfood.com/recipes/smoky-fish-dip-bagel-chips",
-        "time": 10,
+        "time": 20,
         "ingredients": [
             {
                 "id": "2 smoked mackerel fillets",
@@ -3124,7 +3124,7 @@
     {
         "title": "Falafel burgers",
         "source": "https://www.bbcgoodfood.com/recipes/falafel-burgers-0",
-        "time": 10,
+        "time": 16,
         "ingredients": [
             {
                 "id": "400g can  chickpeas rinsed and drained",
@@ -3221,7 +3221,7 @@
     {
         "title": "Egg & avocado open sandwich",
         "source": "https://www.bbcgoodfood.com/recipes/egg-avocado-open-sandwich",
-        "time": 10,
+        "time": 20,
         "ingredients": [
             {
                 "id": "2 medium eggs",
@@ -3391,7 +3391,7 @@
     {
         "title": "Storecupboard saucy pasta & chickpeas",
         "source": "https://www.bbcgoodfood.com/recipes/storecupboard-saucy-pasta-chickpeas",
-        "time": 12,
+        "time": 22,
         "ingredients": [
             {
                 "id": "100g small pasta shape such as orzo or macaroni",
@@ -3465,7 +3465,7 @@
     {
         "title": "Lime pickle rarebit",
         "source": "https://www.bbcgoodfood.com/recipes/lime-pickle-rarebit",
-        "time": 20,
+        "time": 30,
         "ingredients": [
             {
                 "id": "25g unsalted butter",
@@ -3805,7 +3805,7 @@
     {
         "title": "Spicy chicken & avocado wraps",
         "source": "https://www.bbcgoodfood.com/recipes/spicy-chicken-avocado-wraps",
-        "time": 8,
+        "time": 13,
         "ingredients": [
             {
                 "id": "1 chicken breast (approx 180g), thinly sliced at an angle",
@@ -3885,7 +3885,7 @@
     {
         "title": "Sweet potato & peanut curry",
         "source": "https://www.bbcgoodfood.com/recipes/satay-sweet-potato-curry",
-        "time": 45,
+        "time": 60,
         "ingredients": [
             {
                 "id": "1 tbsp coconut oil",
@@ -3984,7 +3984,7 @@
     {
         "title": "Sausage ragu",
         "source": "https://www.bbcgoodfood.com/recipes/sausage-ragu",
-        "time": 45,
+        "time": 50,
         "ingredients": [
             {
                 "id": "3 tbsp olive oil",
@@ -4082,7 +4082,7 @@
     {
         "title": "Fish pie mac \u2019n\u2019 cheese",
         "source": "https://www.bbcgoodfood.com/recipes/fish-pie-mac-n-cheese",
-        "time": 40,
+        "time": 50,
         "ingredients": [
             {
                 "id": "650ml milk",
@@ -4168,7 +4168,7 @@
     {
         "title": "Vegetarian lasagne",
         "source": "https://www.bbcgoodfood.com/recipes/easy-vegetable-lasagne",
-        "time": 25,
+        "time": 95,
         "ingredients": [
             {
                 "id": "3 red peppers cut into large chunks",
@@ -4298,7 +4298,7 @@
     {
         "title": "Paneer korma",
         "source": "https://www.bbcgoodfood.com/recipes/paneer-korma",
-        "time": 25,
+        "time": 30,
         "ingredients": [
             {
                 "id": "3 tbsp vegetable oil",
@@ -4396,7 +4396,7 @@
     {
         "title": "Chicken pasta bake",
         "source": "https://www.bbcgoodfood.com/recipes/chicken-pasta-bake",
-        "time": 45,
+        "time": 75,
         "ingredients": [
             {
                 "id": "4 tbsp olive oil",
@@ -4494,7 +4494,7 @@
     {
         "title": "Veggie sausage casserole",
         "source": "https://www.bbcgoodfood.com/recipes/veggie-sausage-casserole",
-        "time": 20,
+        "time": 95,
         "ingredients": [
             {
                 "id": "2 tbsp olive oil",
@@ -4616,7 +4616,7 @@
     {
         "title": "Prawn tikka masala",
         "source": "https://www.bbcgoodfood.com/recipes/prawn-tikka-masala",
-        "time": 30,
+        "time": 40,
         "ingredients": [
             {
                 "id": "1 large onion roughly chopped",
@@ -4732,7 +4732,7 @@
     {
         "title": "Creamy chicken stew",
         "source": "https://www.bbcgoodfood.com/recipes/creamy-chicken-stew",
-        "time": 55,
+        "time": 65,
         "ingredients": [
             {
                 "id": "3 leeks halved and finely sliced",
@@ -4819,7 +4819,7 @@
     {
         "title": "Manchurian chicken",
         "source": "https://www.bbcgoodfood.com/recipes/manchurian-chicken",
-        "time": 30,
+        "time": 40,
         "ingredients": [
             {
                 "id": "1 egg white (save the yolk for another recipe)",
@@ -4955,7 +4955,7 @@
     {
         "title": "Sausages with lemon & rosemary roast potatoes",
         "source": "https://www.bbcgoodfood.com/recipes/sausages-with-lemon-rosemary-roast-potatoes",
-        "time": 50,
+        "time": 100,
         "ingredients": [
             {
                 "id": "800g new potatoes cut in half",
@@ -5016,7 +5016,7 @@
     {
         "title": "Sichuan chicken",
         "source": "https://www.bbcgoodfood.com/recipes/sichuan-chicken",
-        "time": 20,
+        "time": 40,
         "ingredients": [
             {
                 "id": "500g boneless chicken thighs cut into bite-sized pieces",
@@ -5151,7 +5151,7 @@
     {
         "title": "Chicken & ginger fried rice",
         "source": "https://www.bbcgoodfood.com/recipes/chicken-ginger-fried-rice",
-        "time": 30,
+        "time": 55,
         "ingredients": [
             {
                 "id": "500g boneless, skinless chicken thighs cut into bite-size pieces",
@@ -5273,7 +5273,7 @@
     {
         "title": "Chicken and sweet potato traybake",
         "source": "https://www.bbcgoodfood.com/recipes/piri-piri-chicken-smashed-sweet-potatoes-broccoli",
-        "time": 55,
+        "time": 75,
         "ingredients": [
             {
                 "id": "3 large sweet potatoes (about 900g), peeled and cut into large chunks",
@@ -5334,7 +5334,7 @@
     {
         "title": "Miso & butternut squash ramen",
         "source": "https://www.bbcgoodfood.com/recipes/miso-butternut-squash-ramen",
-        "time": 30,
+        "time": 45,
         "ingredients": [
             {
                 "id": "200g pack of chopped butternut squash",
@@ -5433,7 +5433,7 @@
     {
         "title": "Speedy lentil coconut curry",
         "source": "https://www.bbcgoodfood.com/recipes/speedy-lentil-coconut-curry",
-        "time": 20,
+        "time": 25,
         "ingredients": [
             {
                 "id": "1 onion roughly chopped",
@@ -5538,7 +5538,7 @@
     {
         "title": "Slow-cooker lamb shoulder",
         "source": "https://www.bbcgoodfood.com/recipes/slow-cooker-lamb-shoulder",
-        "time": 15,
+        "time": 885,
         "ingredients": [
             {
                 "id": "1\u00bekg bone-in lamb shoulder",
@@ -5630,7 +5630,7 @@
     {
         "title": "Vegan squash stew",
         "source": "https://www.bbcgoodfood.com/recipes/vegan-squash-stew",
-        "time": 40,
+        "time": 110,
         "ingredients": [
             {
                 "id": "2 tbsp rapeseed oil",
@@ -5741,7 +5741,7 @@
     {
         "title": "Teriyaki & lime-glazed chicken wings",
         "source": "https://www.bbcgoodfood.com/recipes/teriyaki-lime-glazed-chicken-wings",
-        "time": 40,
+        "time": 50,
         "ingredients": [
             {
                 "id": "2 tbsp rice flour",
@@ -5834,7 +5834,7 @@
     {
         "title": "Tomato & mascarpone risotto",
         "source": "https://www.bbcgoodfood.com/recipes/tomato-mascarpone-risotto",
-        "time": 30,
+        "time": 40,
         "ingredients": [
             {
                 "id": "2 tbsp olive oil",
