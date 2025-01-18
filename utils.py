@@ -36,13 +36,22 @@ def separate_nutrition(nutritions):
 
 
 def get_time(cooking_time):
-    times = []
-    for item in cooking_time:
-        time_text = item.text  
-        number = int(time_text.split()[0])
-        times.append(number)
+    total_minutes = 0
     
-    return max(times)
+    for item in cooking_time:
+        time_text = item.text.lower() 
+        parts = time_text.split()
+
+        minutes = 0
+        for i, part in enumerate(parts):
+            if "hr" in part:  
+                minutes += int(parts[i - 1]) * 60
+            elif "min" in part:  
+                minutes += int(parts[i - 1])
+
+        total_minutes += minutes
+
+    return total_minutes
     
     
 def parse_ingredients(ingredient_texts):

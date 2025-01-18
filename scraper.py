@@ -4,6 +4,8 @@ import json
 
 from utils import separate_nutrition, get_time, parse_ingredients
 
+from recipe_urls import bbc_good_food_urls
+
 
 def scrape_single_recipe(url):
     headers = {
@@ -14,10 +16,12 @@ def scrape_single_recipe(url):
     
     soup = BeautifulSoup(response.text, 'html.parser')
     
+
+        
     # Extract recipe details
     title = soup.select_one('.post-header__title').text.strip()
     author = soup.select_one('.author-link').text.strip()
-    cooking_time = soup.select('li.body-copy-small.list-item span time')    
+    cooking_time = soup.select('li.body-copy-small.list-item span time')
     ingredients = [li.text.strip() for li in soup.select('.ingredients-list__item')]
     instructions = [li.text.strip() for li in soup.select('.method-steps__list-item')]
     nutrition = [li.text.strip() for li in soup.select('.nutrition-list__item')]
@@ -39,26 +43,8 @@ def scrape_single_recipe(url):
         
     }
 
-# List of recipe URLs
-recipe_urls = [
-    "https://www.bbcgoodfood.com/recipes/spinach-sweet-potato-lentil-dhal",
-    "https://www.bbcgoodfood.com/recipes/poached-eggs-smoked-salmon-and-bubble-squeak",
-    "https://www.bbcgoodfood.com/recipes/gluten-free-lemon-drizzle-cake",
-    "https://www.bbcgoodfood.com/recipes/mushroom-bhaji",
-    "https://www.bbcgoodfood.com/recipes/sweet-potato-coconut-curry",
-    "https://www.bbcgoodfood.com/recipes/cola-ham-maple-mustard-glaze",
-    "https://www.bbcgoodfood.com/recipes/beef-wellington",
-    "https://www.bbcgoodfood.com/recipes/next-level-roast-beef",
-    "https://www.bbcgoodfood.com/recipes/nut-loaf",
-    "https://www.bbcgoodfood.com/recipes/ultimate-roast-potatoes",
-    "https://www.bbcgoodfood.com/recipes/flavour-bomb-roast-turkey-gravy",
-    "https://www.bbcgoodfood.com/recipes/shredded-carbonara-sprouts",
-    "https://www.bbcgoodfood.com/recipes/ultimate-gratin-dauphinois",
-    "https://www.bbcgoodfood.com/recipes/easy-cheesy-leeks",
-    "https://www.bbcgoodfood.com/recipes/smoked-salmon-quinoa-dill-lunch-pot",
-    "https://www.bbcgoodfood.com/recipes/crunchy-lettuce-salad-wraps-with-sweet-satay-dip",
-    "https://www.bbcgoodfood.com/recipes/panuozzo-sandwich"
-]
+
+recipe_urls = bbc_good_food_urls
 
 # List to store all recipe data
 all_recipes = []
