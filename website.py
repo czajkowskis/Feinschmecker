@@ -74,7 +74,7 @@ def getRequest(filter):
 
     print(header + body)
     recipe_list = list(default_world.sparql(header + body))
-    order = ["name", "instructions", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
+    order = ["name", "instructions", "ingredients", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
              "fat", "carbohydrates"]
     recipe_list_dict = []
     for r in recipe_list:
