@@ -32,7 +32,7 @@ def addNutrientFilter(nutrient, filter, header, body):
 
 # Universal filter
 def getRequest(filter):
-    header = "SELECT ?name ?instructions ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount "
+    header = "SELECT ?name ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount "
     body = "{?res rdf:type feinschmecker:Recipe . \n"
     if "vegan" in filter:
         if filter["vegan"]:
@@ -66,9 +66,13 @@ def getRequest(filter):
     # Remaining elements for head
     body += "?res feinschmecker:has_recipe_name ?name . \n"
     body += "?res feinschmecker:has_instructions ?instructions . \n"
+    body += "?res feinschmecker:has_ingredient ?ing . \n"
+    body += "?ing feinschmecker:has_ingredient_with_amount_name ?ing_name . \n"
 
-    body += """}"""
+    body += "}"
+    body += "GROUP By ?name ?instructions ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount"
 
+    print(header + body)
     recipe_list = list(default_world.sparql(header + body))
     order = ["name", "instructions", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
              "fat", "carbohydrates"]
@@ -98,7 +102,7 @@ def p(indent: int, text: str):
 # Filter examples:
 # Every recipe - {}
 # Panuozzo sandwich
-#   - {"vegan": False, "vegetarian": False, "time": 25, "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+#   - {"vegan": False, "vegetarian": False, "time": 35, "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
 #      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
 #      "carbohydrates_bigger": 50}
 
@@ -130,7 +134,11 @@ def main(recipe_list):
 # Initial method
 
 if __name__ == '__main__':
-    recipe_list = getRequest({})
+    recipe_list = getRequest({"vegan": False, "vegetarian": False, "time": 35, "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
+      "carbohydrates_bigger": 50})
+    print(recipe_list)
+
     main(recipe_list)
 
 #############################################################################
