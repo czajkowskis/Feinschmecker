@@ -170,7 +170,7 @@
     {
         "title": "Pain au chocolat",
         "source": "https://www.bbcgoodfood.com/recipes/pain-au-chocolat",
-        "time": 78,
+        "time": 60,
         "ingredients": [
             {
                 "id": "420g plain flour",
@@ -1890,7 +1890,7 @@
     {
         "title": "Air fryer bacon",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-bacon",
-        "time": 16,
+        "time": 6,
         "ingredients": [
             {
                 "id": "6 rashers  streaky bacon or 3 rashers back bacon",
@@ -2518,7 +2518,7 @@
     {
         "title": "Air fryer chicken breasts",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-chicken-breasts",
-        "time": 43,
+        "time": 23,
         "ingredients": [
             {
                 "id": "4 chicken breasts",
@@ -2908,7 +2908,7 @@
     {
         "title": "Air fryer loaded frittata with bacon & cheddar",
         "source": "https://www.bbcgoodfood.com/recipes/air-fryer-loaded-frittata-with-bacon-cheddar",
-        "time": 50,
+        "time": 25,
         "ingredients": [
             {
                 "id": "6 rashers streaky smoked bacon",
@@ -4494,7 +4494,7 @@
     {
         "title": "Veggie sausage casserole",
         "source": "https://www.bbcgoodfood.com/recipes/veggie-sausage-casserole",
-        "time": 95,
+        "time": 35,
         "ingredients": [
             {
                 "id": "2 tbsp olive oil",
@@ -4955,7 +4955,7 @@
     {
         "title": "Sausages with lemon & rosemary roast potatoes",
         "source": "https://www.bbcgoodfood.com/recipes/sausages-with-lemon-rosemary-roast-potatoes",
-        "time": 100,
+        "time": 50,
         "ingredients": [
             {
                 "id": "800g new potatoes cut in half",
@@ -5538,7 +5538,7 @@
     {
         "title": "Slow-cooker lamb shoulder",
         "source": "https://www.bbcgoodfood.com/recipes/slow-cooker-lamb-shoulder",
-        "time": 885,
+        "time": 390,
         "ingredients": [
             {
                 "id": "1\u00bekg bone-in lamb shoulder",
@@ -5630,7 +5630,7 @@
     {
         "title": "Vegan squash stew",
         "source": "https://www.bbcgoodfood.com/recipes/vegan-squash-stew",
-        "time": 110,
+        "time": 70,
         "ingredients": [
             {
                 "id": "2 tbsp rapeseed oil",

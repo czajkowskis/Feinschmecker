@@ -35,7 +35,7 @@ def separate_nutrition(nutritions):
 def get_time(cooking_time):
     total_minutes = 0
     
-    for item in cooking_time:
+    for item in cooking_time[:2]:
         time_text = item.text.lower() 
         parts = time_text.split()
 
