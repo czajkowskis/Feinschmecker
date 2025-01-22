@@ -9,7 +9,6 @@
 #############################################################################
 # Imports
 
-import cgi # Deprecated, maybe add something else
 from owlready2 import *
 
 #############################################################################
@@ -32,7 +31,7 @@ def addNutrientFilter(nutrient, filter, header, body):
 
 # Universal filter
 def getRequest(filter):
-    header = "SELECT ?name ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount "
+    header = "SELECT ?name ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount "
     body = "{?res rdf:type feinschmecker:Recipe . \n"
     if "vegan" in filter:
         if filter["vegan"]:
@@ -46,9 +45,15 @@ def getRequest(filter):
         else:
             body += "?res feinschmecker:is_vegetarian false . \n"
     body += "?res feinschmecker:is_vegetarian ?vegetarian . \n"
+
     if "meal_type" in filter:
-        body += "?res feinschmecker:is_meal_type \"" + filter["meal_type"] + "\" . \n"
-    body += "OPTIONAL {?res feinschmecker:is_meal_type ?type}. \n"
+        body += "?res feinschmecker:is_meal_type ?type . \n"
+        body += "?type feinschmecker:has_meal_type_name \"" + filter["meal_type"] + "\" . \n"
+        body += "?type feinschmecker:has_meal_type_name ?type_name . \n"
+    else:
+        body += "OPTIONAL {?res feinschmecker:is_meal_type ?type . \n"
+        body += "   ?type feinschmecker:has_meal_type_name ?type_name}. \n"
+
     body += "?res feinschmecker:requires_time ?time . \n"
     body += "?time feinschmecker:amount_of_time ?time_amount . \n"
     if "time" in filter:
@@ -70,9 +75,8 @@ def getRequest(filter):
     body += "?ing feinschmecker:has_ingredient_with_amount_name ?ing_name . \n"
 
     body += "}"
-    body += "GROUP By ?name ?instructions ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount"
+    body += "GROUP By ?name ?instructions ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount"
 
-    print(header + body)
     recipe_list = list(default_world.sparql(header + body))
     order = ["name", "instructions", "ingredients", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
              "fat", "carbohydrates"]
@@ -102,7 +106,7 @@ def p(indent: int, text: str):
 # Filter examples:
 # Every recipe - {}
 # Panuozzo sandwich
-#   - {"vegan": False, "vegetarian": False, "time": 35, "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+#   - {"vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
 #      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
 #      "carbohydrates_bigger": 50}
 
@@ -134,11 +138,7 @@ def main(recipe_list):
 # Initial method
 
 if __name__ == '__main__':
-    recipe_list = getRequest({"vegan": False, "vegetarian": False, "time": 35, "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
-      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
-      "carbohydrates_bigger": 50})
-    print(recipe_list)
-
+    recipe_list = getRequest({})
     main(recipe_list)
 
 #############################################################################
