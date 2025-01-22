@@ -49,7 +49,7 @@
         console.log(queryParameters)
         try {
             let response = await this.$axios.get("/recipes", {
-              parameters: queryParameters, 
+              params: queryParameters, 
             })
             this.recipes = response.data
             console.log(this.recipes);
