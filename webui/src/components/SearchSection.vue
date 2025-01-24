@@ -1,5 +1,16 @@
-<script setup>
+<script>
   import SearchForm from "./SearchForm.vue"
+  export default {
+    components: {
+      SearchForm,
+    },
+
+    methods: {
+      handleSearchAction(recipes){
+        this.$emit("searched", recipes)
+      }
+    }
+  }
 </script>
 
 <template>
@@ -13,7 +24,7 @@
           some aspect is not important for you leave the input blank. 
         </p>
       </div>
-      <SearchForm v-motion-slide-visible-once-right/>
+      <SearchForm @searched="handleSearchAction" v-motion-slide-visible-once-right/>
     </div>
   </section>
 </template>

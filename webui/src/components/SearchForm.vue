@@ -15,10 +15,6 @@
       }
     },
     methods: {
-      test() {
-        console.log(this.mealtype);
-      },
-
       getQueryParametersDictionary() {
         const queryParameters = {
           calories_smaller: this.calories,
@@ -52,6 +48,7 @@
               params: queryParameters, 
             })
             this.recipes = response.data
+            this.$emit("searched", this.recipes)
             console.log(this.recipes);
         } catch(err) {
             console.log(err.response.data);
