@@ -3,9 +3,13 @@
     data() {
       return {
         calories: "",
+        calories_bigger: false,
         protein: "",
+        protein_bigger: true,
         carbohydrates: "",
+        carbohydrates_bigger: true,
         fat: "",
+        fat_bigger: true,
         time: "",
         difficulty: 0,
         vegetarian: false,
@@ -21,19 +25,39 @@
         const queryParameters = {};
 
         if(this.calories.length != 0) {
-          queryParameters["calories_smaller"] = this.calories;
+          if(this.calories_bigger){
+            queryParameters["calories_bigger"] = this.calories;
+          }
+          else{
+            queryParameters["calories_smaller"] = this.calories;
+          }
         }
 
         if(this.protein.length != 0) {
-          queryParameters["protein_bigger"] = this.protein;
+          if(this.protein_bigger){
+            queryParameters["protein_bigger"] = this.protein;
+          }
+          else{
+            queryParameters["protein_smaller"] = this.protein;
+          }
         }
 
         if(this.fat.length != 0) {
-          queryParameters["fat_bigger"] = this.fat;
+          if(this.fat_bigger){
+            queryParameters["fat_bigger"] = this.fat;
+          }
+          else{
+            queryParameters["fat_smaller"] = this.fat;
+          }
         }
 
         if(this.carbohydrates.length != 0) {
-          queryParameters["carbohydrates_bigger"] = this.carbohydrates;
+          if(this.carbohydrates_bigger){
+            queryParameters["carbohydrates_bigger"] = this.carbohydrates;
+          }
+          else{
+            queryParameters["carbohydrates_smaller"] = this.carbohydrates;
+          }
         }
 
         if(this.vegetarian) {
@@ -89,18 +113,50 @@
           <div class="input-label-pair">
             <input v-model="calories" id="calories" class="rectangular-input"/>
             <label for="calories">Calories</label>
+            <div class="switch-box">
+              <span class="switch-text">&lt;</span>
+              <label class="switch">
+                <input v-model="calories_bigger" type="checkbox">
+                <span class="slider"></span>
+              </label>
+              <span class="switch-text">&gt;</span>
+            </div>
           </div>
           <div class="input-label-pair">
             <input v-model="protein" id="protein" class="rectangular-input"/>
             <label for="protein">Protein</label>
+            <div class="switch-box">
+              <span class="switch-text">&lt;</span>
+              <label class="switch">
+                <input v-model="protein_bigger" type="checkbox">
+                <span class="slider"></span>
+              </label>
+              <span class="switch-text">&gt;</span>
+            </div>
           </div>
           <div class="input-label-pair">
             <input v-model="carbohydrates" id="carbs" class="rectangular-input"/>
             <label for="carbs">Carbs</label>
+            <div class="switch-box">
+              <span class="switch-text">&lt;</span>
+              <label class="switch">
+                <input v-model="carbohydrates_bigger" type="checkbox">
+                <span class="slider"></span>
+              </label>
+              <span class="switch-text">&gt;</span>
+            </div>
           </div>
           <div class="input-label-pair">
             <input v-model="fat" id="fat" class="rectangular-input"/>
             <label for="fat">Fats</label>
+            <div class="switch-box">
+              <span class="switch-text">&lt;</span>
+              <label class="switch">
+                <input v-model="fat_bigger" type="checkbox">
+                <span class="slider"></span>
+              </label>
+              <span class="switch-text">&gt;</span>
+            </div>
           </div>
         </div>
       </div>
@@ -310,4 +366,60 @@
     padding: 10px 50px;
     cursor: pointer;
   }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .switch-box {
+    margin-top: 10px;
+  }
+
+  .switch-text {
+    font-family: "Poppins";
+    font-size: 28px;
+    margin: 0 5px; 
+  }
+
 </style>
