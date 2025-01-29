@@ -33,6 +33,19 @@ def addNutrientFilter(nutrient, filter, header, body):
 def getRequest(filter):
     header = "SELECT ?name ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount "
     body = "{?res rdf:type feinschmecker:Recipe . \n"
+
+    # FILTER EXISTS { ?person foaf:name ?name }
+    #
+    if "ingredients" in filter:
+        ingredients = filter["ingredients"]
+        appendum = "a"
+        for i in range(len(ingredients)):
+            body += "?res feinschmecker:has_ingredient ?ext_ing" + appendum + " . \n"
+            body += "?ext_ing" + appendum + " feinschmecker:type_of_ingredient ?ing" + appendum + " . \n"
+            body += "?ing" +appendum + " feinschmecker:has_ingredient_name ?ing_name" + appendum + " . \n"
+            body += "FILTER regex(?ing_name" + appendum + ", \"" + ingredients[i] + "\", \"i\") . \n"
+            appendum += "a"
+
     if "vegan" in filter:
         if filter["vegan"]:
             body += "?res feinschmecker:is_vegan true . \n"
@@ -106,7 +119,7 @@ def p(indent: int, text: str):
 # Filter examples:
 # Every recipe - {}
 # Panuozzo sandwich
-#   - {"vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+#   - {"ingredients": ["tomato", "olive oil"], "vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
 #      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
 #      "carbohydrates_bigger": 50}
 
@@ -138,7 +151,9 @@ def main(recipe_list):
 # Initial method
 
 if __name__ == '__main__':
-    recipe_list = getRequest({})
+    recipe_list = getRequest({"ingredients": ["tomato", "olive oil"], "vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
+      "carbohydrates_bigger": 50})
     main(recipe_list)
 
 #############################################################################
