@@ -30,10 +30,13 @@
   .card {
     display: flex;
     flex-direction: column;
-    justify-items: space-between;
+    justify-content: space-between;
     align-items: center;
-    max-width: 20%;
+    width: 25%;
+    min-height: 60vh;
     border: 3px solid #000;
+    padding: 0 20px;
+    margin: 30px;
   }
 
   img {
