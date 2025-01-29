@@ -253,8 +253,8 @@
   }
 
   .rectangular-input {
-    width: 50px;
-    height: 50px;
+    max-width: 60px;
+    height: 60px;
     padding: 10px;
     background-color: #F0F8FF;
     border: 3px solid #000;
