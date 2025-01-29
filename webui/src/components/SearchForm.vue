@@ -200,6 +200,7 @@
       </div>
       <select v-model="mealtype" name="mealtype" id="mealtype-select">
         <option disabled value="">Select the mealtype</option>
+        <option value="">All mealtypes</option>
         <option value="Breakfast">Breakfast</option>
         <option value="Lunch">Lunch</option>
         <option value="Dinner">Dinner</option>
