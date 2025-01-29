@@ -4,28 +4,47 @@
       return {
         calories: "",
         protein: "",
-        carbs: "",
-        fats: "",
+        carbohydrates: "",
+        fat: "",
         time: "",
         difficulty: 0,
         vegetarian: false,
         vegan: false,
         mealtype: "",
         recipes: [],
+        errorMessage: "",
+        showErrorMessage: false
       }
     },
     methods: {
       getQueryParametersDictionary() {
-        const queryParameters = {
-          calories_smaller: this.calories,
-          protein_bigger: this.protein,
-          fats_bigger: this.fats,
-          carbohydrates_bigger: this.carbs,
-          vegetarian: this.vegetarian,
-          vegan: this.vegan,
+        const queryParameters = {};
+
+        if(this.calories.length != 0) {
+          queryParameters["calories_smaller"] = this.calories;
         }
-        
-        if(this.time.length > 0) {
+
+        if(this.protein.length != 0) {
+          queryParameters["protein_bigger"] = this.protein;
+        }
+
+        if(this.fat.length != 0) {
+          queryParameters["fat_bigger"] = this.fat;
+        }
+
+        if(this.carbohydrates.length != 0) {
+          queryParameters["carbohydrates_bigger"] = this.carbohydrates;
+        }
+
+        if(this.vegetarian) {
+          queryParameters["vegetarian"] = true;
+        }
+
+        if(this.vegan) {
+          queryParameters["vegan"] = true;
+        }
+
+        if(this.time.length != 0) {
           queryParameters["time"] = this.time
         }
 
@@ -33,7 +52,7 @@
           queryParameters["difficulty"] = this.difficulty
         }
 
-        if(this.mealtype.length > 0) {
+        if(this.mealtype.length != 0) {
           queryParameters["meal_type"] = this.mealtype
         }
 
@@ -76,12 +95,12 @@
             <label for="protein">Protein</label>
           </div>
           <div class="input-label-pair">
-            <input v-model="carbs" id="carbs" class="rectangular-input"/>
+            <input v-model="carbohydrates" id="carbs" class="rectangular-input"/>
             <label for="carbs">Carbs</label>
           </div>
           <div class="input-label-pair">
-            <input v-model="fats" id="fats" class="rectangular-input"/>
-            <label for="fats">Fats</label>
+            <input v-model="fat" id="fat" class="rectangular-input"/>
+            <label for="fat">Fats</label>
           </div>
         </div>
       </div>
@@ -125,9 +144,9 @@
       </div>
       <select v-model="mealtype" name="mealtype" id="mealtype-select">
         <option disabled value="">Select the mealtype</option>
-        <option value="breakfast">Breakfast</option>
-        <option value="dinner">Dinner</option>
-        <option value="dessert">Dessert</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
       </select>
     </div>
     <div class="button-container">
