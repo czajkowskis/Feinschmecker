@@ -2,14 +2,18 @@
 
   export default {
     props: {
-      recipe_title: {
-        type: String,
+      recipe: {
         required: true
       },
-
       photo_src: {
         type: String,
-        required: true
+        required: true,
+      }
+    },
+    methods: {
+      goToRecipe(){
+        localStorage.setItem('current_recipe', JSON.stringify(this.recipe));
+        this.$router.push({ name: 'Recipe'});
       }
     }
   }
@@ -19,8 +23,8 @@
 <template>
   <div class="card">
     <img :src="this.photo_src"/>
-    <h1> {{this.recipe_title}}</h1>
-    <button>Details</button>
+    <h1> {{this.recipe.name}}</h1>
+    <button @click="goToRecipe">Details</button>
   </div>
 </template>
 
