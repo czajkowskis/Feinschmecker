@@ -49,7 +49,7 @@
   <Navbar @scrollToAboutUs="scrollToAboutUs" @scrollToSearchSection="scrollToSearchSection" v-motion-slide-left />
   <HeroHeader @scrollToAboutUs="scrollToAboutUs" @scrollToSearchSection="scrollToSearchSection" v-motion-slide-right/>
   <AboutUs ref="aboutUs"/>
-  <SearchSection ref="searchSection" @searched="handleSearchAction"/>
+  <SearchSection id="search-section" ref="searchSection" @searched="handleSearchAction"/>
   <RecipesSection @loadMoreRecipes="handleLoadMoreRecipes" :recipes="this.recipes" :maxRecipesShown="maxRecipesShown"/>
 </template>
 <style scoped>

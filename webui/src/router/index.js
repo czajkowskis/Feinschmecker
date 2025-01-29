@@ -6,7 +6,13 @@ const router = createRouter({
 	routes: [
 		{path: '/', name: 'Home', component: HomeView},
 		{path: '/recipe', name: 'Recipe', component: RecipeView},
-	]
+	],
+	scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash, behavior: 'auto' };
+    }
+    return { top: 0 };
+  },
 });
 
 export default router;

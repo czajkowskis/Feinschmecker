@@ -1,5 +1,6 @@
 <script>
   import MacronutrientsSummary from "../components/MacronutrientsSummary.vue"
+  import { nextTick } from "vue";
   export default {
     components: {
       MacronutrientsSummary
@@ -16,8 +17,8 @@
         console.log(this.recipes)
       },
       goBack(){
-        this.$router.push({ name: 'Home'});
-      }
+        this.$router.push({name: "Home", hash:'#search-section'});
+      },
     },
     mounted() {
       window.scrollTo(0, 0);
