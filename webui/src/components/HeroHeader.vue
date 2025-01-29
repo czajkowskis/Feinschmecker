@@ -1,4 +1,3 @@
-
 <script setup>
 </script>
 
@@ -8,8 +7,8 @@
       <h1>Foodies, welcome home!</h1>
       <p> Feinschmecker is the perfect companion in your cooking journey! Find new recepies, perfect meals for your nutritional goals and more! </p>
       <div class="buttons-container">
-        <button class="secondary-button">About us</button>
-        <button class="primary-button">Start Cooking!</button>
+        <button @click="this.$emit('scrollToAboutUs')" class="secondary-button">About us</button>
+        <button @click="this.$emit('scrollToSearchSection')" class="primary-button">Start Cooking!</button>
       </div>
     </div>
     <div class="right-container">

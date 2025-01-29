@@ -9,8 +9,8 @@
     </div>
     <div class="button-container">
       <button class="secondary-button">Home</button>
-      <button class="secondary-button">About us</button>
-      <button class="primary-button">Search</button>
+      <button @click="this.$emit('scrollToAboutUs')" class="secondary-button">About us</button>
+      <button @click="this.$emit('scrollToSearchSection')" class="primary-button">Search</button>
     </div>
   </div> 
 </template>
