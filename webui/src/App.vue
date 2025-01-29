@@ -1,40 +1,38 @@
 <script>
-  import Navbar from "./components/Navbar.vue"
-  import HeroHeader from "./components/HeroHeader.vue"
-  import AboutUs from "./components/AboutUs.vue"
-  import SearchSection from "./components/SearchSection.vue"
-  import RecipesSection from "./components/RecipesSection.vue"
-  export default {
-    components: {
-      Navbar,
-      HeroHeader,
-      AboutUs,
-      SearchSection,
-      RecipesSection
-    },
-
-    data() {
-      return {
-        recipes: []
-      }
-    },
-
-    methods: {
-      handleSearchAction(recipes){
-        this.recipes = recipes 
-        console.log(this.recipes)
-      }
-    }
-  }
 </script>
 
 <template>
-  <Navbar v-motion-slide-left />
-  <HeroHeader v-motion-slide-right/>
-  <AboutUs/>
-  <SearchSection @searched="handleSearchAction"/>
-  <RecipesSection :recipes="this.recipes"/>
+  <div id="app">  
+    <router-view v-slot="{Component}">
+      <transition name="slide">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
 </template>
+
+<style scoped>
+  .slide-enter-from{
+    transform: translateX(-100%);
+  }
+
+  .slide-enter-to {
+    transform: translateX(0);
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all 1s ease-in-out;
+  }
+
+  .slide-left-leave-from {
+    transform: translateX(0);
+  }
+
+  .slide-leave-to{
+    transform: translateX(100%)
+  }
+</style>
 <style scoped>
   body {
     background: #F0F8FF;
