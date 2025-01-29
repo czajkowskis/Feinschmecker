@@ -15,6 +15,7 @@
 
 <template>
   <section class="recipe-section">
+    <h1 v-if="this.recipes.length>0" v-motion-slide-right>We found {{this.recipes.length}} recipes for you!</h1>
     <div class="container">
       <RecipeCard v-motion-slide-right v-for="recipe in recipes" :key="recipe.name" :recipe_title="recipe.name" photo_src="/images/recipe_images/breakfast_burrito.png"/>
     </div>
@@ -31,6 +32,7 @@
   
   .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 70%;
