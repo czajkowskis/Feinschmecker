@@ -9,15 +9,27 @@
       recipes: {
         required: true
       },
+      maxRecipesShown:{
+        type: Number,
+        required: true,
+      }
     },
+    methods: {
+      loadMoreRecipes(){
+        this.$emit("loadMoreRecipes")
+        console.log("load")
+      },
+    }
   }
+
 </script>
 
 <template>
   <section class="recipe-section">
     <h1 v-if="this.recipes.length>0" v-motion-slide-right>We found {{this.recipes.length}} recipes for you!</h1>
     <div class="container">
-      <RecipeCard v-motion-slide-right v-for="recipe in recipes" :key="recipe.name" :recipe_title="recipe.name" photo_src="/images/recipe_images/breakfast_burrito.png"/>
+      <RecipeCard v-motion-slide-right v-for="recipe in recipes.slice(0, maxRecipesShown)" :key="recipe.name" :recipe_title="recipe.name" photo_src="/images/recipe_images/breakfast_burrito.png"/>
+      <button v-if="maxRecipesShown < this.recipes.length" @click="loadMoreRecipes">Show more recipes</button>
     </div>
   </section>
 </template>
@@ -81,19 +93,20 @@
     text-align: justify;
   }
 
+
   button {
-    padding: 10px 20px;
+    background: #F0F8FF;
     font-family: "Poppins";
     font-size: 28px;
-    border: 2px solid #000000;
-    border-radius: 10px;
+    font-weight: 700;
+    border: 2px solid #000;
+    border-radius: 30px;
+    padding: 10px 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
   }
 
-  .secondary-button {
-    background: #F0F8FF;
-  }
-
-  .primary-button {
-    background-color: #FFEE8C;
+  button:hover {
+    background-color: #DCEEFF
   }
 </style>
