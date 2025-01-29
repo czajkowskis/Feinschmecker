@@ -65,7 +65,11 @@
     cursor: pointer;
     background-color: #FFEE8C;
     margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
   }
-
+  
+  button:hover {
+    background-color: #ffde4d;
+  }
 
 </style>
