@@ -16,7 +16,6 @@ from flask_cors import CORS
 # Flask app setup
 app = Flask(__name__)
 CORS(app)
-
 #############################################################################
 # Get recipes from filter
 
@@ -37,13 +36,7 @@ def addNutrientFilter(nutrient, filter, header, body):
 
 # Universal filter
 def getRequest(filter):
-    
-    if "vegan" in filter and isinstance(filter["vegan"], str):
-        filter["vegan"] = filter["vegan"].lower() == "true"
-    if "vegetarian" in filter and isinstance(filter["vegetarian"], str):
-        filter["vegetarian"] = filter["vegetarian"].lower() == "true"
-    
-    header = "SELECT ?name ?instructions ?vegan ?vegetarian ?type ?time_amount ?difficulty_amount "
+    header = "SELECT ?name ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount "
     body = "{?res rdf:type feinschmecker:Recipe . \n"
     if "vegan" in filter:
         if filter["vegan"]:
@@ -57,9 +50,15 @@ def getRequest(filter):
         else:
             body += "?res feinschmecker:is_vegetarian false . \n"
     body += "?res feinschmecker:is_vegetarian ?vegetarian . \n"
+
     if "meal_type" in filter:
-        body += "?res feinschmecker:is_meal_type \"" + filter["meal_type"] + "\" . \n"
-    body += "OPTIONAL {?res feinschmecker:is_meal_type ?type}. \n"
+        body += "?res feinschmecker:is_meal_type ?type . \n"
+        body += "?type feinschmecker:has_meal_type_name \"" + filter["meal_type"] + "\" . \n"
+        body += "?type feinschmecker:has_meal_type_name ?type_name . \n"
+    else:
+        body += "OPTIONAL {?res feinschmecker:is_meal_type ?type . \n"
+        body += "   ?type feinschmecker:has_meal_type_name ?type_name}. \n"
+
     body += "?res feinschmecker:requires_time ?time . \n"
     body += "?time feinschmecker:amount_of_time ?time_amount . \n"
     if "time" in filter:
@@ -77,11 +76,14 @@ def getRequest(filter):
     # Remaining elements for head
     body += "?res feinschmecker:has_recipe_name ?name . \n"
     body += "?res feinschmecker:has_instructions ?instructions . \n"
+    body += "?res feinschmecker:has_ingredient ?ing . \n"
+    body += "?ing feinschmecker:has_ingredient_with_amount_name ?ing_name . \n"
 
-    body += """}"""
+    body += "}"
+    body += "GROUP By ?name ?instructions ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount"
 
     recipe_list = list(default_world.sparql(header + body))
-    order = ["name", "instructions", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
+    order = ["name", "instructions", "ingredients", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
              "fat", "carbohydrates"]
     recipe_list_dict = []
     for r in recipe_list:
@@ -94,9 +96,23 @@ def getRequest(filter):
         recipe_list_dict.append(tmp)
     with onto:
         return recipe_list_dict
+#############################################################################
+# HTML focused methods
 
-# API Routes
-    
+def p(indent: int, text: str):
+    prefix = ""
+    for i in range(indent):
+        prefix += "   "
+    print(prefix + text)
+
+
+# Filter examples:
+# Every recipe - {}
+# Panuozzo sandwich
+#   - {"vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+#      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
+#      "carbohydrates_bigger": 50}
+
 @app.route('/')
 def index():
     return "Welcome to the Feinschmecker API!"
@@ -105,6 +121,7 @@ def index():
 def get_recipes():
     """API endpoint to retrieve recipes based on filters."""
     filters = request.args.to_dict()
+    print(filters)
     try:
         recipes = getRequest(filters)
     
@@ -122,4 +139,4 @@ if __name__ == '__main__':
 
 #############################################################################
 
-
+#############################################################################
