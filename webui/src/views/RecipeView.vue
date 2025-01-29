@@ -113,7 +113,7 @@
   }
 
   .instructions-box {
-    margin-top: 50px;
+    margin: 50px 0;
     padding: 30px 20px;
     border: 3px solid #000;
     border-radius: 30px;
