@@ -122,7 +122,7 @@ def p(indent: int, text: str):
 # Filter examples:
 # Every recipe - {}
 # Panuozzo sandwich
-#   - {"vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
+#   - {"ingredients": ["tomato", "olive oil"], "vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
 #      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
 #      "carbohydrates_bigger": 50}
 
