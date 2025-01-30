@@ -5,10 +5,6 @@
       recipe: {
         required: true
       },
-      photo_src: {
-        type: String,
-        required: true,
-      }
     },
     methods: {
       goToRecipe(){
@@ -22,7 +18,7 @@
 
 <template>
   <div class="card">
-    <img :src="this.photo_src"/>
+    <img :src="recipe.image_link"/>
     <h1> {{this.recipe.name}}</h1>
     <button @click="goToRecipe">Details</button>
   </div>
