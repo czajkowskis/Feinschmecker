@@ -33,7 +33,7 @@
         <button @click="goBack">Back</button>
       </div>
       <div class="recipe-info-box">
-        <img src="/images/recipe_images/breakfast_burrito.png"/>
+        <img :src="recipe.image_link"/>
         <MacronutrientsSummary :calories="recipe.calories" :protein="recipe.protein" :carbohydrates="recipe.carbohydrates" :fat="recipe.fat"/>
         <p><strong>Authored by:</strong> {{recipe.author}}</p>
         <p><strong>Scraped from:</strong> <a :href="recipe.source_link">{{recipe.source_name}}</a></p>
@@ -121,8 +121,6 @@
     border-radius: 30px;
   }
 
-  
-
   h1 {
     font-family: "Poppins";
     font-size: 64px;
@@ -160,5 +158,9 @@
 
   button:hover {
     background-color: #DCEEFF
+  }
+
+  img {
+    max-width: 400px;
   }
 </style>
