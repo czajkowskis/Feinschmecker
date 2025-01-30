@@ -10,6 +10,9 @@ BROWSER = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'}
 
 
+DUMMY_IMAGE_URL = "https://images.immediate.co.uk/production/volatile/sites/30/2024/03/cropped-GF-new-teal-1-7004649-a80b70d.png?quality=90&webp=true&resize=265,65"
+
+
 def scrape_single_recipe(url, meal_type: str):
     response = requests.get(url, headers=BROWSER)
     response.raise_for_status()
@@ -18,6 +21,8 @@ def scrape_single_recipe(url, meal_type: str):
 
     # Extract recipe details
     title = soup.select_one('.post-header__title').text.strip()
+    image_url = soup.select_one('.post-header-image picture img')
+    image_url = image_url['src'] if image_url else DUMMY_IMAGE_URL
     author = soup.select_one('.author-link').text.strip()
     cooking_time = soup.select('li.body-copy-small.list-item span time')
     ingredients = [li.text.strip() for li in soup.select('.ingredients-list__item')]
@@ -30,6 +35,7 @@ def scrape_single_recipe(url, meal_type: str):
 
     return {
         'title': title,
+        'image': image_url,
         'source': url,
         'time': get_time(cooking_time),
         'ingredients': parse_ingredients(ingredients),
@@ -52,12 +58,16 @@ def scrape_multi_recipes(mother_url, meal_type):
     recipes = []
     for url in urls:
         recipes.append(scrape_single_recipe(url, meal_type))
+    
+    print(len(recipes))
     return recipes
 
 
 meal_type_sites = {"Breakfast": "https://www.bbcgoodfood.com/recipes/collection/breakfast-recipes",
                    "Lunch": "https://www.bbcgoodfood.com/recipes/collection/quick-lunch-recipes",
-                   "Dinner": "https://www.bbcgoodfood.com/recipes/collection/easy-dinner-recipes"}
+                   "Dinner": "https://www.bbcgoodfood.com/recipes/collection/easy-dinner-recipes",
+                   "misc": "https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes"
+                   }
 
 # List to store all recipe data
 all_recipes = []
