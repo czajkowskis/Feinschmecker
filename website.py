@@ -37,7 +37,7 @@ def addNutrientFilter(nutrient, filter, header, body):
 
 # Universal filter
 def getRequest(filter):
-    header = "SELECT ?name ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount "
+    header = "SELECT ?name ?link ?image_link ?instructions (GROUP_CONCAT(?ing_name ; separator = \"#\" ) AS ?ingredients) ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount "
     body = "{?res rdf:type feinschmecker:Recipe . \n"
 
     # FILTER EXISTS { ?person foaf:name ?name }
@@ -88,24 +88,25 @@ def getRequest(filter):
     header, body = addNutrientFilter("carbohydrates", filter, header, body)
 
     # Remaining elements for head
+    body += "?res feinschmecker:has_link ?link . \n"
+    body += "?res feinschmecker:has_image_link ?image_link . \n"
     body += "?res feinschmecker:has_recipe_name ?name . \n"
     body += "?res feinschmecker:has_instructions ?instructions . \n"
     body += "?res feinschmecker:has_ingredient ?ing . \n"
     body += "?ing feinschmecker:has_ingredient_with_amount_name ?ing_name . \n"
 
-    header += " ?author_name ?source_name ?source_link"
+    header += " ?author_name ?source_name"
     body += "?res feinschmecker:authored_by ?author . \n"
     body += "?author feinschmecker:has_author_name ?author_name . \n"
     body += "?author feinschmecker:is_author_of ?source . \n"
-    body += "?source feinschmecker:is_website ?source_link . \n"
     body += "?source feinschmecker:has_source_name ?source_name . \n"
 
     body += "}"
-    body += "GROUP By ?name ?instructions ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount ?author_name ?source_name ?source_link"
+    body += "GROUP By ?name ?link ?image_link ?instructions ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount ?author_name ?source_name"
 
     recipe_list = list(default_world.sparql(header + body))
-    order = ["name", "instructions", "ingredients", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
-             "fat", "carbohydrates", "author", "source_name", "source_link"]
+    order = ["name", "link", "image_link", "instructions", "ingredients", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
+             "fat", "carbohydrates", "author", "source_name"]
     recipe_list_dict = []
     for r in recipe_list:
         tmp = {}
@@ -170,9 +171,6 @@ if __name__ == '__main__':
       "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
       "carbohydrates_bigger": 50})
     print(recipes)
-    print(recipes[0]["author"])
-    print(recipes[0]["source_name"])
-    print(recipes[0]["source_link"])
     app.run(debug=True)
 
 #############################################################################
