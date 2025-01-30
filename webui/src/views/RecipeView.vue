@@ -35,6 +35,8 @@
       <div class="recipe-info-box">
         <img src="/images/recipe_images/breakfast_burrito.png"/>
         <MacronutrientsSummary :calories="recipe.calories" :protein="recipe.protein" :carbohydrates="recipe.carbohydrates" :fat="recipe.fat"/>
+        <p><strong>Authored by:</strong> {{recipe.author}}</p>
+        <p><strong>Scraped from:</strong> <a :href="recipe.source_link">{{recipe.source_name}}</a></p>
       </div>
     </div>
     <div class ="right-container">
