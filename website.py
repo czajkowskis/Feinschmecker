@@ -10,7 +10,12 @@
 # Imports
 
 from owlready2 import *
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
+# Flask app setup
+app = Flask(__name__)
+CORS(app)
 #############################################################################
 # Get recipes from filter
 
@@ -104,8 +109,6 @@ def getRequest(filter):
         recipe_list_dict.append(tmp)
     with onto:
         return recipe_list_dict
-
-
 #############################################################################
 # HTML focused methods
 
@@ -123,37 +126,30 @@ def p(indent: int, text: str):
 #      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
 #      "carbohydrates_bigger": 50}
 
-def getFilter():
-    return {}
-
-def main(recipe_list):
-    print("Content-Type: text/html")
-    print("")
-    print("<!DOCTYPE html>")
-    print("")
-    print("<html>")
-    print("<head>")
-    print("   <title>Feinschmecker</title>")
-    print("   <meta charset=\"utf-8\" />")
-    print("   <meta name=\"robots\" content=\"noindex, nofollow\" />")
-    print("   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />")
-    print("   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://jaron.sprute.com/CSS/header.css\" />")
-    print("   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://jaron.sprute.com/CSS/format.css\" />")
-    print("</head>")
-
-    print("<body>")
-    print("<p>Hello</p>")
-    print("</body>")
-    print("</html>")
+@app.route('/')
+def index():
+    return "Welcome to the Feinschmecker API!"
+    
+@app.route('/recipes', methods=['GET'])
+def get_recipes():
+    """API endpoint to retrieve recipes based on filters."""
+    filters = request.args.to_dict()
+    print(filters)
+    try:
+        recipes = getRequest(filters)
+    
+        return jsonify(recipes)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500    
 
 
 #############################################################################
 # Initial method
 
+
 if __name__ == '__main__':
-    recipe_list = getRequest({"ingredients": ["tomato", "olive oil"], "vegan": False, "vegetarian": False, "time": 35, "meal_type":"Lunch", "difficulty": 2, "calories_smaller": 600, "calories_bigger": 500,
-      "protein_smaller": 25, "protein_bigger": 20, "fat_smaller": 30, "fat_bigger": 20, "carbohydrates_smaller": 60,
-      "carbohydrates_bigger": 50})
-    main(recipe_list)
+    app.run(debug=True)
+
+#############################################################################
 
 #############################################################################
