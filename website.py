@@ -95,18 +95,19 @@ def getRequest(filter):
     body += "?res feinschmecker:has_ingredient ?ing . \n"
     body += "?ing feinschmecker:has_ingredient_with_amount_name ?ing_name . \n"
 
-    header += " ?author_name ?source_name"
+    header += " ?author_name ?source_name ?source_link"
     body += "?res feinschmecker:authored_by ?author . \n"
     body += "?author feinschmecker:has_author_name ?author_name . \n"
     body += "?author feinschmecker:is_author_of ?source . \n"
     body += "?source feinschmecker:has_source_name ?source_name . \n"
+    body += "?source feinschmecker:is_website ?source_link . \n"
 
     body += "}"
-    body += "GROUP By ?name ?link ?image_link ?instructions ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount ?author_name ?source_name"
+    body += "GROUP By ?name ?link ?image_link ?instructions ?vegan ?vegetarian ?type_name ?time_amount ?difficulty_amount ?calories_amount ?protein_amount ?fat_amount ?carbohydrates_amount ?author_name ?source_name ?source_link"
 
     recipe_list = list(default_world.sparql(header + body))
     order = ["name", "link", "image_link", "instructions", "ingredients", "vegan", "vegetarian", "meal_type", "time", "difficulty", "calories", "protein",
-             "fat", "carbohydrates", "author", "source_name"]
+             "fat", "carbohydrates", "author", "source_name", "source_link"]
     recipe_list_dict = []
     for r in recipe_list:
         tmp = {}
