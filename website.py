@@ -12,6 +12,7 @@
 from owlready2 import *
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import json
 
 # Flask app setup
 app = Flask(__name__)
@@ -141,13 +142,23 @@ def index():
 def get_recipes():
     """API endpoint to retrieve recipes based on filters."""
     filters = request.args.to_dict()
+    
+    # Check if 'ingredients' exists in filters and deserialize it
+    if "ingredients" in filters:
+        try:
+            # Parse the ingredients JSON string back to a Python list
+            filters["ingredients"] = json.loads(filters["ingredients"])
+        except json.JSONDecodeError:
+            return jsonify({"error": "Invalid JSON format for ingredients"}), 400
+
     print(filters)
     try:
+        # Now pass the filters to your request handler
         recipes = getRequest(filters)
     
         return jsonify(recipes)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500    
+        return jsonify({"error": str(e)}), 500   
 
 
 #############################################################################

@@ -17,7 +17,12 @@
         mealtype: "",
         recipes: [],
         errorMessage: "",
-        showErrorMessage: false
+        showErrorMessage: false,
+        ingredients: "",
+        knownIngredients: ["onion", "tomato", "garlic", "ginger", "potato",
+          "carrot", "cucumber", "pepper", "chili", "lettuce",
+          "spinach", "broccoli", "cabbage", "mushroom", "corn",
+          "peas", "beans", "avocado", "zucchini", "eggplant", "cheese", "sugar", "salt"]
       }
     },
     methods: {
@@ -80,6 +85,11 @@
           queryParameters["meal_type"] = this.mealtype
         }
 
+        if (this.ingredients !== "") {
+          const ingredientsArray = this.parseCustomInput(this.ingredients);
+          queryParameters["ingredients"] = JSON.stringify(ingredientsArray); // Serialize to JSON string
+        }
+
         return queryParameters
       },
 
@@ -97,6 +107,10 @@
             console.log(err.response.data);
         }
       },
+
+      parseCustomInput(input) {
+        return this.knownIngredients.filter(ingredient => input.includes(ingredient));
+      }
     },
   }
 </script>
@@ -206,6 +220,10 @@
         <option value="Dinner">Dinner</option>
       </select>
     </div>
+    <div class="ingredient-container">
+      <label for="ingredients-input">Enter Ingredients</label>
+      <input type="text" v-model="ingredients" class="ingredient-input" id="ingredients-input" :placeholder=knownIngredients>
+    </div>
     <div class="button-container">
       <button @click="getRecipes">Search</button>
     </div>
@@ -275,6 +293,15 @@
     padding: 50px 0;
   }
 
+  .ingredient-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px 10px;
+  }
+
   .difficulty-container {
     display: flex;
     flex-direction: column;
@@ -313,6 +340,19 @@
     max-width: 60px;
     height: 60px;
     padding: 10px;
+    background-color: #F0F8FF;
+    border: 3px solid #000;
+    border-radius: 20px;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .ingredient-input{
+    max-width: 400px;
+    height: 60px;
+    padding: 5px;
     background-color: #F0F8FF;
     border: 3px solid #000;
     border-radius: 20px;
