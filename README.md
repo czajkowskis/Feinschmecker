@@ -14,3 +14,25 @@ Feinschmecker uses a knowledge graph created using OWL to answer the following k
 - Which recipes are easy / moderately hard / hard to make?
 - Which recipes can be prepared within a specific amount of time?
 
+# How to use the application?
+First install the necessery dependencies for the backend:
+```console
+pip install -r requirements.txt
+```
+Run the local backend server:
+```console
+python3 website.py
+```
+
+Install the necessery dependencies for the frontend:
+```console
+cd webui
+npm install
+```
+
+Run local frontend server:
+```console
+npm run preview
+```
+
+Open a browser and go to the adress specified in the terminal.
