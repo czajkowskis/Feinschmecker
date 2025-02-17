@@ -86,7 +86,7 @@
         }
 
         if (this.ingredients !== "") {
-          const ingredientsArray = this.parseCustomInput(this.ingredients);
+          const ingredientsArray = this.ingredients.split(",");
           queryParameters["ingredients"] = JSON.stringify(ingredientsArray); // Serialize to JSON string
         }
 
@@ -221,8 +221,8 @@
       </select>
     </div>
     <div class="ingredient-container">
-      <label for="ingredients-input">Enter Ingredients</label>
-      <input type="text" v-model="ingredients" class="ingredient-input" id="ingredients-input" :placeholder=knownIngredients>
+      <h1>Ingredients</h1>
+      <input type="text" v-model="ingredients" class="ingredient-input" id="ingredients-input" placeholder="chicken,garlic,onion"/>
     </div>
     <div class="button-container">
       <button @click="getRecipes">Search</button>
@@ -353,6 +353,7 @@
     max-width: 400px;
     height: 60px;
     padding: 5px;
+    margin-top: 20px;
     background-color: #F0F8FF;
     border: 3px solid #000;
     border-radius: 20px;
