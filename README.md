@@ -14,19 +14,3 @@ Feinschmecker uses a knowledge graph created using OWL to answer the following k
 - Which recipes are easy / moderately hard / hard to make?
 - Which recipes can be prepared within a specific amount of time?
 
-# How to run the application?
-To run the application first start a local backend server:
-```console
-python3 website.py
-```
-
-Then build the docker image for the frontend:
-```console
-docker build -t Feinschmecker:latest .
-```
-
-And run it:
-```console
-docker run -it --rm -p 8080:80 Feinschmecker:latest
-```
-
