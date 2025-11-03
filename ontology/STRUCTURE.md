@@ -232,16 +232,4 @@ custom_property = DataFactory("custom_property", domain=[CustomClass], range=[st
 
 # Create individual
 obj, is_new = createIndividual("my_object", CustomClass)
-```
-
-## Statistics
-
-- **Total Modules:** 8
-- **Total Classes:** 13
-- **Total Properties:** 40+
-- **Total Constraints:** 30+
-- **Total Query Functions:** 20+
-- **Total Utility Functions:** 10+
-- **Lines of Code:** ~800
-- **Documentation:** 4 markdown files
 
