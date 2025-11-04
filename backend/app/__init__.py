@@ -12,6 +12,7 @@ from flask_cors import CORS
 from flask_caching import Cache
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flasgger import Swagger, swag_from
 from owlready2 import get_ontology, default_world
 
 from backend.config import get_config
@@ -89,6 +90,44 @@ def create_app(config_name=None):
         limiter.init_app(app)
         app.logger.info(f"Rate limiting enabled: {app.config['RATELIMIT_DEFAULT']}")
     
+    # Initialize Swagger
+    swagger_config = {
+        "headers": [],
+        "specs": [
+            {
+                "endpoint": 'apispec',
+                "route": '/apispec.json',
+                "rule_filter": lambda rule: True,
+                "model_filter": lambda tag: True,
+            }
+        ],
+        "static_url_path": "/flasgger_static",
+        "swagger_ui": True,
+        "specs_route": "/apidocs/"
+    }
+    
+    swagger_template = {
+        "swagger": "2.0",
+        "info": {
+            "title": "Feinschmecker API",
+            "description": "RESTful API for querying recipe data from an OWL/RDF knowledge graph. "
+                         "Supports advanced filtering by nutritional values, dietary restrictions, "
+                         "ingredients, cooking time, and difficulty level.",
+            "version": app.config['API_VERSION'],
+            "contact": {
+                "name": "Feinschmecker Team"
+            }
+        },
+        "host": "127.0.0.1:5000",
+        "basePath": "/",
+        "schemes": ["http"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"]
+    }
+    
+    Swagger(app, config=swagger_config, template=swagger_template)
+    app.logger.info("Swagger documentation initialized at /apidocs/")
+    
     # Load ontology
     with app.app_context():
         load_ontology(app)
@@ -114,6 +153,7 @@ def create_app(config_name=None):
     
     # Root endpoint
     @app.route('/')
+    @swag_from('api/swagger_specs/index.yml')
     def index():
         return {
             'message': 'Welcome to the Feinschmecker API!',

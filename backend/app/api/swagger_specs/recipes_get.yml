@@ -1,0 +1,300 @@
+tags:
+  - Recipes
+
+summary: Search and filter recipes
+
+description: |
+  Search for recipes based on various criteria including ingredients, nutritional values, 
+  dietary restrictions, meal type, cooking time, and difficulty level. 
+  Results are paginated and can be filtered using multiple parameters.
+
+parameters:
+  - name: ingredients
+    in: query
+    type: string
+    description: Comma-separated or JSON list of ingredient names
+    required: false
+    example: tomato,olive oil
+
+  - name: vegan
+    in: query
+    type: boolean
+    description: Filter for vegan recipes
+    required: false
+    example: true
+
+  - name: vegetarian
+    in: query
+    type: boolean
+    description: Filter for vegetarian recipes
+    required: false
+    example: true
+
+  - name: meal_type
+    in: query
+    type: string
+    description: Type of meal (Breakfast, Lunch, Dinner)
+    required: false
+    enum: [Breakfast, Lunch, Dinner]
+    example: Lunch
+
+  - name: time
+    in: query
+    type: integer
+    description: Maximum preparation time in minutes
+    required: false
+    example: 30
+
+  - name: difficulty
+    in: query
+    type: integer
+    description: Difficulty level (1=easy, 2=moderate, 3=difficult)
+    required: false
+    minimum: 1
+    maximum: 3
+    example: 2
+
+  - name: calories_min
+    in: query
+    type: number
+    description: Minimum calories
+    required: false
+    example: 400
+
+  - name: calories_max
+    in: query
+    type: number
+    description: Maximum calories
+    required: false
+    example: 600
+
+  - name: protein_min
+    in: query
+    type: number
+    description: Minimum protein in grams
+    required: false
+    example: 20
+
+  - name: protein_max
+    in: query
+    type: number
+    description: Maximum protein in grams
+    required: false
+    example: 30
+
+  - name: fat_min
+    in: query
+    type: number
+    description: Minimum fat in grams
+    required: false
+    example: 15
+
+  - name: fat_max
+    in: query
+    type: number
+    description: Maximum fat in grams
+    required: false
+    example: 25
+
+  - name: carbohydrates_min
+    in: query
+    type: number
+    description: Minimum carbohydrates in grams
+    required: false
+    example: 50
+
+  - name: carbohydrates_max
+    in: query
+    type: number
+    description: Maximum carbohydrates in grams
+    required: false
+    example: 70
+
+  - name: page
+    in: query
+    type: integer
+    description: Page number for pagination
+    required: false
+    default: 1
+    minimum: 1
+    example: 1
+
+  - name: per_page
+    in: query
+    type: integer
+    description: Number of items per page
+    required: false
+    default: 20
+    minimum: 1
+    maximum: 100
+    example: 20
+
+responses:
+  200:
+    description: Successfully retrieved recipes
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Panuozzo Sandwich
+              link:
+                type: string
+                example: https://example.com/recipe
+              image_link:
+                type: string
+                example: https://example.com/image.jpg
+              instructions:
+                type: array
+                items:
+                  type: string
+                example:
+                  - Prepare the dough
+                  - Add toppings
+                  - Bake at 200°C
+              ingredients:
+                type: array
+                items:
+                  type: string
+                example:
+                  - 500g flour
+                  - 2 tomatoes
+                  - 100ml olive oil
+              vegan:
+                type: boolean
+                example: false
+              vegetarian:
+                type: boolean
+                example: true
+              meal_type:
+                type: string
+                example: Lunch
+              time:
+                type: integer
+                example: 30
+              difficulty:
+                type: integer
+                example: 2
+              calories:
+                type: number
+                example: 550
+              protein:
+                type: number
+                example: 22
+              fat:
+                type: number
+                example: 25
+              carbohydrates:
+                type: number
+                example: 60
+              author:
+                type: string
+                example: Chef Mario
+              source_name:
+                type: string
+                example: Italian Recipes
+              source_link:
+                type: string
+                example: https://example.com
+        meta:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 150
+              description: Total number of recipes matching the filter
+            page:
+              type: integer
+              example: 1
+              description: Current page number
+            per_page:
+              type: integer
+              example: 20
+              description: Number of items per page
+            total_pages:
+              type: integer
+              example: 8
+              description: Total number of pages
+    examples:
+      application/json:
+        data:
+          - name: Panuozzo Sandwich
+            link: https://example.com/recipe
+            image_link: https://example.com/image.jpg
+            instructions:
+              - Prepare the dough
+              - Add toppings
+              - Bake at 200°C
+            ingredients:
+              - 500g flour
+              - 2 tomatoes
+              - 100ml olive oil
+            vegan: false
+            vegetarian: true
+            meal_type: Lunch
+            time: 30
+            difficulty: 2
+            calories: 550
+            protein: 22
+            fat: 25
+            carbohydrates: 60
+            author: Chef Mario
+            source_name: Italian Recipes
+            source_link: https://example.com
+        meta:
+          total: 150
+          page: 1
+          per_page: 20
+          total_pages: 8
+
+  400:
+    description: Validation error
+    schema:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: VALIDATION_ERROR
+            message:
+              type: string
+              example: Validation failed
+            details:
+              type: array
+              items:
+                type: string
+              example:
+                - "time: Time must be a valid number"
+                - "difficulty: Difficulty must be at least 1"
+
+  429:
+    description: Rate limit exceeded
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Rate limit exceeded
+
+  500:
+    description: Internal server error
+    schema:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: INTERNAL_ERROR
+            message:
+              type: string
+              example: An error occurred while processing your request
+
