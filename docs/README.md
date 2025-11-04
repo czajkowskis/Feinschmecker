@@ -1,19 +1,27 @@
 # Documentation
 
-The docs directory is intended to contain all project documentation.
+The docs directory contains comprehensive documentation for the Feinschmecker project.
 
-## Purpose
+## Available Documentation
 
-This directory will hold comprehensive documentation for the Feinschmecker project, including user guides, API documentation, architecture descriptions, and development setup instructions.
+### Ontology Documentation
 
-## Intended Contents
+Complete reference for the Feinschmecker OWL ontology:
 
-Currently empty, this directory is planned to include:
+- **[Overview](ontology/README.md)** - Introduction, quick start, and navigation
+- **[Architecture](ontology/architecture.md)** - Module organization and design
+- **[Schema Reference](ontology/schema.md)** - Classes, properties, and constraints
+- **[Query API](ontology/queries.md)** - Query functions and filtering
+- **[Usage Guide](ontology/usage.md)** - Comprehensive examples and patterns
+- **[Development](ontology/development.md)** - Extending the ontology and tools
+
+## Intended Future Contents
+
+This directory is planned to expand with:
 
 - **User Guides** - How to use the application, filter recipes, and interpret results
 - **API Documentation** - Detailed endpoint specifications and request/response formats
 - **Architecture Documentation** - System design, component interactions, and data flow
-- **Ontology Documentation** - Knowledge graph schema, entity relationships, and OWL class definitions
 - **Development Setup** - Installation instructions, environment setup, and contribution guidelines
 - **Deployment Guide** - Production deployment procedures and configuration
 
