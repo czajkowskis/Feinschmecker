@@ -10,7 +10,7 @@ from flask import request, current_app
 from flasgger import swag_from
 
 from backend.app.api import api_bp
-from backend.app import limiter, cache, get_ontology
+from backend.app import limiter, cache, get_ontology_instance
 from backend.app.services.recipe_service import RecipeService
 from backend.app.utils.validators.recipe_validator import (
     validate_recipe_filters,
@@ -101,7 +101,7 @@ def get_recipes():
         )
 
         # Get ontology instance
-        ontology = get_ontology()
+        ontology = get_ontology_instance()
         if ontology is None:
             logger.error("Ontology not loaded")
             return internal_error_response("Service not ready")

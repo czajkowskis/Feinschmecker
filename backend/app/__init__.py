@@ -75,8 +75,23 @@ def create_app(config_name=None):
     config_class = get_config(config_name)
     app.config.from_object(config_class)
     
-    # Setup logging
+    # Setup logging and record factory first (before any logging calls)
     setup_logging(app)
+    
+    # Inject request ID into log records
+    old_factory = logging.getLogRecordFactory()
+    
+    def record_factory(*args, **kwargs):
+        record = old_factory(*args, **kwargs)
+        try:
+            # Try to get request_id from Flask's g object
+            record.request_id = getattr(g, 'request_id', 'N/A')
+        except RuntimeError:
+            # Outside of request context (e.g., during app initialization)
+            record.request_id = 'INIT'
+        return record
+    
+    logging.setLogRecordFactory(record_factory)
     
     # Initialize extensions
     CORS(app, 
@@ -137,16 +152,6 @@ def create_app(config_name=None):
     def before_request():
         g.request_id = request.headers.get('X-Request-ID', str(uuid.uuid4()))
     
-    # Inject request ID into log records
-    old_factory = logging.getLogRecordFactory()
-    
-    def record_factory(*args, **kwargs):
-        record = old_factory(*args, **kwargs)
-        record.request_id = getattr(g, 'request_id', 'N/A')
-        return record
-    
-    logging.setLogRecordFactory(record_factory)
-    
     # Register blueprints
     from backend.app.api import api_bp
     app.register_blueprint(api_bp)
@@ -168,7 +173,7 @@ def create_app(config_name=None):
     return app
 
 
-def get_ontology():
+def get_ontology_instance():
     """
     Get the loaded ontology instance.
     

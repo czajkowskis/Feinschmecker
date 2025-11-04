@@ -22,11 +22,11 @@ from backend.app import create_app
 # Create application instance
 app = create_app()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Run the application
     # In production, use gunicorn or another WSGI server instead
     app.run(
-        host=os.getenv('FLASK_HOST', '127.0.0.1'),
-        port=int(os.getenv('FLASK_PORT', 5000)),
-        debug=app.config['DEBUG']
+        host=os.getenv("FLASK_HOST", "127.0.0.1"),
+        port=int(os.getenv("FLASK_PORT", 5000)),
+        debug=app.config["DEBUG"],
     )
