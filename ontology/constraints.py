@@ -1,9 +1,11 @@
 """
 OWL constraints including inverse relationships, cardinality restrictions, and disjointness.
+
+Constraints are TBox elements and are applied to the schema ontology.
 """
 
 from owlready2 import AllDisjoint
-from .setup import onto
+from .setup import schema_onto
 from .classes import (
     Recipe, Ingredient, IngredientWithAmount, Author, Source,
     Time, MealType, Difficulty, Nutrients, Calories, Protein, Fat, Carbohydrates
@@ -40,7 +42,7 @@ def setup_inverse_properties():
 
 def setup_cardinality_constraints():
     """Define cardinality and other restrictions on classes."""
-    with onto:
+    with schema_onto:
         # Recipe constraints
         Recipe.is_a.append(has_recipe_name.exactly(1, str))
         Recipe.is_a.append(has_instructions.exactly(1, str))
@@ -93,7 +95,7 @@ def setup_cardinality_constraints():
 
 def setup_disjointness():
     """Define disjoint classes (classes that cannot overlap)."""
-    with onto:
+    with schema_onto:
         AllDisjoint([Recipe, Ingredient, IngredientWithAmount, Author, Source, Time, MealType, Difficulty, Nutrients])
         AllDisjoint([Calories, Protein, Fat, Carbohydrates])
 

@@ -3,7 +3,7 @@ Factory functions for creating OWL classes, properties, and relationships.
 """
 
 from owlready2 import Thing, ThingClass, ObjectProperty, DataProperty
-from .setup import onto
+from .setup import schema_onto
 
 
 def ThingFactory(name, BaseClass=Thing) -> type[Thing]:
@@ -17,7 +17,7 @@ def ThingFactory(name, BaseClass=Thing) -> type[Thing]:
     Returns:
         New OWL class type
     """
-    with onto:
+    with schema_onto:
         return type[Thing](name, (BaseClass,), {})
 
 
@@ -37,7 +37,7 @@ def RelationFactory(name, domain: list[ThingClass] = None, range=None) -> type[O
         domain = [Thing]
     if range is None:
         range = [Thing]
-    with onto:
+    with schema_onto:
         return type[ObjectProperty](name, (ObjectProperty,), {
             "domain": domain,
             "range": range,
@@ -61,7 +61,7 @@ def DataFactory(name, domain: list[ThingClass] = None, range=None, BaseClass=Dat
         domain = [Thing]
     if range is None:
         range = [str]
-    with onto:
+    with schema_onto:
         return type[BaseClass](name, (BaseClass,), {
             "domain": domain,
             "range": range,
@@ -81,7 +81,7 @@ def makeInverse(first: ObjectProperty, second: ObjectProperty) -> None:
     """
     if first is None or second is None:
         raise TypeError("There is no inverse of no element: first:", str(first), "second:", str(second))
-    with onto:
+    with schema_onto:
         first.inverse_property = second
         second.inverse_property = first
 

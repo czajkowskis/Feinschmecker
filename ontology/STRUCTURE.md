@@ -1,5 +1,13 @@
 # Ontology Package Structure
 
+## Architecture Overview
+
+The ontology uses a **two-ontology architecture**:
+- **schema_onto**: Schema ontology (TBox) with classes, properties, constraints
+- **kg_onto**: Knowledge graph (ABox) with individuals, imports schema_onto
+
+This separation allows loading schema without data, saving to separate files, and clear TBox/ABox distinction.
+
 ## Module Organization
 
 ```
@@ -21,16 +29,18 @@ ontology/
 ### 1. setup.py
 ```python
 - Namespace: "https://jaron.sprute.com/uni/actionable-knowledge-representation/feinschmecker"
-- Ontology initialization with metadata
-- Version: 1.1
+- schema_onto: TBox at {NAMESPACE}/schema/
+- kg_onto: ABox at {NAMESPACE}/kg/ (imports schema_onto)
+- onto: Alias for kg_onto (backward compatibility)
+- Version: 2.0
 ```
 
 ### 2. factories.py
 ```python
-- ThingFactory(name, BaseClass=Thing)
-- RelationFactory(name, domain, range)
-- DataFactory(name, domain, range, BaseClass)
-- makeInverse(first, second)
+- ThingFactory(name, BaseClass=Thing)        # Creates classes in schema_onto
+- RelationFactory(name, domain, range)       # Creates object properties in schema_onto
+- DataFactory(name, domain, range, BaseClass) # Creates data properties in schema_onto
+- makeInverse(first, second)                 # Defines inverse properties in schema_onto
 ```
 
 ### 3. classes.py
@@ -109,19 +119,19 @@ ontology/
 
 ### 6. individuals.py
 ```python
-# Functions
+# Functions (all create individuals in kg_onto)
 - onthologifyName(name) -> str
-- createIndividual(name, BaseClass, unique) -> (Thing, bool)
-- create_meal_types() -> dict
-- create_difficulties() -> list
-- load_recipes_from_json(json_path) -> int
+- createIndividual(name, BaseClass, unique) -> (Thing, bool)  # Creates in kg_onto
+- create_meal_types() -> dict                                  # Creates in kg_onto
+- create_difficulties() -> list                                # Creates in kg_onto
+- load_recipes_from_json(json_path) -> int                     # Creates in kg_onto
 ```
 
 ### 7. queries.py
 ```python
-# Utility Functions
+# Utility Functions (all search kg_onto)
 - getAll(objects, attribute)
-- getRecipe(recipe_name, title)
+- getRecipe(recipe_name, title)  # Searches kg_onto
 
 # Nutrient Queries (10 functions)
 - recipesWithMaxCalories(amount)
@@ -151,7 +161,7 @@ ontology/
 ### 8. __init__.py
 ```python
 # Exports (60+ public APIs)
-- Core: onto, NAMESPACE
+- Core: schema_onto, kg_onto, onto (alias), NAMESPACE
 - Factories: 4 functions
 - Classes: 13 classes
 - Properties: 40+ properties
@@ -206,10 +216,18 @@ ontology/
 
 ### Simple Usage
 ```python
-from ontology import onto, load_recipes_from_json
+from ontology import schema_onto, kg_onto, load_recipes_from_json
 
 load_recipes_from_json('recipes.json')
-onto.save('output.rdf')
+
+# Save schema only (TBox)
+schema_onto.save('schema.rdf')
+
+# Save knowledge graph (ABox + imports)
+kg_onto.save('kg.rdf')
+
+# Backward compatibility
+from ontology import onto  # Alias for kg_onto
 ```
 
 ### Query Usage

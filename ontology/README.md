@@ -1,6 +1,22 @@
 # Ontology
 
-The ontology directory contains the OWL ontology implementation for the Feinschmecker recipe knowledge graph. The code has been refactored from the Jupyter notebook into modular Python files for better maintainability and reusability.
+The ontology directory contains the OWL ontology for the Feinschmecker recipe system, separated into two distinct components:
+
+- **Schema Ontology (TBox)**: Defines the structure - classes, properties, and constraints
+- **Knowledge Graph (ABox)**: Contains the actual recipe data as individuals/instances
+
+This separation allows you to load just the schema for extension work, or both schema and data for querying. The code has been refactored from the Jupyter notebook into modular Python files for better maintainability and reusability.
+
+**📚 For complete documentation, see [docs/ontology/](../docs/ontology/)**
+
+This README provides a quick reference. For detailed information, see the full documentation:
+
+- **[Overview](../docs/ontology/README.md)** - Introduction and quick start
+- **[Architecture](../docs/ontology/architecture.md)** - Module organization
+- **[Schema](../docs/ontology/schema.md)** - Classes, properties, and constraints
+- **[Query API](../docs/ontology/queries.md)** - Query functions
+- **[Usage Guide](../docs/ontology/usage.md)** - Examples and patterns
+- **[Development](../docs/ontology/development.md)** - Extending the ontology
 
 ## Structure
 
@@ -22,13 +38,19 @@ The ontology package is organized into the following modules:
 ### Basic Import and Setup
 
 ```python
-from ontology import onto, load_recipes_from_json
+from ontology import schema_onto, kg_onto, load_recipes_from_json
 
-# Load recipe data
+# Load recipe data into knowledge graph
 load_recipes_from_json('path/to/recipes.json')
 
-# Save ontology
-onto.save('feinschmecker.rdf')
+# Save schema only
+schema_onto.save('feinschmecker-schema.rdf')
+
+# Save knowledge graph (includes import of schema)
+kg_onto.save('feinschmecker-kg.rdf')
+
+# For backward compatibility, 'onto' is an alias for 'kg_onto'
+from ontology import onto  # Same as kg_onto
 ```
 
 ### Querying Recipes
@@ -109,7 +131,14 @@ The `scripts/` directory contains utilities for working with the ontology:
 
 ```bash
 cd scripts
-python build_ontology.py --recipes ../data/recipes.json --output ../data/feinschmecker.rdf
+# Build both schema and knowledge graph
+python build_ontology.py --recipes ../data/recipes.json
+
+# Build schema only (no recipe data)
+python build_ontology.py --schema-only
+
+# Custom output paths
+python build_ontology.py --schema-output ../data/schema.rdf --kg-output ../data/kg.rdf
 ```
 
 ### Running Example Queries
@@ -168,7 +197,9 @@ with onto:
 
 ## Version Information
 
-Current version: 1.1 - Existing and working ontology with sparse individuals, initial feedback included
+Current version: 2.0 - Schema and knowledge graph separated into two ontology objects with OWL import relationship
+
+Previous version: 1.1 - Unified ontology with sparse individuals, initial feedback included
 
 ## Authors
 

@@ -5,22 +5,46 @@ A comprehensive OWL ontology for recipe knowledge representation using owlready2
 This package provides classes, properties, and utilities for managing recipe data
 in a semantic web format.
 
-Usage:
-    from ontology import onto, Recipe, load_recipes_from_json
+The ontology supports multiple knowledge graphs:
+- schema_onto: Contains the TBox (classes, properties, constraints)
+- Multiple KG ontologies: Each contains ABox (individuals/instances) and imports the schema
+- create_kg(): Factory function to create new knowledge graphs for different sources
+
+Basic Usage:
+    from ontology import schema_onto, kg_onto, Recipe, load_recipes_from_json
     from ontology import recipesWithMaxCalories
     
-    # Load recipe data
+    # Load recipe data into default KG
     load_recipes_from_json('path/to/recipes.json')
     
     # Query recipes
     low_cal_recipes = recipesWithMaxCalories(300)
     
-    # Save ontology
-    onto.save('feinschmecker.rdf')
+    # Save files
+    schema_onto.save('feinschmecker-schema.rdf')
+    kg_onto.save('feinschmecker-kg.rdf')
+
+Multi-Source Usage:
+    from ontology import create_kg, load_recipes_from_json, recipesWithMaxCalories
+    
+    # Create source-specific KGs
+    kg_bbc = create_kg("bbc")
+    kg_allrecipes = create_kg("allrecipes")
+    
+    # Load data into specific KGs
+    load_recipes_from_json('bbc_recipes.json', target_kg=kg_bbc)
+    load_recipes_from_json('allrecipes.json', target_kg=kg_allrecipes)
+    
+    # Query specific KG
+    bbc_low_cal = recipesWithMaxCalories(300, kg=kg_bbc)
+    
+    # Save separately
+    kg_bbc.save('kg-bbc.rdf')
+    kg_allrecipes.save('kg-allrecipes.rdf')
 """
 
 # Core ontology setup
-from .setup import onto, NAMESPACE
+from .setup import schema_onto, kg_onto, onto, NAMESPACE, create_kg, knowledge_graphs
 
 # Factory functions
 from .factories import ThingFactory, RelationFactory, DataFactory, makeInverse
@@ -96,8 +120,13 @@ from .queries import (
 apply_all_constraints()
 
 __all__ = [
-    # Core
-    'onto', 'NAMESPACE',
+    # Core - Schema and multiple KGs
+    'schema_onto',  # Schema ontology (TBox): classes, properties, constraints
+    'kg_onto',      # Default knowledge graph ontology (ABox): individuals/instances
+    'onto',         # Alias for kg_onto (deprecated, for backward compatibility)
+    'NAMESPACE',
+    'create_kg',    # Factory function to create new knowledge graphs
+    'knowledge_graphs',  # Registry of all created knowledge graphs
     
     # Factories
     'ThingFactory', 'RelationFactory', 'DataFactory', 'makeInverse',
