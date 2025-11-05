@@ -100,11 +100,28 @@
             let response = await this.$axios.get("/recipes", {
               params: queryParameters, 
             })
-            this.recipes = response.data
+            // Handle new API response format with data and meta
+            if (response.data.data) {
+              this.recipes = response.data.data
+              // Log pagination info if available
+              if (response.data.meta) {
+                console.log(`Showing ${this.recipes.length} of ${response.data.meta.total} recipes (page ${response.data.meta.page}/${response.data.meta.total_pages})`)
+              }
+            } else {
+              // Fallback for old API response format (just an array)
+              this.recipes = response.data
+            }
             this.$emit("searched", this.recipes)
             console.log(this.recipes);
         } catch(err) {
-            console.log(err.response.data);
+            console.log(err.response?.data || err);
+            // Handle error response
+            if (err.response?.data?.error) {
+              console.error('API Error:', err.response.data.error.message);
+              if (err.response.data.error.details) {
+                console.error('Details:', err.response.data.error.details);
+              }
+            }
         }
       },
 

@@ -1,0 +1,26 @@
+tags:
+  - General
+
+summary: API Information
+
+description: Welcome endpoint providing basic API information and available endpoints
+
+responses:
+  200:
+    description: API information
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Welcome to the Feinschmecker API!
+        version:
+          type: string
+          example: "1.0"
+        endpoints:
+          type: object
+          properties:
+            recipes:
+              type: string
+              example: /recipes
+
