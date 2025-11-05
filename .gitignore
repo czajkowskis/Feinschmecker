@@ -1,1 +1,5 @@
 /Feinschmecker.owl
+
+*.md
+!*README.md
+!*STRUCTURE.md
