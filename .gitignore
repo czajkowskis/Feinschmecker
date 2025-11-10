@@ -3,3 +3,5 @@
 *.md
 !*README.md
 !*STRUCTURE.md
+backend/venv/
+backend/__pycache__/
