@@ -76,8 +76,8 @@ class DevelopmentConfig(Config):
     # Relaxed rate limiting for development
     RATELIMIT_DEFAULT = os.getenv('RATELIMIT_DEFAULT', '1000 per minute')
     
-    # Allow all origins in development
-    CORS_ORIGINS = '*'
+    # Allow all origins in development, but include Vite dev server
+    CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*')
 
 
 class ProductionConfig(Config):
@@ -97,7 +97,8 @@ class ProductionConfig(Config):
     
     # Use Redis for caching in production if available
     CACHE_TYPE = os.getenv('CACHE_TYPE', 'SimpleCache')
-    CACHE_REDIS_URL = os.getenv('REDIS_URL', None)
+    # Default to Docker service name, fallback to localhost
+    CACHE_REDIS_URL = os.getenv('REDIS_URL', 'redis://redis:6379/0')
     
     # Specific CORS origins in production (should be set via env var)
     CORS_ORIGINS = os.getenv('CORS_ORIGINS', 'http://localhost:3000')
