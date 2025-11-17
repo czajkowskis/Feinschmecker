@@ -1,0 +1,118 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: feinschmecker-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - feinschmecker-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: feinschmecker-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - FLASK_ENV=development
+      - PYTHONPATH=/app
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - ONTOLOGY_URL=${ONTOLOGY_URL:-https://jaron.sprute.com/uni/actionable-knowledge-representation/feinschmecker/feinschmecker.rdf}
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+      - GUNICORN_BIND=0.0.0.0
+      - GUNICORN_PORT=8000
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - feinschmecker-network
+    volumes:
+      - ./backend:/app/backend
+      - ./ontology:/app/ontology
+      - ./data:/app/data
+
+  frontend:
+    build:
+      context: ./webui
+      dockerfile: Dockerfile
+    container_name: feinschmecker-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - feinschmecker-network
+    volumes:
+      - ./webui:/app
+      - /app/node_modules
+
+  celery-worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: feinschmecker-celery-worker
+    command: celery -A backend.celery_config.celery worker --loglevel=info
+    environment:
+      - FLASK_ENV=development
+      - PYTHONPATH=/app
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - ONTOLOGY_URL=${ONTOLOGY_URL:-https://jaron.sprute.com/uni/actionable-knowledge-representation/feinschmecker/feinschmecker.rdf}
+    depends_on:
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - feinschmecker-network
+    volumes:
+      - ./backend:/app/backend
+      - ./ontology:/app/ontology
+      - ./data:/app/data
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: feinschmecker-celery-beat
+    command: celery -A backend.celery_config.celery beat --loglevel=info
+    environment:
+      - FLASK_ENV=development
+      - PYTHONPATH=/app
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - ONTOLOGY_URL=${ONTOLOGY_URL:-https://jaron.sprute.com/uni/actionable-knowledge-representation/feinschmecker/feinschmecker.rdf}
+    depends_on:
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - feinschmecker-network
+    volumes:
+      - ./backend:/app/backend
+      - ./ontology:/app/ontology
+      - ./data:/app/data
+
+networks:
+  feinschmecker-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+
