@@ -17,6 +17,8 @@ from backend.app.tasks import search_recipes_async
 from backend.app.api import api_bp
 # from backend.app import limiter, cache, get_ontology_instance
 # from backend.app.services.recipe_service import RecipeService
+from backend.app import limiter, cache
+
 from backend.app.utils.validators.recipe_validator import (
     validate_recipe_filters,
     ValidationError,
