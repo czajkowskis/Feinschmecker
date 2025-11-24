@@ -115,50 +115,79 @@ export default {
 
 <style scoped>
 .kg-upload-section {
-  padding: 2rem;
-  background: #f9f9f9;
-  border-radius: 8px;
-  margin: 2rem 0;
+  width: 90%;
+  margin: 50px auto;
+}
+
+.kg-upload-section h2 {
+  font-family: "Poppins";
+  font-size: 48px;
+  font-weight: 700;
+  margin: 30px 0;
+  text-align: left;
 }
 
 .upload-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
+  align-items: left;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .file-input {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 2px dashed #ccc;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Poppins";
+  font-size: 12px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .upload-btn {
-  padding: 0.75rem 1.5rem;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  background-color: #FFEE8C;
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 700;
+  border: 2px solid #000;
+  border-radius: 30px;
+  padding: 10px 50px;
   cursor: pointer;
-  font-size: 1rem;
+  color: #000;
+  width: 100%;
+  max-width: 530px;
 }
 
 .upload-btn:disabled {
   background: #ccc;
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .file-info {
-  padding: 0.5rem;
+  padding: 1rem;
   background: #e3f2fd;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-family: "Poppins";
+  font-size: 18px;
+  text-align: left;
+  max-width: 500px;
+}
+
+.file-info p {
+  margin: 0.25rem 0;
+  font-family: "Poppins";
 }
 
 .status-message {
-  padding: 0.75rem;
-  border-radius: 4px;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: "Poppins";
+  font-size: 18px;
+  text-align: left;
+  max-width: 500px;
 }
 
 .status-message.success {
