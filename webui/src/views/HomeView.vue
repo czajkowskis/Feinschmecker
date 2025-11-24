@@ -44,10 +44,9 @@
         console.log(this.maxRecipesShown)
       },
 
-      handleOntologyUploaded() {
-        // Optionally refresh recipes or show notification
-        console.log('Ontology uploaded successfully');
-        // You might want to clear current recipes and force a new search
+      handleGraphUploaded() {
+        console.log('Graph uploaded successfully');
+        // Clear current recipes and force a new search
         this.recipes = [];
       }
     }
@@ -58,7 +57,7 @@
   <Navbar @scrollToAboutUs="scrollToAboutUs" @scrollToSearchSection="scrollToSearchSection" v-motion-slide-left />
   <HeroHeader @scrollToAboutUs="scrollToAboutUs" @scrollToSearchSection="scrollToSearchSection" v-motion-slide-right/>
   <AboutUs ref="aboutUs"/>
-  <KnowledgeGraphUpload @ontologyUploaded="handleOntologyUploaded" />
+  <KnowledgeGraphUpload @graphUploaded="handleGraphUploaded" />
   <SearchSection id="search-section" ref="searchSection" @searched="handleSearchAction"/>
   <RecipesSection @loadMoreRecipes="handleLoadMoreRecipes" :recipes="this.recipes" :maxRecipesShown="maxRecipesShown"/>
 </template>
