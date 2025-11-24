@@ -7,7 +7,8 @@
     },
     data() {
       return {
-        recipe: JSON.parse(localStorage.getItem('current_recipe')) || [],
+        recipe: null,
+        recipeNotFound: false
       }
     },
 
@@ -19,21 +20,50 @@
       goBack(){
         this.$router.push({name: "Home", hash:'#search-section'});
       },
+      loadRecipe() {
+        try {
+          const storedRecipe = localStorage.getItem('current_recipe');
+          if (storedRecipe) {
+            this.recipe = JSON.parse(storedRecipe);
+            console.log('Recipe loaded:', this.recipe);
+          } else {
+            console.warn('No recipe found in localStorage');
+            this.recipeNotFound = true;
+          }
+        } catch (error) {
+          console.error('Error loading recipe:', error);
+          this.recipeNotFound = true;
+        }
+      },
+      getIngredients() {
+        // Handle both array (from API) and string (legacy format)
+        if (!this.recipe || !this.recipe.ingredients) {
+          return [];
+        }
+        if (Array.isArray(this.recipe.ingredients)) {
+          return this.recipe.ingredients;
+        }
+        if (typeof this.recipe.ingredients === 'string') {
+          return this.recipe.ingredients.split('#');
+        }
+        return [];
+      }
     },
     mounted() {
       window.scrollTo(0, 0);
+      this.loadRecipe();
     }
   }
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" v-if="recipe">
     <div class="left-container">
       <div class="button-container">
         <button @click="goBack">Back</button>
       </div>
       <div class="recipe-info-box">
-        <img :src="recipe.image_link"/>
+        <img :src="recipe.image_link" :alt="recipe.name"/>
         <MacronutrientsSummary :calories="recipe.calories" :protein="recipe.protein" :carbohydrates="recipe.carbohydrates" :fat="recipe.fat"/>
         <p><strong>Authored by:</strong> {{recipe.author}}</p>
         <p><strong>Scraped from:</strong> <a :href="recipe.source_link">{{recipe.source_name}}</a></p>
@@ -45,7 +75,7 @@
       <div class="ingredients-box">
         <h2>Ingredients</h2>
         <div class="ingredients-names-box">
-          <p v-for="(ingredient, index) in recipe.ingredients.split('#')" :key="index">{{ingredient}}</p>
+          <p v-for="(ingredient, index) in getIngredients()" :key="index">{{ingredient}}</p>
         </div>
       </div>
       <div class="instructions-box">
@@ -55,6 +85,14 @@
         </div> 
       </div>
     </div>
+  </div>
+  <div class="error-container" v-else-if="recipeNotFound">
+    <h1>Recipe Not Found</h1>
+    <p>Sorry, we couldn't load the recipe details.</p>
+    <button @click="goBack">Back to Search</button>
+  </div>
+  <div class="loading-container" v-else>
+    <p>Loading recipe...</p>
   </div>
 </template>
 <style scoped>
@@ -162,5 +200,25 @@
 
   img {
     max-width: 400px;
+  }
+
+  .error-container, .loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    font-family: "Poppins";
+  }
+
+  .error-container h1 {
+    font-size: 48px;
+    color: #721c24;
+  }
+
+  .error-container p, .loading-container p {
+    font-size: 24px;
+    margin: 20px 0;
   }
 </style>
