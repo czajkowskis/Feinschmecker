@@ -118,3 +118,6 @@ Thumbs.db
 *.bak
 *.swp
 *~
+
+# Ignore uploaded knowledge-graph files created at runtime
+/data/uploads/
