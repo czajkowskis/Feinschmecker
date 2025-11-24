@@ -4,13 +4,15 @@
   import AboutUs from "../components/AboutUs.vue"
   import SearchSection from "../components/SearchSection.vue"
   import RecipesSection from "../components/RecipesSection.vue"
+  import KnowledgeGraphUpload from "../components/KnowledgeGraphUpload.vue"
   export default {
     components: {
       Navbar,
       HeroHeader,
       AboutUs,
       SearchSection,
-      RecipesSection
+      RecipesSection,
+      KnowledgeGraphUpload
     },
 
     data() {
@@ -40,6 +42,12 @@
           this.maxRecipesShown += 6
         }
         console.log(this.maxRecipesShown)
+      },
+
+      handleGraphUploaded() {
+        console.log('Graph uploaded successfully');
+        // Clear current recipes and force a new search
+        this.recipes = [];
       }
     }
   }
@@ -49,6 +57,7 @@
   <Navbar @scrollToAboutUs="scrollToAboutUs" @scrollToSearchSection="scrollToSearchSection" v-motion-slide-left />
   <HeroHeader @scrollToAboutUs="scrollToAboutUs" @scrollToSearchSection="scrollToSearchSection" v-motion-slide-right/>
   <AboutUs ref="aboutUs"/>
+  <KnowledgeGraphUpload @graphUploaded="handleGraphUploaded" />
   <SearchSection id="search-section" ref="searchSection" @searched="handleSearchAction"/>
   <RecipesSection @loadMoreRecipes="handleLoadMoreRecipes" :recipes="this.recipes" :maxRecipesShown="maxRecipesShown"/>
 </template>
