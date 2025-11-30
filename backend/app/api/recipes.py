@@ -11,7 +11,9 @@ from flasgger import swag_from
 from celery.result import AsyncResult
 
 from backend.celery_config import celery
-from backend.app.tasks import search_recipes_async
+from backend.app.tasks.recipe_tasks import search_recipes_async
+
+from celery.exceptions import TimeoutError as CeleryTimeoutError, SoftTimeLimitExceeded
 
 
 from backend.app.api import api_bp
@@ -100,6 +102,14 @@ def get_recipes():
         except ValidationError as e:
             logger.warning(f"Validation error: {e.errors}")
             return validation_error_response(e.errors)
+        
+        # DEV/TEST: przeniesienie flag testowych do filters,
+        # nawet jeśli validator ich nie zna
+        # if "force_transient_error" in raw_filters:
+        #     validated_filters["force_transient_error"] = raw_filters["force_transient_error"]
+
+        # if "force_soft_timeout" in raw_filters:
+        #     validated_filters["force_soft_timeout"] = raw_filters["force_soft_timeout"]
 
         # Extract pagination parameters
         page = validated_filters.pop("page", 1)
@@ -165,10 +175,29 @@ def get_recipes_task_status(task_id):
         )
 
     # Task failed
+    # Task failed
     if result.state == "FAILURE":
+        exc = result.info  # wyjątek z zadania Celery
+        error_message = str(exc) if exc else "Unknown error"
+        error_type = type(exc).__name__ if exc else "UnknownException"
+
+        # specjalne potraktowanie timeoutów
+        is_timeout = isinstance(exc, (CeleryTimeoutError, SoftTimeLimitExceeded)) \
+                     or "TimeLimitExceeded" in error_type \
+                     or "Timeout" in error_type
+
+        if is_timeout:
+            # FEIN-69: osobny komunikat dla timeoutów
+            return internal_error_response(
+                "Recipe search task timed out."
+            )
+
+        # zwykły błąd – traktujemy jako failure
         return internal_error_response(
-            message=f"Task failed: {str(result.info)}"
+            f"Recipe search task failed: {error_message}"
         )
+
+
 
     # Fallback
     return success_response(
