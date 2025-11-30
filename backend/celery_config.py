@@ -18,9 +18,11 @@ celery.conf.update(
     enable_utc=True,
     timezone="Europe/Warsaw",
     # Task discovery - auto-discover tasks from app.tasks module
-    imports=("backend.app.tasks",),
+    imports=("backend.app.tasks.recipe_tasks",),
     # Task routing
     task_routes={
-        "backend.app.tasks.*": {"queue": "default"},
+        "recipes.*": {"queue": "celery"},
     },
+    task_time_limit=30,        # twardy limit – po 30 s Celery zabije task
+    task_soft_time_limit=20,   # miękki limit – task dostaje „ostrzeżenie”
 )
