@@ -8,10 +8,19 @@ validation, and caching support.
 import logging
 from flask import request, current_app
 from flasgger import swag_from
+from celery.result import AsyncResult
+
+from backend.celery_config import celery
+from backend.app.tasks.recipe_tasks import search_recipes_async
+
+from celery.exceptions import TimeoutError as CeleryTimeoutError, SoftTimeLimitExceeded
+
 
 from backend.app.api import api_bp
-from backend.app import limiter, cache, get_ontology_instance
-from backend.app.services.recipe_service import RecipeService
+# from backend.app import limiter, cache, get_ontology_instance
+# from backend.app.services.recipe_service import RecipeService
+from backend.app import limiter, cache
+
 from backend.app.utils.validators.recipe_validator import (
     validate_recipe_filters,
     ValidationError,
@@ -93,6 +102,14 @@ def get_recipes():
         except ValidationError as e:
             logger.warning(f"Validation error: {e.errors}")
             return validation_error_response(e.errors)
+        
+        # DEV/TEST: przeniesienie flag testowych do filters,
+        # nawet jeśli validator ich nie zna
+        # if "force_transient_error" in raw_filters:
+        #     validated_filters["force_transient_error"] = raw_filters["force_transient_error"]
+
+        # if "force_soft_timeout" in raw_filters:
+        #     validated_filters["force_soft_timeout"] = raw_filters["force_soft_timeout"]
 
         # Extract pagination parameters
         page = validated_filters.pop("page", 1)
@@ -100,26 +117,91 @@ def get_recipes():
             "per_page", current_app.config["DEFAULT_PAGE_SIZE"]
         )
 
-        # Get ontology instance
-        ontology = get_ontology_instance()
-        if ontology is None:
-            logger.error("Ontology not loaded")
-            return internal_error_response("Service not ready")
-
-        # Create service and fetch recipes
-        service = RecipeService(ontology)
-        recipes, total_count = service.get_recipes(validated_filters, page, per_page)
+        # Submit Celery task instead of running query synchronously
+        task = search_recipes_async.delay(validated_filters, page, per_page)
 
         logger.info(
-            f"Returning {len(recipes)} recipes (page {page}/{total_count // per_page + 1})"
+            f"Submitted async recipe search task {task.id} for "
+            f"page={page}, per_page={per_page}, filters={validated_filters}"
         )
 
+        # Zwracamy tylko ID taska – frontend odpytuje osobny endpoint o wynik
         return success_response(
-            data=recipes, page=page, per_page=per_page, total=total_count
+            data={"task_id": task.id},
+            message="Recipe search task submitted"
         )
+
 
     except Exception as e:
         logger.error(f"Error processing recipe request: {str(e)}", exc_info=True)
         return internal_error_response(
             "An error occurred while processing your request"
         )
+        
+@api_bp.route("/recipes/tasks/<task_id>", methods=["GET"])
+def get_recipes_task_status(task_id):
+    """
+    Check status of an asynchronous recipe search task.
+    """
+    result = AsyncResult(task_id, app=celery)
+
+    # Task still waiting
+    if result.state == "PENDING":
+        return success_response(
+            data={"state": "PENDING", "task_id": task_id},
+            message="Task is pending"
+        )
+
+    # Task working
+    if result.state in ("STARTED", "RETRY"):
+        return success_response(
+            data={"state": result.state, "task_id": task_id},
+            message="Task is in progress"
+        )
+
+    # Completed successfully
+    if result.state == "SUCCESS":
+        payload = result.result or {}
+        recipes = payload.get("recipes", [])
+        page = payload.get("page", 1)
+        per_page = payload.get("per_page", len(recipes))
+        total = payload.get("total", len(recipes))
+
+        return success_response(
+            data=recipes,
+            page=page,
+            per_page=per_page,
+            total=total
+        )
+
+    # Task failed
+    # Task failed
+    if result.state == "FAILURE":
+        exc = result.info  # wyjątek z zadania Celery
+        error_message = str(exc) if exc else "Unknown error"
+        error_type = type(exc).__name__ if exc else "UnknownException"
+
+        # specjalne potraktowanie timeoutów
+        is_timeout = isinstance(exc, (CeleryTimeoutError, SoftTimeLimitExceeded)) \
+                     or "TimeLimitExceeded" in error_type \
+                     or "Timeout" in error_type
+
+        if is_timeout:
+            # FEIN-69: osobny komunikat dla timeoutów
+            return internal_error_response(
+                "Recipe search task timed out."
+            )
+
+        # zwykły błąd – traktujemy jako failure
+        return internal_error_response(
+            f"Recipe search task failed: {error_message}"
+        )
+
+
+
+    # Fallback
+    return success_response(
+        data={"state": result.state},
+        message="Unknown task state"
+    )
+

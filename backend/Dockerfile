@@ -20,7 +20,7 @@ COPY ontology/ /app/ontology/
 COPY data/ /app/data/
 
 # Expose port
-EXPOSE 8000
+EXPOSE 5000
 
 # Set environment variables
 ENV FLASK_ENV=development

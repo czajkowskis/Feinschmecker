@@ -36,15 +36,15 @@ The easiest way to run the application is using Docker Compose, which sets up al
    ```
 
 3. **Access the application:**
-   - Frontend: http://localhost:5173
-   - Backend API: http://localhost:8000
-   - API Documentation: http://localhost:8000/apidocs/
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+   - API Documentation: http://localhost:5000/apidocs/
 
 ### Services
 
 The Docker setup includes:
-- **Backend** - Flask API server (port 8000)
-- **Frontend** - Vue.js development server (port 5173)
+- **Backend** - Flask API server (port 5000)
+- **Frontend** - Vue.js development server (port 3000)
 - **Redis** - Cache and message broker (port 6379)
 - **Celery Worker** - Background task processing
 - **Celery Beat** - Scheduled task scheduler
@@ -126,4 +126,4 @@ See `.env.example` for all available options.
 
 ### Access the Application
 
-Open a browser and go to the address specified in the terminal (typically http://localhost:5173 for the frontend).
+Open a browser and go to the address specified in the terminal (typically http://localhost:3000 for the frontend).
