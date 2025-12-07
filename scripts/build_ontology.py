@@ -3,7 +3,7 @@
 Build the Feinschmecker recipe ontology from JSON data.
 
 This script replaces the Jupyter notebook workflow for building the ontology.
-It loads recipe data from JSON and saves the complete ontology to an RDF file.
+It loads recipe data from JSON and saves the complete ontology to an N3 file.
 
 Usage:
     python build_ontology.py [--recipes RECIPES_JSON] [--output OUTPUT_RDF]
@@ -30,8 +30,8 @@ def main():
     )
     parser.add_argument(
         '--output',
-        default='../data/feinschmecker.rdf',
-        help='Output RDF file path (default: ../data/feinschmecker.rdf)'
+        default='../data/feinschmecker.n3',
+        help='Output N3 file path (default: ../data/feinschmecker.n3)'
     )
     parser.add_argument(
         '--check-consistency',
@@ -81,7 +81,7 @@ def main():
     print(f"Saving ontology to: {output_path}")
     try:
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        onto.save(str(output_path))
+        onto.save(str(output_path), format="n3")
         print("Ontology saved successfully!")
     except Exception as e:
         print(f"Error saving ontology: {e}")
