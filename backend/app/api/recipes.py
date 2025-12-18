@@ -19,7 +19,8 @@ from celery.exceptions import TimeoutError as CeleryTimeoutError, SoftTimeLimitE
 from backend.app.api import api_bp
 # from backend.app import limiter, cache, get_ontology_instance
 # from backend.app.services.recipe_service import RecipeService
-from backend.app import limiter, cache
+from backend.app import limiter, cache, get_ontology_instance
+from backend.app.services.recipe_service import RecipeService
 
 from backend.app.utils.validators.recipe_validator import (
     validate_recipe_filters,
@@ -117,19 +118,72 @@ def get_recipes():
             "per_page", current_app.config["DEFAULT_PAGE_SIZE"]
         )
 
-        # Submit Celery task instead of running query synchronously
-        task = search_recipes_async.delay(validated_filters, page, per_page)
+        # Prefer async processing via Celery, but gracefully fallback to
+        # synchronous processing with clear error information when Celery
+        # submission fails (e.g. broker down) – helps debugging and UX.
+        try:
+            task = search_recipes_async.delay(validated_filters, page, per_page)
 
-        logger.info(
-            f"Submitted async recipe search task {task.id} for "
-            f"page={page}, per_page={per_page}, filters={validated_filters}"
-        )
+            logger.info(
+                f"Submitted async recipe search task {task.id} for "
+                f"page={page}, per_page={per_page}, filters={validated_filters}"
+            )
 
-        # Zwracamy tylko ID taska – frontend odpytuje osobny endpoint o wynik
-        return success_response(
-            data={"task_id": task.id},
-            message="Recipe search task submitted"
-        )
+            # Return only task id – frontend polls `/recipes/tasks/<id>`.
+            return success_response(
+                data={"task_id": task.id},
+                message="Recipe search task submitted"
+            )
+
+        except Exception as celery_exc:
+            # Log Celery/broker submission failure and attempt synchronous fallback
+            logger.error(
+                f"Failed to submit Celery task for recipe search: {celery_exc}",
+                exc_info=True,
+            )
+
+            # Try to run the query synchronously as a best-effort fallback so
+            # clients still get results instead of opaque failures.
+            try:
+                ontology = get_ontology_instance()
+                if ontology is None:
+                    raise RuntimeError("Ontology is not loaded in application context")
+
+                service = RecipeService(ontology)
+                recipes, total = service.get_recipes(validated_filters, page, per_page)
+
+                logger.warning(
+                    "Celery submission failed; returning synchronous results as fallback"
+                )
+
+                return success_response(
+                    data=recipes,
+                    page=page,
+                    per_page=per_page,
+                    total=total,
+                    message=(
+                        "Returned synchronous results after Celery submission failure."
+                    ),
+                )
+
+            except Exception as sync_exc:
+                # Both async submission and synchronous execution failed – return
+                # a clear error response containing both failure reasons to aid
+                # debugging (do not leak sensitive internal traces).
+                celery_msg = str(celery_exc)
+                sync_msg = str(sync_exc)
+                logger.error(
+                    "Both Celery submission and synchronous search failed",
+                    exc_info=True,
+                )
+
+                return internal_error_response(
+                    "Recipe search failed: Celery submission error and synchronous fallback failed.",
+                    details=[
+                        {"stage": "celery_submission", "error": celery_msg},
+                        {"stage": "synchronous_search", "error": sync_msg},
+                    ],
+                )
 
 
     except Exception as e:
