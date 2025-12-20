@@ -2,8 +2,8 @@
 Ontology management API endpoints.
 
 This module provides endpoints for uploading and managing knowledge graph files.
-Supports multiple RDF formats (RDF/XML, Turtle, N3, N-Triples, JSON-LD) and
-converts them to a unified N3 format.
+Supports multiple RDF formats (RDF/XML, Turtle, N-Triples, JSON-LD) and
+converts them to a unified N-Triples format.
 """
 
 import os
@@ -52,7 +52,7 @@ def detect_format(filename):
         'nt': 'nt',
         'jsonld': 'json-ld'
     }
-    return format_map.get(ext, 'n3')
+    return format_map.get(ext, 'nt')
 
 
 def reload_ontology(ontology_file):
@@ -87,13 +87,13 @@ def reload_ontology(ontology_file):
         return False, error_msg
 
 
-def convert_to_n3(input_file, output_file, input_format):
+def convert_to_nt(input_file, output_file, input_format):
     """
-    Convert RDF file to N3 format.
+    Convert RDF file to N-Triples format.
     
     Args:
         input_file: Path to input RDF file
-        output_file: Path to output N3 file
+        output_file: Path to output N-Triples file
         input_format: Source RDF format (xml, turtle, n3, nt, json-ld)
     
     Returns:
@@ -110,15 +110,15 @@ def convert_to_n3(input_file, output_file, input_format):
         triple_count = len(g)
         logger.info(f"Parsed {triple_count} triples")
         
-        # Serialize to N3
-        logger.info(f"Converting to N3 format: {output_file}")
-        g.serialize(destination=output_file, format='n3')
+        # Serialize to N-Triples
+        logger.info(f"Converting to N-Triples format: {output_file}")
+        g.serialize(destination=output_file, format='nt')
         
-        logger.info(f"Successfully converted to N3")
+        logger.info(f"Successfully converted to N-Triples")
         return True, triple_count, None
         
     except Exception as e:
-        error_msg = f"Error converting to N3: {str(e)}"
+        error_msg = f"Error converting to N-Triples: {str(e)}"
         logger.error(error_msg)
         return False, 0, error_msg
 
@@ -130,11 +130,10 @@ def upload_ontology():
     Upload and replace the knowledge graph.
     
     Accepts RDF files in various formats (RDF/XML, Turtle, N3, N-Triples, JSON-LD)
-    and converts them to N3 format before loading.
+    and converts them to N-Triples format before loading.
     
     Form Data:
         file: The RDF file to upload
-        target_format: (optional) Target format, default is 'n3'
     
     Returns:
         JSON response with upload status and metadata
@@ -142,9 +141,9 @@ def upload_ontology():
     Example Success Response:
         {
             "data": {
-                "filename": "uploaded_ontology.n3",
-                "format": "n3",
-                "path": "/path/to/file.n3",
+                "filename": "uploaded_ontology.nt",
+                "format": "nt",
+                "path": "/path/to/file.nt",
                 "triple_count": 1523
             },
             "message": "Knowledge graph uploaded and loaded successfully"
@@ -195,21 +194,21 @@ def upload_ontology():
         input_format = detect_format(filename)
         logger.info(f"Detected format: {input_format}")
         
-        # Convert to N3
-        n3_filename = filename.rsplit('.', 1)[0] + '.n3'
-        n3_path = os.path.join(UPLOAD_FOLDER, n3_filename)
+        # Convert to N-Triples
+        nt_filename = filename.rsplit('.', 1)[0] + '.nt'
+        nt_path = os.path.join(UPLOAD_FOLDER, nt_filename)
         
-        success, triple_count, error_msg = convert_to_n3(input_path, n3_path, input_format)
+        success, triple_count, error_msg = convert_to_nt(input_path, nt_path, input_format)
         
         if not success:
             return error_response(
-                message=error_msg or "Failed to convert file to N3 format",
+                message=error_msg or "Failed to convert file to N-Triples format",
                 code="CONVERSION_ERROR",
                 status_code=500
             )
         
         # Reload ontology
-        success, error_msg = reload_ontology(n3_path)
+        success, error_msg = reload_ontology(nt_path)
         
         if not success:
             return error_response(
@@ -221,9 +220,9 @@ def upload_ontology():
         # Success response
         return success_response(
             data={
-                'filename': n3_filename,
-                'format': 'n3',
-                'path': n3_path,
+                'filename': nt_filename,
+                'format': 'nt',
+                'path': nt_path,
                 'triple_count': triple_count
             },
             message="Knowledge graph uploaded and loaded successfully"

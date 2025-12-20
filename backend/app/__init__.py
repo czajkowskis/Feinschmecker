@@ -4,6 +4,8 @@ Application factory for Feinschmecker API.
 This module provides the Flask application factory pattern for creating
 and configuring the API application with proper extensions and blueprints.
 """
+import os
+from pathlib import Path
 
 import logging
 import uuid
@@ -47,14 +49,32 @@ def setup_logging(app):
 def load_ontology(app):
     """Load the ontology at application startup."""
     global onto
-    
+
+    ontology_path = app.config.get('ONTOLOGY_URL')
+    if not ontology_path:
+        app.logger.info("ONTOLOGY_URL not set, using default 'data/feinschmecker.nt'")
+        ontology_path = 'data/feinschmecker.nt'
+
     try:
-        app.logger.info(f"Loading ontology from {app.config['ONTOLOGY_URL']}")
-        onto = get_ontology(app.config['ONTOLOGY_URL']).load()
+        # If it's not a URL, treat it as a local file path.
+        if not (ontology_path.startswith('http://') or ontology_path.startswith('https://')):
+            # app.root_path is /app/backend/app, so project root is two levels up.
+            project_root = Path(app.root_path).parent.parent
+            absolute_path = (project_root / ontology_path).resolve()
+            
+            if not absolute_path.exists():
+                app.logger.error(f"Ontology file not found at resolved path: {absolute_path}")
+                raise FileNotFoundError(f"Ontology file not found: {absolute_path}")
+            ontology_uri = absolute_path.as_uri()
+        else:
+            ontology_uri = ontology_path
+
+        app.logger.info(f"Loading ontology from {ontology_uri}")
+        onto = get_ontology(ontology_uri).load()
         app.logger.info("Ontology loaded successfully")
         return onto
     except Exception as e:
-        app.logger.error(f"Failed to load ontology: {str(e)}")
+        app.logger.error(f"Failed to load ontology from {ontology_path}: {str(e)}", exc_info=True)
         raise
 
 
@@ -181,4 +201,3 @@ def get_ontology_instance():
         The loaded ontology object
     """
     return onto
-

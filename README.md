@@ -25,6 +25,13 @@ The easiest way to run the application is using Docker Compose, which sets up al
 
 ### Quick Start
 
+1. **Build the local ontology file:**
+   Before starting the services, you need to build the knowledge graph. This script fetches the base ontology, merges it with local data, and saves it as `data/feinschmecker.nt`.
+   ```console
+   python scripts/build_ontology.py
+   ```
+   This file is used by the application by default.
+
 1. **Start all services:**
    ```console
    docker compose up
@@ -79,7 +86,7 @@ You can customize the configuration using environment variables. Create a `.env`
 ```env
 FLASK_ENV=development
 REDIS_URL=redis://redis:6379/0
-ONTOLOGY_URL=https://jaron.sprute.com/uni/actionable-knowledge-representation/feinschmecker/feinschmecker.rdf
+# ONTOLOGY_URL=https://example.com/your-custom-ontology.nt  # Optional: Defaults to the local data/feinschmecker.nt
 CORS_ORIGINS=*
 ```
 

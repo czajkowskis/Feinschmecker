@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Build the Feinschmecker recipe ontology from JSON data.
+Build the Feinschmecker recipe ontology from JSON data and a remote source.
 
-This script replaces the Jupyter notebook workflow for building the ontology.
-It loads recipe data from JSON and saves the complete ontology to an N3 file.
+This script merges recipe data from a local JSON file and a remote RDF source,
+then saves the complete ontology to a local file in N-Triples (.nt) format.
 
 Usage:
-    python build_ontology.py [--recipes RECIPES_JSON] [--output OUTPUT_RDF]
+    python scripts/build_ontology.py [--recipes RECIPES_JSON] [--output OUTPUT_NT] [--url REMOTE_URL]
 """
 
 import argparse
@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from ontology import onto, load_recipes_from_json
-from owlready2 import default_world
+from owlready2 import default_world, get_ontology, sync_reasoner_pellet
 
 
 def main():
@@ -29,9 +29,14 @@ def main():
         help='Path to recipes JSON file (default: ../data/recipes.json)'
     )
     parser.add_argument(
+        '--url',
+        default='https://jaron.sprute.com/uni/actionable-knowledge-representation/feinschmecker/feinschmecker.rdf',
+        help='URL of the remote ontology to merge'
+    )
+    parser.add_argument(
         '--output',
-        default='../data/feinschmecker.n3',
-        help='Output N3 file path (default: ../data/feinschmecker.n3)'
+        default='../data/feinschmecker.nt',
+        help='Output N-Triples file path (default: ../data/feinschmecker.nt)'
     )
     parser.add_argument(
         '--check-consistency',
@@ -47,9 +52,18 @@ def main():
     output_path = (script_dir / args.output).resolve()
     
     print(f"Building Feinschmecker ontology...")
-    print(f"Reading recipes from: {recipes_path}")
+
+    # Load remote ontology
+    if args.url:
+        try:
+            print(f"Loading remote ontology from: {args.url}")
+            get_ontology(args.url).load()
+            print("Successfully loaded remote ontology.")
+        except Exception as e:
+            print(f"Warning: Could not load remote ontology: {e}. Continuing with local data only.")
     
     # Check if recipes file exists
+    print(f"Reading local recipes from: {recipes_path}")
     if not recipes_path.exists():
         print(f"Error: Recipe file not found: {recipes_path}")
         sys.exit(1)
@@ -57,32 +71,38 @@ def main():
     # Load recipes from JSON
     try:
         num_recipes = load_recipes_from_json(str(recipes_path))
-        print(f"Successfully loaded {num_recipes} recipes")
+        print(f"Successfully loaded and merged {num_recipes} recipes from JSON.")
     except Exception as e:
         print(f"Error loading recipes: {e}")
         sys.exit(1)
     
     # Count total individuals
     total_individuals = len(list(onto.individuals()))
-    print(f"Total individuals in ontology: {total_individuals}")
+    print(f"Total individuals in merged ontology: {total_individuals}")
     
     # Check consistency if requested
     if args.check_consistency:
         print("Checking for inconsistent classes...")
-        inconsistent = list(default_world.inconsistent_classes())
-        if inconsistent:
-            print(f"Warning: Found {len(inconsistent)} inconsistent classes:")
-            for cls in inconsistent:
-                print(f"  - {cls}")
-        else:
-            print("No inconsistent classes found.")
+        try:
+            with onto:
+                sync_reasoner_pellet(infer_property_values=True, infer_data_property_values=True)
+            inconsistent = list(default_world.inconsistent_classes())
+            if inconsistent:
+                print(f"Warning: Found {len(inconsistent)} inconsistent classes:")
+                for cls in inconsistent:
+                    print(f"  - {cls}")
+            else:
+                print("No inconsistent classes found.")
+        except Exception as e:
+            print(f"Could not run consistency check. Make sure a reasoner like Pellet is installed. Error: {e}")
     
     # Save ontology
-    print(f"Saving ontology to: {output_path}")
+    print(f"Saving merged ontology to: {output_path}")
     try:
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        onto.save(str(output_path), format="n3")
-        print("Ontology saved successfully!")
+        # Save in N-Triples format
+        onto.save(str(output_path), format="nt")
+        print("Ontology saved successfully in N-Triples (.nt) format!")
     except Exception as e:
         print(f"Error saving ontology: {e}")
         sys.exit(1)
@@ -90,4 +110,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
