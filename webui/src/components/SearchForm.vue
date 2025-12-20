@@ -98,19 +98,43 @@
         console.log(queryParameters)
         try {
             let response = await this.$axios.get("/recipes", {
-              params: queryParameters, 
+              params: queryParameters,
             })
-            // Handle new API response format with data and meta
-            if (response.data.data) {
-              this.recipes = response.data.data
-              // Log pagination info if available
-              if (response.data.meta) {
-                console.log(`Showing ${this.recipes.length} of ${response.data.meta.total} recipes (page ${response.data.meta.page}/${response.data.meta.total_pages})`)
+
+            // If backend now returns a task id for async processing, poll task status
+            const returnedData = response.data && response.data.data ? response.data.data : response.data
+
+            if (returnedData && returnedData.task_id) {
+              const taskId = returnedData.task_id
+              const result = await this.pollTask(taskId)
+              if (result) {
+                // Backend may return recipes either as an array or wrapped in data/meta
+                if (result.data && Array.isArray(result.data)) {
+                  this.recipes = result.data
+                } else if (Array.isArray(result)) {
+                  this.recipes = result
+                } else if (result.recipes && Array.isArray(result.recipes)) {
+                  this.recipes = result.recipes
+                } else if (result.data && result.data.data) {
+                  this.recipes = result.data.data
+                } else {
+                  this.recipes = []
+                }
               }
             } else {
-              // Fallback for old API response format (just an array)
-              this.recipes = response.data
+              // Handle immediate response: new API response format with data and meta
+              if (response.data.data) {
+                this.recipes = response.data.data
+                // Log pagination info if available
+                if (response.data.meta) {
+                  console.log(`Showing ${this.recipes.length} of ${response.data.meta.total} recipes (page ${response.data.meta.page}/${response.data.meta.total_pages})`)
+                }
+              } else {
+                // Fallback for old API response format (just an array)
+                this.recipes = response.data
+              }
             }
+
             this.$emit("searched", this.recipes)
             console.log(this.recipes);
         } catch(err) {
@@ -123,6 +147,38 @@
               }
             }
         }
+      },
+
+      async pollTask(taskId, {interval = 1000, timeout = 20000} = {}){
+        const maxAttempts = Math.ceil(timeout / interval)
+        for (let attempt = 0; attempt < maxAttempts; attempt++) {
+          try {
+            const resp = await this.$axios.get(`/recipes/tasks/${taskId}`)
+            // Normalize payload returned by success_response: { data: ... }
+            const payload = resp.data || {}
+            const inner = payload.data
+
+            // If inner contains a `state` field, it's an intermediate task status
+            if (inner && inner.state) {
+              // Task still pending/in progress -> retry
+            } else if (inner && Array.isArray(inner)) {
+              // Final success: payload.data is the recipes array
+              return inner
+            } else if (Array.isArray(payload)) {
+              // Some responses may return array at top-level
+              return payload
+            } else if (payload && payload.recipes && Array.isArray(payload.recipes)) {
+              return payload.recipes
+            }
+            // If task state still pending/in progress, wait and retry
+          } catch (e) {
+            // ignore transient errors and retry until timeout
+            console.warn('Error polling task status', e.response?.data || e)
+          }
+          await new Promise(r => setTimeout(r, interval))
+        }
+        console.warn(`Polling task ${taskId} timed out after ${timeout}ms`)
+        return null
       },
 
       parseCustomInput(input) {
