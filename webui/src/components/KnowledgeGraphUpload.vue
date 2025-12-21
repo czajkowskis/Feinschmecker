@@ -74,9 +74,6 @@ export default {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
       
-      // Target format is RDF/XML (best OWLReady2 support)
-      formData.append('target_format', 'xml');
-      
       try {
         const response = await axios.post(
           '/ontology/upload',
